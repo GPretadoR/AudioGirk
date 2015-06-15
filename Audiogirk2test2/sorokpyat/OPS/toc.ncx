@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" xml:lang="hy" version="2005-1">
+    <head>
+        <meta name="dtb:uid" content="ԲԱՐԵՎ, ԹԱԽԻԾ" />
+        <meta name="dtb:depth" content="1" />
+        <meta name="dtb:totalPageCount" content="0" />
+        <meta name="dtb:maxPageNumber" content="0" />
+    </head>
+
+    <docTitle>
+        <text>ԲԱՐԵՎ, ԹԱԽԻԾ</text>
+    </docTitle>
+
+    <navMap>
+            <navPoint id="navPoint-1" playOrder="1">
+                <navLabel>
+                    <text>ԱՆՎԱՆԱԹԵՐԹ</text>
+                </navLabel>
+                <content src="section-0001.html#auto_bookmark_1" />
+            </navPoint>
+            <navPoint id="navPoint-2" playOrder="2">
+                <navLabel>
+                    <text>ՀՐԱՏԱՐԱԿՈՒԹՅԱՆ ՄԱՍԻՆ</text>
+                </navLabel>
+                <content src="section-0002.html#auto_bookmark_1" />
+            </navPoint>
+            <navPoint id="navPoint-3" playOrder="3">
+                <navLabel>
+                    <text>ԲՈՎԱՆԴԱԿՈՒԹՅՈՒՆ</text>
+                </navLabel>
+                <content src="section-0003.html" />
+            </navPoint>
+            <navPoint id="navPoint-4" playOrder="4">
+                <navLabel>
+                    <text>ԲԱՐԵՎ, ԹԱԽԻԾ</text>
+                </navLabel>
+                <content src="section-0004.html#auto_bookmark_1" />
+            </navPoint>
+            <navPoint id="navPoint-5" playOrder="5">
+                <navLabel>
+                    <text>ԱՌԱՋԻՆ ՄԱՍ</text>
+                </navLabel>
+                <content src="section-0005.html#auto_bookmark_1" />
+                <navPoint id="navPoint-6" playOrder="6">
+                    <navLabel>
+                        <text>ԱՌԱՋԻՆ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0006.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-7" playOrder="7">
+                    <navLabel>
+                        <text>ԵՐԿՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0007.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-8" playOrder="8">
+                    <navLabel>
+                        <text>ԵՐՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0008.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-9" playOrder="9">
+                    <navLabel>
+                        <text>ՉՈՐՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0009.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-10" playOrder="10">
+                    <navLabel>
+                        <text>ՀԻՆԳԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0010.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-11" playOrder="11">
+                    <navLabel>
+                        <text>ՎԵՑԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0011.html#auto_bookmark_1" />
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-12" playOrder="12">
+                <navLabel>
+                    <text>ԵՐԿՐՈՐԴ ՄԱՍ</text>
+                </navLabel>
+                <content src="section-0012.html#auto_bookmark_1" />
+                <navPoint id="navPoint-13" playOrder="13">
+                    <navLabel>
+                        <text>ԱՌԱՋԻՆ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0013.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-14" playOrder="14">
+                    <navLabel>
+                        <text>ԵՐԿՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0014.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-15" playOrder="15">
+                    <navLabel>
+                        <text>ԵՐՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0015.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-16" playOrder="16">
+                    <navLabel>
+                        <text>ՉՈՐՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0016.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-17" playOrder="17">
+                    <navLabel>
+                        <text>ՀԻՆԳԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0017.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-18" playOrder="18">
+                    <navLabel>
+                        <text>ՎԵՑԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0018.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-19" playOrder="19">
+                    <navLabel>
+                        <text>ՅՈԹԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0019.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-20" playOrder="20">
+                    <navLabel>
+                        <text>ՈՒԹԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0020.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-21" playOrder="21">
+                    <navLabel>
+                        <text>ԻՆՆԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0021.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-22" playOrder="22">
+                    <navLabel>
+                        <text>ՏԱՍՆԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0022.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-23" playOrder="23">
+                    <navLabel>
+                        <text>ՏԱՍՆՄԵԿԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0023.html#auto_bookmark_1" />
+                </navPoint>
+                <navPoint id="navPoint-24" playOrder="24">
+                    <navLabel>
+                        <text>ՏԱՍՆԵՐԿՈՒԵՐՈՐԴ ԳԼՈՒԽ</text>
+                    </navLabel>
+                    <content src="section-0024.html#auto_bookmark_1" />
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-25" playOrder="25">
+                <navLabel>
+                    <text>ՖՐԱՆՍՈՒԱԶ ՍԱԳԱՆԻ «ԲԱՐԵՎ, ԹԱԽԻԾ» ՎԵՊԸ</text>
+                </navLabel>
+                <content src="section-0025.html#auto_bookmark_1" />
+            </navPoint>
+    </navMap>
+</ncx>

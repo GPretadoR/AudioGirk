@@ -1,0 +1,1079 @@
+
+.P_Normal {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Body_Text {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Body_Text_First_Indent {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.20em;
+}
+
+.P_Heading_1 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 16pt;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: center;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+@media amzn-kf8
+{
+.P_Heading_1 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.33em;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: center;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+}
+
+.P_Heading_2 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-style: italic;
+font-size: 14pt;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+@media amzn-kf8
+{
+.P_Heading_2 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-style: italic;
+font-size: 1.17em;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+}
+
+.P_Heading_3 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 12pt;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+@media amzn-kf8
+{
+.P_Heading_3 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+}
+
+.P_Heading_4 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-style: italic;
+font-size: 12pt;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+@media amzn-kf8
+{
+.P_Heading_4 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-style: italic;
+font-size: 1.00em;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+}
+
+.P_Heading_5 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 12pt;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+@media amzn-kf8
+{
+.P_Heading_5 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+}
+
+.P_Heading_6 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 12pt;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+@media amzn-kf8
+{
+.P_Heading_6 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+adobe-hyphenate: none; hyphens: none; -moz-hyphens: none;
+-webkit-hyphens: none;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+}
+
+.P_Comment {
+font-family: "Times New Roman",serif;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Headers {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: center;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Footers {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: right;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_HTML {
+font-family: "Courier New",monospace;
+font-size: 0.83em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Preformatted {
+font-family: "Courier New",monospace;
+font-size: 0.83em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Centre {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: center;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Right {
+font-family: "Courier New",monospace;
+font-size: 0.83em;
+text-align: right;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Heading {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.33em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Entry_1 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 1.20em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Entry_2 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 2.40em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Entry_3 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 3.60em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Entry_4 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 4.80em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Entry_5 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 6.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_TOC_Entry_6 {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 7.20em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Index_Heading {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.33em;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Index_Group_Heading {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.17em;
+margin-top: 1.20em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Index_Entry_1 {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 1.20em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Index_Entry_2 {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 2.40em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Index_Entry_3 {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 3.60em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Endnotes_Heading {
+font-weight: bold;
+font-family: "Times New Roman",serif;
+font-size: 1.33em;
+margin-top: 0.00em;
+margin-bottom: 1.20em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Footnote {
+font-family: "Times New Roman",serif;
+font-size: 0.83em;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Endnotes_Group {
+font-family: "Times New Roman",serif;
+font-size: 1.17em;
+text-align: center;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Only_Epub {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Only_Mobipocket {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.80em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.00em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Body_Text__And__Centre_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Line_Spacing__OPENPAR_1_CLOSEPAR_ {
+font-family: "Times New Roman",serif;
+font-size: 1.00em;
+text-align: center;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Right_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: right;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_1 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR_ {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 3.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_2 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__1 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_2_CLOSEPAR_ {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 3.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_3 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__2 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_4 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_2_CLOSEPAR__1 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_5 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__3 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_6 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_2_CLOSEPAR__2 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_7 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__4 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_8 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_9 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_2_CLOSEPAR__3 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_10 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__5 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_11 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__6 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_12 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__7 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_13 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__8 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_14 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__9 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_15 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__10 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_16 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__11 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_17 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_2_CLOSEPAR__4 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_18 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__12 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_19 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__13 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_20 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__14 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing_21 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Left_Indent__And__Right_Indent__And__Spacing_After {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 1.00em;
+}
+
+.P_Standard__And__Arian_Grqi__And__12pt__And__Left_Alignment__And__Left_Indent__And__Right_Indent__And__Spacing_After__And__Spacing_Before__And__Line_Spacing__OPENPAR_1_CLOSEPAR__15 {
+font-family: "Arian Grqi";
+font-size: 1.00em;
+text-align: left;
+margin-top: 0.00em;
+margin-bottom: 0.42em;
+margin-left: 0.00em;
+margin-right: 0.00em;
+text-indent: 0.00em;
+}
+
+.C_Citation {
+}
+
+.C_URL {
+text-decoration: underline;
+color: #0000FF;
+}
+
+.C_HTML_Text {
+color: #808080;
+}
+
+.C_Drop_Caps {
+line-height: 90%;
+height: 0.75em;
+font-size: 280%;
+margin-right: 0.075em;
+float:left;
+}
+.C_Small_Caps {
+font-size: 10pt;
+text-transform: uppercase;
+font-size: 75%;
+}
+
+.C_Absatz-Standardschriftart {
+}
+
+.C_Current__And__28pt {
+font-size: 28pt;
+}
+
+.C_Current__And__18pt {
+font-size: 18pt;
+}
+
+.C_Absatz-Standardschriftart__And__Arian_Grqi__And__10pt {
+font-family: "Arian Grqi";
+font-size: 10pt;
+}
+
+.C_Current__And__Arian_Grqi__And__10pt {
+font-family: "Arian Grqi";
+font-size: 10pt;
+}
+
+.C_Current__And__Arian_Grqi__And__10pt__And__Bold {
+font-weight: bold;
+font-family: "Arian Grqi";
+font-size: 10pt;
+}
+
+.C_Current__And__Arian_Grqi__And__No_Bold {
+font-weight: normal;
+font-family: "Arian Grqi";
+}
+
+.C_Current__And__16pt {
+font-size: 16pt;
+}
+
+.C_Current__And__10pt {
+font-size: 10pt;
+}
+
+.C_Current__And__14pt {
+font-size: 14pt;
+}
+
+.C_Absatz-Standardschriftart__And__Arian_Grqi__And__12pt {
+font-family: "Arian Grqi";
+font-size: 12pt;
+}
+

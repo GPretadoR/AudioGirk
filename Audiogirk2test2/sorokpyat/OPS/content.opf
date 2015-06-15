@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf">
+      <dc:title>ԲԱՐԵՎ, ԹԱԽԻԾ</dc:title>
+      <dc:creator opf:role="aut" opf:file-as="ՍԱԳԱՆ, ՖՐԱՆՍՈՒԱԶ">ՖՐԱՆՍՈՒԱԶ ՍԱԳԱՆ</dc:creator>
+      <dc:contributor>ԱԼԵՔՍԱՆԴ ԹՈՓՉՅԱՆ</dc:contributor>
+      <dc:contributor opf:role="bkp">Jutoh 1.59 [http://www.jutoh.com]</dc:contributor>
+      <dc:language>hy</dc:language>
+      <dc:identifier id="BookId">ԲԱՐԵՎ, ԹԱԽԻԾ</dc:identifier>
+      <dc:subject>ԲԱՐԵՎ, ԹԱԽԻԾ</dc:subject>
+      <dc:description>Ֆրանսիացի նշանավոր արձակագիր Ֆրանսուազ Սագանի «Բարև, թախիծ» վեպը դասվում է քսաներորդ դարի գրականության բացառիկ երևույթների շարքում։ Տպագրության առաջին իսկ տարում այն դարձավ Ֆրանսիայի ամենից շատ ընթերցվող վեպերից մեկը: Երկու տարվա մեջ վեպը թարգմանվեց ինը լեզուներով և տպագրվեց տասներկու երկրներում: Կաթոլիցիզմի մոլեռանդ կենտրոններից մեկում՝ Պորտուգալիայում, այն անգամ հայտնվեց արգելված գրքերի ցանկում։ Միացյալ Նահանգներում «Բարև, թախիծ»-ի տպաքանակն անցավ մեկ միլիոնից և առաջին տեղը գրավեց տարվա բեստսելերների ցուցակում: Ամերիկյան քննադատներից մեկը գրում էր, որ «մադմուազել Թախիծն այսօր ավելի նշանավոր է, քան Ռիտա Հեյուորտի կամ Մերիլին Մոնրոյի ֆիլմերը»:
+Վեպը հայերեն ներկայացվում է Ալեքսանդր Թոփչյանի թարգմանությամբ։</dc:description>
+      <dc:relation>yavrumyan.blogspot.com</dc:relation>
+      <dc:publisher>ՅԱՎՐՈՒՀՐԱՏ</dc:publisher>
+      <dc:date opf:event="publication">2012</dc:date>
+      <meta name="cover" content="cover"/>
+    </metadata>
+    <manifest>
+        <item id="toc_ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+        <item id="cover" href="CoverDesign.jpg" media-type="image/jpeg"/>
+        <item id="styles_css" href="styles.css" media-type="text/css"/>
+        <item id="section-0001_html" href="section-0001.html" media-type="application/xhtml+xml"/>
+        <item id="section-0002_html" href="section-0002.html" media-type="application/xhtml+xml"/>
+        <item id="section-0003_html" href="section-0003.html" media-type="application/xhtml+xml"/>
+        <item id="section-0004_html" href="section-0004.html" media-type="application/xhtml+xml"/>
+        <item id="section-0005_html" href="section-0005.html" media-type="application/xhtml+xml"/>
+        <item id="section-0006_html" href="section-0006.html" media-type="application/xhtml+xml"/>
+        <item id="section-0007_html" href="section-0007.html" media-type="application/xhtml+xml"/>
+        <item id="section-0008_html" href="section-0008.html" media-type="application/xhtml+xml"/>
+        <item id="section-0009_html" href="section-0009.html" media-type="application/xhtml+xml"/>
+        <item id="section-0010_html" href="section-0010.html" media-type="application/xhtml+xml"/>
+        <item id="section-0011_html" href="section-0011.html" media-type="application/xhtml+xml"/>
+        <item id="section-0012_html" href="section-0012.html" media-type="application/xhtml+xml"/>
+        <item id="section-0013_html" href="section-0013.html" media-type="application/xhtml+xml"/>
+        <item id="section-0014_html" href="section-0014.html" media-type="application/xhtml+xml"/>
+        <item id="section-0015_html" href="section-0015.html" media-type="application/xhtml+xml"/>
+        <item id="section-0016_html" href="section-0016.html" media-type="application/xhtml+xml"/>
+        <item id="section-0017_html" href="section-0017.html" media-type="application/xhtml+xml"/>
+        <item id="section-0018_html" href="section-0018.html" media-type="application/xhtml+xml"/>
+        <item id="section-0019_html" href="section-0019.html" media-type="application/xhtml+xml"/>
+        <item id="section-0020_html" href="section-0020.html" media-type="application/xhtml+xml"/>
+        <item id="section-0021_html" href="section-0021.html" media-type="application/xhtml+xml"/>
+        <item id="section-0022_html" href="section-0022.html" media-type="application/xhtml+xml"/>
+        <item id="section-0023_html" href="section-0023.html" media-type="application/xhtml+xml"/>
+        <item id="section-0024_html" href="section-0024.html" media-type="application/xhtml+xml"/>
+        <item id="section-0025_html" href="section-0025.html" media-type="application/xhtml+xml"/>
+    </manifest>
+    <spine toc="toc_ncx">
+        <itemref idref="section-0001_html"/>
+        <itemref idref="section-0002_html"/>
+        <itemref idref="section-0003_html"/>
+        <itemref idref="section-0004_html"/>
+        <itemref idref="section-0005_html"/>
+        <itemref idref="section-0006_html"/>
+        <itemref idref="section-0007_html"/>
+        <itemref idref="section-0008_html"/>
+        <itemref idref="section-0009_html"/>
+        <itemref idref="section-0010_html"/>
+        <itemref idref="section-0011_html"/>
+        <itemref idref="section-0012_html"/>
+        <itemref idref="section-0013_html"/>
+        <itemref idref="section-0014_html"/>
+        <itemref idref="section-0015_html"/>
+        <itemref idref="section-0016_html"/>
+        <itemref idref="section-0017_html"/>
+        <itemref idref="section-0018_html"/>
+        <itemref idref="section-0019_html"/>
+        <itemref idref="section-0020_html"/>
+        <itemref idref="section-0021_html"/>
+        <itemref idref="section-0022_html"/>
+        <itemref idref="section-0023_html"/>
+        <itemref idref="section-0024_html"/>
+        <itemref idref="section-0025_html"/>
+    </spine>
+    <guide>
+        <reference type="cover" title="Cover Page"
+            href="CoverPage.html" />
+        <reference type="toc" title="ԲՈՎԱՆԴԱԿՈՒԹՅՈՒՆ"
+            href="section-0003.html" />
+    </guide>
+</package>
