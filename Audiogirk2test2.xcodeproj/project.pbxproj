@@ -75,7 +75,6 @@
 		50BBE4D317ECAE1100BD039F /* LeftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BBE4D217ECAE1100BD039F /* LeftViewCell.xib */; };
 		801F3ED118B7B5C700D81D21 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 801F3ED018B7B5C700D81D21 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8024D22A1A8CE37000B56763 /* CategoriesItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8024D2291A8CE37000B56763 /* CategoriesItemObject.m */; };
-		8024D22C1A94F8EB00B56763 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8024D22B1A94F8EB00B56763 /* placeholder.png */; };
 		8024D2521A9B5EC100B56763 /* ServerJSONRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8024D2511A9B5EC100B56763 /* ServerJSONRequest.m */; };
 		8024D2541A9B9FEA00B56763 /* bookTypeIndicatorSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8024D2531A9B9FEA00B56763 /* bookTypeIndicatorSmall.png */; };
 		8028DC251AEE71EE0016A52F /* BookObjectFromDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8028DC241AEE71EE0016A52F /* BookObjectFromDB.m */; };
@@ -155,6 +154,7 @@
 		80E9A0691B2B90D70051AE79 /* RentIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9A0681B2B90D70051AE79 /* RentIAPHelper.m */; };
 		80E9A06F1B2DBF510051AE79 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9A06C1B2DBF510051AE79 /* NSData+Base64.m */; };
 		80E9A0701B2DBF510051AE79 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9A06E1B2DBF510051AE79 /* VerificationController.m */; };
+		80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9A0711B2F34B40051AE79 /* placeholder.png */; };
 		80EDA14A19AF82BA00D9FF62 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EDA14819AF82BA00D9FF62 /* AudioViewController.m */; };
 		80EDA14B19AF82BA00D9FF62 /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA14919AF82BA00D9FF62 /* AudioViewController.xib */; };
 		80EDA14E19B0AFDA00D9FF62 /* YMCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EDA14D19B0AFDA00D9FF62 /* YMCAudioPlayer.m */; };
@@ -277,7 +277,6 @@
 		801F3ED018B7B5C700D81D21 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "../GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		8024D2281A8CE37000B56763 /* CategoriesItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesItemObject.h; sourceTree = "<group>"; };
 		8024D2291A8CE37000B56763 /* CategoriesItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesItemObject.m; sourceTree = "<group>"; };
-		8024D22B1A94F8EB00B56763 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../placeholder.png; sourceTree = "<group>"; };
 		8024D2501A9B5EC100B56763 /* ServerJSONRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerJSONRequest.h; sourceTree = "<group>"; };
 		8024D2511A9B5EC100B56763 /* ServerJSONRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerJSONRequest.m; sourceTree = "<group>"; };
 		8024D2531A9B9FEA00B56763 /* bookTypeIndicatorSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookTypeIndicatorSmall.png; sourceTree = "<group>"; };
@@ -416,6 +415,7 @@
 		80E9A06C1B2DBF510051AE79 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		80E9A06D1B2DBF510051AE79 /* VerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationController.h; sourceTree = "<group>"; };
 		80E9A06E1B2DBF510051AE79 /* VerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationController.m; sourceTree = "<group>"; };
+		80E9A0711B2F34B40051AE79 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		80EDA14719AF82BA00D9FF62 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
 		80EDA14819AF82BA00D9FF62 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = "<group>"; };
 		80EDA14919AF82BA00D9FF62 /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = "<group>"; };
@@ -654,6 +654,7 @@
 		50BBE48D17EC781600BD039F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80E9A0711B2F34B40051AE79 /* placeholder.png */,
 				80B99CCE1ACDFC2E00F9325B /* delete.png */,
 				8024D2531A9B9FEA00B56763 /* bookTypeIndicatorSmall.png */,
 				80EDA18619BB971300D9FF62 /* book.png */,
@@ -670,7 +671,6 @@
 				50A890BC180ADB2A00BFD32B /* topBar.png */,
 				50BBE48E17EC781600BD039F /* done_btn@2x.png */,
 				50BBE48F17EC781600BD039F /* menu@2x.png */,
-				8024D22B1A94F8EB00B56763 /* placeholder.png */,
 				80AFC3E51B01214400D73696 /* playerBack.jpg */,
 			);
 			path = Images;
@@ -1037,6 +1037,7 @@
 				80EDA17C19B6541A00D9FF62 /* gh.png in Resources */,
 				8031EB4B18B74E0E0076C655 /* kmargo.png in Resources */,
 				80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */,
+				80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */,
 				50BBE45A17EC76A400BD039F /* InfoPlist.strings in Resources */,
 				50B580FC17EF2536000042D5 /* SettingsViewController.xib in Resources */,
 				80A8F42C189916C0002ADA00 /* Grigor Zohrap - Zabuxon.mp3 in Resources */,
@@ -1046,7 +1047,6 @@
 				50BBE4D317ECAE1100BD039F /* LeftViewCell.xib in Resources */,
 				8031EB4A18B74E0E0076C655 /* gpotter.png in Resources */,
 				50BBE46317EC76A400BD039F /* Main.storyboard in Resources */,
-				8024D22C1A94F8EB00B56763 /* placeholder.png in Resources */,
 				8031EB4D18B74E0E0076C655 /* sorokpyat.png in Resources */,
 				80E08A3D18B255BC00A760D3 /* ReaderSettingsViewController.xib in Resources */,
 				80EDA20B19C0AAA000D9FF62 /* BookMarkViewController.xib in Resources */,
