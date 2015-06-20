@@ -13,7 +13,7 @@
 
 @synthesize delegate, chapterIndex, title, pageCount, spinePath, text, windowSize, fontPercentSize;
 
-- (id) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex{
+- (instancetype) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex{
     if((self=[super init])){
         spinePath = [theSpinePath retain];
         title = [theTitle retain];

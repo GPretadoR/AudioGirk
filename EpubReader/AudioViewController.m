@@ -22,7 +22,7 @@
 }
 @synthesize bookID;
 @synthesize bookFormat;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -37,18 +37,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    dbManager=[[SQLiteManager alloc]initWithDatabaseNamed:@"audioBooks1.sqlite"];
+    dbManager = [SQLiteManager sharedDBManager];
     
     NSString *sqlStr = [NSString stringWithFormat:@"SELECT * FROM 'mybooks' WHERE bookID = '%@' AND format = '%@' ",bookID, bookFormat];
     dbArray=[NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
     
     if ([dbArray count] > 0) {
-        bookDictionary = [dbArray objectAtIndex:0];
+        bookDictionary = dbArray[0];
     }else{
         return;
     }
-    NSString *strFileName = [NSString stringWithFormat:@"%@",[[bookDictionary objectForKey:@"bookFileName"] stringByDeletingPathExtension]];
-    NSString *audioFilePath = [NSString stringWithFormat:@"%@_%@",[bookDictionary objectForKey:@"format"],strFileName ];
+    NSString *strFileName = [NSString stringWithFormat:@"%@",[bookDictionary[@"bookFileName"] stringByDeletingPathExtension]];
+    NSString *audioFilePath = [NSString stringWithFormat:@"%@_%@",bookDictionary[@"format"],strFileName ];
     
     self.audioPlayer = [[YMCAudioPlayer alloc] init];
     [self setupAudioPlayer:[NSString stringWithFormat:@"%@/%@",audioFilePath,strFileName]];
@@ -90,13 +90,13 @@
     
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
     
-    NSString *bookName = [bookDictionary objectForKey:@"bookName"];
-    NSString *authorName = [bookDictionary objectForKey:@"bookAuthor"];
+    NSString *bookName = bookDictionary[@"bookName"];
+    NSString *authorName = bookDictionary[@"bookAuthor"];
     
-    [songInfo setObject:bookName forKey:MPMediaItemPropertyTitle];
-    [songInfo setObject:authorName forKey:MPMediaItemPropertyArtist];
-    [songInfo setObject:[NSNumber numberWithFloat:[self.audioPlayer getAudioDuration]]  forKey:MPMediaItemPropertyPlaybackDuration];
-    [songInfo setObject:@"1950" forKey:MPMediaItemPropertyReleaseDate];
+    songInfo[MPMediaItemPropertyTitle] = bookName;
+    songInfo[MPMediaItemPropertyArtist] = authorName;
+    songInfo[MPMediaItemPropertyPlaybackDuration] = @([self.audioPlayer getAudioDuration]);
+    songInfo[MPMediaItemPropertyReleaseDate] = @"1950";
     [songInfo setValue:@1.0 forKey:MPNowPlayingInfoPropertyPlaybackRate];
     [songInfo setValue:[NSNumber numberWithFloat:[self.audioPlayer getCurrentAudioTime]] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];

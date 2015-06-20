@@ -52,7 +52,7 @@ NSString * const SVProgressHUDStatusUserInfoKey = @"SVProgressHUDStatusUserInfoK
 - (void)registerNotifications;
 - (void)moveToPoint:(CGPoint)newCenter rotateAngle:(CGFloat)angle;
 - (void)positionHUD:(NSNotification*)notification;
-- (NSDictionary *)notificationUserInfo;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSDictionary *notificationUserInfo;
 
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 50000
@@ -142,7 +142,7 @@ NSString * const SVProgressHUDStatusUserInfoKey = @"SVProgressHUDStatusUserInfoK
 
 #pragma mark - Instance Methods
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	
     if ((self = [super initWithFrame:frame])) {
 		self.userInteractionEnabled = NO;
@@ -198,9 +198,14 @@ NSString * const SVProgressHUDStatusUserInfoKey = @"SVProgressHUDStatusUserInfoK
     BOOL imageUsed = (self.imageView.image) || (self.imageView.hidden);
     
     if(string) {
-        CGSize stringSize = [string sizeWithFont:self.stringLabel.font constrainedToSize:CGSizeMake(200, 300)];
-        stringWidth = stringSize.width;
-        stringHeight = stringSize.height;
+        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                              [UIFont systemFontOfSize:[UIFont systemFontSize]], NSFontAttributeName,
+                                              [UIColor whiteColor], NSForegroundColorAttributeName,
+                                              nil];
+        CGRect stringSize = [string boundingRectWithSize:CGSizeMake(200, 300) options:0 attributes:attributesDictionary context:nil];
+//                             sizeWithFont:self.stringLabel.font constrainedToSize:];
+        stringWidth = stringSize.size.width;
+        stringHeight = stringSize.size.height;
         if (imageUsed)
             hudHeight = 80+stringHeight;
         else

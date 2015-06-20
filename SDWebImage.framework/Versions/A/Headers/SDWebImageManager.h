@@ -11,7 +11,7 @@
 #import "SDWebImageDownloader.h"
 #import "SDImageCache.h"
 
-typedef enum
+typedef NS_OPTIONS(unsigned int, SDWebImageOptions)
 {
     /**
      * By default, when a URL fail to be downloaded, the URL is blacklisted so the library won't keep trying.
@@ -41,7 +41,7 @@ typedef enum
      * Use this flag only if you can't make your URLs static with embeded cache busting parameter.
      */
     SDWebImageRefreshCached = 1 << 4
-} SDWebImageOptions;
+};
 
 typedef void(^SDWebImageCompletedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType);
 typedef void(^SDWebImageCompletedWithFinishedBlock)(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished);
@@ -167,6 +167,6 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 /**
  * Check one or more operations running
  */
-- (BOOL)isRunning;
+@property (NS_NONATOMIC_IOSONLY, getter=isRunning, readonly) BOOL running;
 
 @end

@@ -178,13 +178,13 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * Export the whole object to a dictionary
    * @return dictionary containing the data model
    */
-  -(NSDictionary*)toDictionary;
+  @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSDictionary *toDictionary;
 
   /**
    * Export the whole object to a JSON data text string
    * @return JSON text describing the data model
    */
-  -(NSString*)toJSONString;
+  @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *toJSONString;
 
   /**
    * Export the specified properties of the object to a dictionary
@@ -240,7 +240,7 @@ lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
    * You can define Index property by using the Index protocol:
    * @property (strong, nonatomic) NSString&lt;Index&gt;* id;
    */
-  -(NSString*)indexPropertyName;
+  @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *indexPropertyName;
 
   /**
    * Overriden NSObject method to compare model objects. Compares the &lt;Index&gt; property of the two models,

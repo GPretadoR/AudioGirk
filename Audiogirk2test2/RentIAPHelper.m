@@ -8,6 +8,8 @@
 
 #import "RentIAPHelper.h"
 
+
+
 @implementation RentIAPHelper{
 
     
@@ -21,5 +23,6 @@
     });
     return sharedInstance;
 }
+
 
 @end

@@ -41,12 +41,13 @@
     NSMutableArray *booksArray;
     NSArray *searchResult;
     BookItemsObject *bookObject;
+    NSArray *iconsArray;
 }
 
 @synthesize lTableView;
 
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (instancetype)initWithStyle:(UITableViewStyle)style
 {
     if ((self = [super initWithStyle:style])) {
 //        self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
@@ -54,6 +55,7 @@
 //        self.tableView.autoresizingMask =  UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //        self.tableView.delegate = self;
         items = [NSMutableArray array];
+       
     }
     return self;
 }
@@ -65,7 +67,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (tableView == self.searchDisplayController.searchResultsTableView){
-        bookObject = [searchResult objectAtIndex:indexPath.row];
+        bookObject = searchResult[indexPath.row];
         [storeViewController showDescriptions:bookObject];
     }else {
         [self chooseViewControllerWithIndex:indexPath.row];
@@ -105,19 +107,19 @@
     }
     
     if (tableView == self.searchDisplayController.searchResultsTableView){
-        bookObject = [searchResult objectAtIndex:indexPath.row];
+        bookObject = searchResult[indexPath.row];
         leftViewcell.imageView.image = [UIImage imageNamed:@"bookTypeIndicatorSmall.png"];
         leftViewcell.label.text = bookObject.b_name;
     } else {
-        leftViewcell.imageView.image=[UIImage imageNamed:@"menu@2x.png"];
-        leftViewcell.label.text=[arrayOfSections objectAtIndex:indexPath.row];
+        leftViewcell.imageView.image = [UIImage imageNamed:iconsArray[indexPath.row]];
+        leftViewcell.label.text = arrayOfSections[indexPath.row];
     }
     
-    if (indexPath.row==1) {
-        leftViewcell.frame=CGRectMake(leftViewcell.frame.origin.x, leftViewcell.frame.origin.y, leftViewcell.frame.size.width, leftViewcell.frame.size.height+50);
+    if (indexPath.row == 1) {
+        leftViewcell.frame = CGRectMake(leftViewcell.frame.origin.x, leftViewcell.frame.origin.y, leftViewcell.frame.size.width, leftViewcell.frame.size.height+50);
 
     }else{
-        leftViewcell.frame=CGRectMake(leftViewcell.frame.origin.x, leftViewcell.frame.origin.y, leftViewcell.frame.size.width, 44);
+        leftViewcell.frame = CGRectMake(leftViewcell.frame.origin.x, leftViewcell.frame.origin.y, leftViewcell.frame.size.width, 44);
     }
     return leftViewcell;
     
@@ -234,7 +236,7 @@
             UINavigationController *nc = appDelegate.navigationController;
             if ( modal ) {
                 UINavigationController *nav1 = [[UINavigationController alloc] initWithNavigationBarClass:[AGNavBar class] toolbarClass:nil];
-                [nav1 setViewControllers:[[NSArray alloc] initWithObjects:newPage, nil]];
+                [nav1 setViewControllers:@[newPage]];
                 [nc presentViewController:nav1 animated:YES completion:nil];
             } else {
                 [nc popToRootViewControllerAnimated:NO];
@@ -252,8 +254,7 @@
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
     [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                      objectAtIndex:[self.searchDisplayController.searchBar
+                               scope:[self.searchDisplayController.searchBar scopeButtonTitles][[self.searchDisplayController.searchBar
                                                      selectedScopeButtonIndex]]];
     
     return YES;
@@ -281,7 +282,7 @@
     [lTableView setSeparatorColor:[UIColor colorWithRed:206/255.0f green:85/255.0f blue:52/255.0f alpha:0.75f]];
     items=[NSMutableArray array];
     arrayOfSections=[[NSMutableArray alloc]initWithObjects:@"Store",@"Categories",@"Wish List",@"Settings",@"My Books",@"Already Downloaded", nil];
-    
+    iconsArray = @[@"storeIcon.png", @"categoriesIcon.png", @"wishLIstIcon.png", @"settingsIcon.png",  @"mybooksIcon.png",@"downloadedIcon.png"];
     
 //    NSString *key=[Sec getKey];
 //    NSString *url = [NSString stringWithFormat:@"http://tiktakto.com/catalog/api/mobile?key=%@&type=home_category", key];

@@ -35,14 +35,14 @@
  * @param array an array of NSDictionary objects
  * @param cls the JSONModel sub-class you'd like the NSDictionaries to be converted to on demand
  */
-- (id)initWithArray:(NSArray *)array modelClass:(Class)cls;
+- (instancetype)initWithArray:(NSArray *)array modelClass:(Class)cls NS_DESIGNATED_INITIALIZER;
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 - (void)forwardInvocation:(NSInvocation *)anInvocation;
-- (NSUInteger)count;
-- (id)firstObject;
-- (id)lastObject;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger count;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) id firstObject;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) id lastObject;
 
 /**
  * Looks up the array's contents and tries to find a JSONModel object

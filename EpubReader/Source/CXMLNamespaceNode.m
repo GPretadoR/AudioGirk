@@ -10,7 +10,7 @@
 #pragma mark -
 #pragma mark Init and dealloc
 
-- (id) initWithPrefix:(NSString *)prefix URI:(NSString *)uri parentElement:(CXMLElement *)parent
+- (instancetype) initWithPrefix:(NSString *)prefix URI:(NSString *)uri parentElement:(CXMLElement *)parent
 {
 	if ((self = [super init]) != NULL) 
 	{

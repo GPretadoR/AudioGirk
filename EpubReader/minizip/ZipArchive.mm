@@ -17,7 +17,7 @@
 
 -(void) OutputErrorMessage:(NSString*) msg;
 -(BOOL) OverWrite:(NSString*) file;
--(NSDate*) Date1980;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSDate *Date1980;
 @end
 
 
@@ -25,7 +25,7 @@
 @implementation ZipArchive
 @synthesize delegate = _delegate;
 
--(id) init
+-(instancetype) init
 {
 	if( self=[super init] )
 	{
@@ -68,7 +68,7 @@
 	NSDictionary* attr = [[NSFileManager defaultManager] fileAttributesAtPath:file traverseLink:YES];
 	if( attr )
 	{
-		NSDate* fileDate = (NSDate*)[attr objectForKey:NSFileModificationDate];
+		NSDate* fileDate = (NSDate*)attr[NSFileModificationDate];
 		if( fileDate )
 		{
 			// some application does use dosDate, but tmz_date instead
@@ -207,7 +207,7 @@
 		filename[fileInfo.size_filename] = '\0';
 		
 		// check if it contains directory
-		NSString * strPath = [NSString  stringWithCString:filename encoding:NSUTF8StringEncoding];
+		NSString * strPath = @(filename);
 		BOOL isDirectory = NO;
 		if( filename[fileInfo.size_filename-1]=='/' || filename[fileInfo.size_filename-1]=='\\')
 			isDirectory = YES;
@@ -272,7 +272,7 @@
 			//}}
 			
 			
-			NSDictionary* attr = [NSDictionary dictionaryWithObject:orgDate forKey:NSFileModificationDate]; //[[NSFileManager defaultManager] fileAttributesAtPath:fullPath traverseLink:YES];
+			NSDictionary* attr = @{NSFileModificationDate: orgDate}; //[[NSFileManager defaultManager] fileAttributesAtPath:fullPath traverseLink:YES];
 			if( attr )
 			{
 				//		[attr  setValue:orgDate forKey:NSFileCreationDate];

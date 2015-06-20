@@ -30,7 +30,7 @@
 @property (nonatomic, readonly) NSString *spinePath, *title, *text;
 @property (nonatomic, readonly) CGRect windowSize;
 
-- (id) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex;
+- (instancetype) initWithPath:(NSString*)theSpinePath title:(NSString*)theTitle chapterIndex:(int) theIndex NS_DESIGNATED_INITIALIZER;
 
 - (void) loadChapterWithWindowSize:(CGRect)theWindowSize fontPercentSize:(int) theFontPercentSize;
 

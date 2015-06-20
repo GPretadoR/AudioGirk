@@ -37,11 +37,11 @@
 - (NSArray *)elementsForName:(NSString *)name;
 - (NSArray *)elementsForLocalName:(NSString *)localName URI:(NSString *)URI;
 
-- (NSArray *)attributes;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *attributes;
 - (CXMLNode *)attributeForName:(NSString *)name;
 - (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI;
 
-- (NSArray *)namespaces; 
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *namespaces; 
 - (CXMLNode *)namespaceForPrefix:(NSString *)name;
 - (CXMLNode *)resolveNamespaceForName:(NSString *)name;
 - (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;

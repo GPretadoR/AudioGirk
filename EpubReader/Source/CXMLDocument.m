@@ -40,7 +40,7 @@
 
 @implementation CXMLDocument
 
-- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
 {
 #pragma unused (inOptions)
 if ((self = [super init]) != NULL)
@@ -69,9 +69,7 @@ if ((self = [super init]) != NULL)
 		{
 		xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
 		
-		NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-			[NSString stringWithUTF8String:theLastErrorPtr->message], NSLocalizedDescriptionKey,
-			NULL];
+		NSDictionary *theUserInfo = @{NSLocalizedDescriptionKey: @(theLastErrorPtr->message)};
 		
 		
 		theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
@@ -91,12 +89,12 @@ if ((self = [super init]) != NULL)
 return(self);
 }
 
-- (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
 {
 	return [self initWithData:inData encoding:NSUTF8StringEncoding options:inOptions error:outError];	 
 }
 
-- (id)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
 {
 #pragma unused (inOptions)
 if ((self = [super init]) != NULL)
@@ -133,10 +131,8 @@ if ((self = [super init]) != NULL)
 		else
 			{
 			xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
-			NSString* message = [NSString stringWithUTF8String:
-								 (theLastErrorPtr ? theLastErrorPtr->message : "Unknown error")];
-			NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-										 message, NSLocalizedDescriptionKey, NULL];
+			NSString* message = @(theLastErrorPtr ? theLastErrorPtr->message : "Unknown error");
+			NSDictionary *theUserInfo = @{NSLocalizedDescriptionKey: message};
 			theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
 								 
 			xmlResetLastError();
@@ -155,12 +151,12 @@ if ((self = [super init]) != NULL)
 return(self);
 }
 
-- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError
 {
 	return [self initWithContentsOfURL:inURL encoding:NSUTF8StringEncoding options:inOptions error:outError];
 }
 
-- (id)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
 {
 if (outError)
 	*outError = NULL;

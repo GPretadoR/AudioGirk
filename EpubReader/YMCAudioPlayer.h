@@ -18,8 +18,8 @@
 - (void)playAudio;
 - (void)pauseAudio;
 - (void)setCurrentAudioTime:(float)value;
-- (float)getAudioDuration;
-- (BOOL)isPlaying;
+@property (NS_NONATOMIC_IOSONLY, getter=getAudioDuration, readonly) float audioDuration;
+@property (NS_NONATOMIC_IOSONLY, getter=isPlaying, readonly) BOOL playing;
 - (NSString*)timeFormat:(float)value;
 - (NSTimeInterval)getCurrentAudioTime;
 

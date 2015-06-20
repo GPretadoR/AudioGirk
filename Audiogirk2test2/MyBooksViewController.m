@@ -47,7 +47,7 @@
 }
 @synthesize bookModel;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -68,13 +68,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"My Books";
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     [self uiConfigurations];
     
-    dbManager=[[SQLiteManager alloc]initWithDatabaseNamed:@"audioBooks1.sqlite"];
+    dbManager = [SQLiteManager sharedDBManager];
     [dbManager getDatabaseDump];
-    NSString *sqlStr = [NSString stringWithFormat:@"SELECT * FROM 'myBooks'"];
+    NSString *sqlStr = [NSString stringWithFormat:@"SELECT myBooks.*, author.bookAuthorName FROM 'bookAuthor' INNER JOIN author ON bookAuthor.authorId = author.authorId INNER JOIN myBooks ON bookAuthor.bookId = myBooks.id;"];
     myBooksItems=[NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
     
     bookObjectFromDB = [BookObjectFromDB sharedObjectFromArray:myBooksItems];
@@ -114,7 +116,7 @@
     [editButton addTarget:self action:@selector(editButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 //    [parentView1 addSubview:sliderButton];
     UIBarButtonItem *editBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:editButton];
-    NSArray *buttonsArray=[[NSArray alloc]initWithObjects:editBarButtonItem,nil];
+    NSArray *buttonsArray=@[editBarButtonItem];
     
     [self.navigationItem setRightBarButtonItems:buttonsArray];
 }
@@ -150,7 +152,7 @@
     bookObjectFromDB = [BookObjectFromDB getBookObjectForDictionary:myBooksItems[indexPath.row]];
     
     [cell.stImageView setImageWithURL:[NSURL URLWithString:bookObjectFromDB.bookImageName]];
-    cell.stAuthorName.text = bookObjectFromDB.bookAuthor;
+    cell.stAuthorName.text = bookObjectFromDB.bookAuthorName;
     cell.stBookName.text = bookObjectFromDB.bookName;
     
     if (isEditing) {
@@ -190,7 +192,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"Selected items # %ld",(long)indexPath.row);
-    NSDictionary *currentBookObject = [myBooksItems objectAtIndex:indexPath.row];
+    NSDictionary *currentBookObject = myBooksItems[indexPath.row];
     bookObjectFromDB = [BookObjectFromDB getBookObjectForDictionary:myBooksItems[indexPath.row]];
     if (isEditing) {
         [self deleteObject:bookObjectFromDB atIndexPath:indexPath];

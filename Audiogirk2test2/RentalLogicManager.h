@@ -20,5 +20,6 @@
 
 @property (nonatomic)id delegate;
 
-+ (void) scheduleRemoveNotification;
++ (void) deleteExpiredBooks;
++ (void) checkUpdateOrDownload:(BookItemsObject*) bookItemObject;
 @end

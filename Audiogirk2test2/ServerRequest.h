@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic, strong) NSURLConnection *urlConnection;
 
-- (id)init;
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
 - (void)getWithUrlString:(NSString *)urlString completion:(void (^)(NSArray *items))completionBlock;
 - (void)postWithUrlString:(NSString *)urlString completion:(void (^)(NSArray *result))completionBlock;
 - (void)postWithUrlString:(NSString *)urlString andBody:(NSData*)body completion:(void (^)(NSArray *result))cb;

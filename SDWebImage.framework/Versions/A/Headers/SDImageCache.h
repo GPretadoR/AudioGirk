@@ -54,7 +54,7 @@ typedef enum SDImageCacheType SDImageCacheType;
  *
  * @param ns The namespace to use for this cache store
  */
-- (id)initWithNamespace:(NSString *)ns;
+- (instancetype)initWithNamespace:(NSString *)ns;
 
 /**
  * Add a read-only cache path to search for images pre-cached by SDImageCache
@@ -147,11 +147,11 @@ typedef enum SDImageCacheType SDImageCacheType;
 /**
  * Get the size used by the disk cache
  */
-- (unsigned long long)getSize;
+@property (NS_NONATOMIC_IOSONLY, getter=getSize, readonly) unsigned long long size;
 
 /**
  * Get the number of images in the disk cache
  */
-- (int)getDiskCount;
+@property (NS_NONATOMIC_IOSONLY, getter=getDiskCount, readonly) int diskCount;
 
 @end

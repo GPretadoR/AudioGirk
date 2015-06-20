@@ -31,7 +31,7 @@
 
 #include <libxml/tree.h>
 
-typedef enum {
+typedef NS_ENUM(unsigned int, CXMLNodeKind) {
 	CXMLInvalidKind = 0,
 	CXMLElementKind = XML_ELEMENT_NODE,
 	CXMLAttributeKind = XML_ATTRIBUTE_NODE,
@@ -44,7 +44,7 @@ typedef enum {
 	CXMLAttributeDeclarationKind =  XML_ATTRIBUTE_DECL,
 	CXMLEntityDeclarationKind = XML_ENTITY_DECL,
 	CXMLNamespaceKind = XML_NAMESPACE_DECL,
-} CXMLNodeKind;
+};
 
 @class CXMLDocument;
 
@@ -54,29 +54,29 @@ typedef enum {
 	BOOL _freeNodeOnRelease;
 }
 
-- (CXMLNodeKind)kind;
-- (NSString *)name;
-- (NSString *)stringValue;
-- (NSUInteger)index;
-- (NSUInteger)level;
-- (CXMLDocument *)rootDocument;
-- (CXMLNode *)parent;
-- (NSUInteger)childCount;
-- (NSArray *)children;
+@property (NS_NONATOMIC_IOSONLY, readonly) CXMLNodeKind kind;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *name;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringValue;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger index;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger level;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) CXMLDocument *rootDocument;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) CXMLNode *parent;
+@property (NS_NONATOMIC_IOSONLY, readonly) NSUInteger childCount;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *children;
 - (CXMLNode *)childAtIndex:(NSUInteger)index;
-- (CXMLNode *)previousSibling;
-- (CXMLNode *)nextSibling;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) CXMLNode *previousSibling;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) CXMLNode *nextSibling;
 //- (CXMLNode *)previousNode;
 //- (CXMLNode *)nextNode;
 //- (NSString *)XPath;
-- (NSString *)localName;
-- (NSString *)prefix;
-- (NSString *)URI;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *localName;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *prefix;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *URI;
 + (NSString *)localNameForName:(NSString *)name;
 + (NSString *)prefixForName:(NSString *)name;
 + (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name;
-- (NSString *)description;
-- (NSString *)XMLString;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *description;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *XMLString;
 - (NSString *)XMLStringWithOptions:(NSUInteger)options;
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error;

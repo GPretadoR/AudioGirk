@@ -16,7 +16,10 @@
 
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 
-@implementation AppDelegate
+@implementation AppDelegate {
+
+    RentalLogicManager *rentalLogic;
+}
 
 BOOL isCreated=FALSE;
 
@@ -63,7 +66,7 @@ BOOL isCreated=FALSE;
     storeView = [[StoreViewController alloc]init];
 //    navigationController=[[UINavigationController alloc]initWithRootViewController:storeView];
     navigationController=[[UINavigationController alloc]initWithNavigationBarClass:[AGNavBar class] toolbarClass:nil];
-    [navigationController setViewControllers:[[NSArray alloc] initWithObjects:storeView, nil]];
+    [navigationController setViewControllers:@[storeView]];
 
     storeView.nav=navigationController;
     self.centerController=storeView;
@@ -99,11 +102,11 @@ BOOL isCreated=FALSE;
 //    NSLog(@"The orientation is %@", [notification.userInfo objectForKey: UIApplicationStatusBarOrientationUserInfoKey]);
     
     
-    if ([[notification.userInfo objectForKey: UIApplicationStatusBarOrientationUserInfoKey] integerValue]==1) {
+    if ([(notification.userInfo)[UIApplicationStatusBarOrientationUserInfoKey] integerValue]==1) {
         [self.statusBarBackground removeFromSuperview];
         self.statusBarBackground.frame=CGRectMake(0,self.window.bounds.size.height-20.0f , self.window.bounds.size.width, 20.0f);
         [self.window addSubview:self.statusBarBackground];
-    }else if ([[notification.userInfo objectForKey: UIApplicationStatusBarOrientationUserInfoKey] integerValue]==2){
+    }else if ([(notification.userInfo)[UIApplicationStatusBarOrientationUserInfoKey] integerValue]==2){
         [self.statusBarBackground removeFromSuperview];
         self.statusBarBackground.frame=CGRectMake(0, 0, self.window.bounds.size.width, 20.0f);
         [self.window addSubview:self.statusBarBackground];
@@ -129,8 +132,7 @@ BOOL isCreated=FALSE;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [RentalLogicManager scheduleRemoveNotification];
-
+    [RentalLogicManager deleteExpiredBooks];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

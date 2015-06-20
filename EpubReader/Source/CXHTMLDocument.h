@@ -34,7 +34,7 @@
 
 }
 
-- (id)initWithXHTMLData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithXHTMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
+- (instancetype)initWithXHTMLData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithXHTMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
 
 @end

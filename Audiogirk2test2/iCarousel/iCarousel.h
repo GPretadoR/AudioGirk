@@ -59,7 +59,7 @@ typedef NSView UIView;
 #endif
 
 
-typedef enum
+typedef NS_ENUM(unsigned int, iCarouselType)
 {
     iCarouselTypeLinear = 0,
     iCarouselTypeRotary,
@@ -73,11 +73,10 @@ typedef enum
     iCarouselTypeTimeMachine,
     iCarouselTypeInvertedTimeMachine,
     iCarouselTypeCustom
-}
-iCarouselType;
+};
 
 
-typedef enum
+typedef NS_ENUM(unsigned int, iCarouselOption)
 {
     iCarouselOptionWrap = 0,
     iCarouselOptionShowBackfaces,
@@ -93,8 +92,7 @@ typedef enum
     iCarouselOptionFadeMax,
     iCarouselOptionFadeRange,
     iCarouselOptionFadeMinAlpha
-}
-iCarouselOption;
+};
 
 
 @protocol iCarouselDataSource, iCarouselDelegate;

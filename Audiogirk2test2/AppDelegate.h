@@ -15,6 +15,7 @@
 
 
 }
+//Garnik-s.${PRODUCT_NAME:rfc1034identifier}
 
 - (void) showSolidStatusBar:(BOOL) solidStatusBar;
 

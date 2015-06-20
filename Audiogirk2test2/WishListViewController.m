@@ -22,7 +22,7 @@
     UICollectionView *_collectionView;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -58,7 +58,7 @@
 {
     [super viewDidLoad];
     
- 
+    self.title=@"Wish list";
     [self configureCollectionView];
     NSString *key=[Sec getKey];
     NSString *url = [NSString stringWithFormat:@"http://tiktakto.com/catalog/api/mobile?key=%@&type=live_feed&limit=10&page=%d", key,1];
@@ -106,7 +106,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     StoreCollectionViewCell *cell = (StoreCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"myCellIdentifier" forIndexPath:indexPath];
-    [cell.stImageView setImageWithURL:[NSURL URLWithString:[[wishListItems objectAtIndex:indexPath.row] objectForKey:@"image_url"]]];
+    [cell.stImageView setImageWithURL:[NSURL URLWithString:wishListItems[indexPath.row][@"image_url"]]];
     
     return cell;
 }

@@ -40,11 +40,11 @@ enum {
 	NSMutableSet *nodePool;
 }
 
-- (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
+- (instancetype)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;
+- (instancetype)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError;
+- (instancetype)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
 
 //- (NSString *)characterEncoding;
 //- (NSString *)version;
@@ -53,9 +53,9 @@ enum {
 //- (NSString *)MIMEType;
 //- (CXMLDTD *)DTD;
 
-- (CXMLElement *)rootElement;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) CXMLElement *rootElement;
 
-- (NSData *)XMLData;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSData *XMLData;
 - (NSData *)XMLDataWithOptions:(NSUInteger)options;
 
 //- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;

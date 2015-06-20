@@ -33,7 +33,7 @@ UIImageView *waitViewImage;
     UICollectionView *_collectionView;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -70,20 +70,6 @@ UIImageView *waitViewImage;
 
 -(void)showItems:(NSDictionary*)dictionaryOfItems{
     
-    //    indexOfItem=adBannerCar.currentItemIndex;
-    
-    //    DecriptionViewController *descrView=[[DecriptionViewController alloc]init];
-    //    descrView.modalPresentationStyle=UIModalPresentationFormSheet;
-    //    descrView.modalTransitionStyle=UIModalTransitionStyleFlipHorizontal;
-    //
-    //    //[[[[adBannerCar.currentItemView subviews]lastObject]subviews]lastObject];
-    //    [self presentViewController:descrView animated:YES completion:nil];
-    //    [descrView.descrImageView setImageWithURL:[dictionaryOfItems objectForKey:@"image_url"]];
-    //    descrView.bookName.text=[dictionaryOfItems objectForKey:@"title"];
-    //    descrView.description.text=[dictionaryOfItems objectForKey:@"description"];
-    //    descrView.price.text=[NSString stringWithFormat:@"$%@",[dictionaryOfItems objectForKey:@"price"]];
-
-    
     ItemsViewController *itemView=[[ItemsViewController alloc]initWithNibName:@"ItemsViewController" bundle:nil];
     [self.navigationController pushViewController:itemView animated:YES];
     
@@ -95,6 +81,9 @@ UIImageView *waitViewImage;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title=@"Categories";
+    
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
 
@@ -134,7 +123,7 @@ UIImageView *waitViewImage;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoriesCollectionViewCell *cell = (CategoriesCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"categoriesCellIdentifier" forIndexPath:indexPath];
-    categoryItemObject = [categoriesItems objectAtIndex:indexPath.row];
+    categoryItemObject = categoriesItems[indexPath.row];
     
 
     cell.cvLabel.text = categoryItemObject.name;
@@ -164,7 +153,7 @@ UIImageView *waitViewImage;
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"Selected items # %ld",(long)indexPath.row);
-    categoryItemObject = [categoriesItems objectAtIndex:indexPath.row];
+    categoryItemObject = categoriesItems[indexPath.row];
     [self showItems:categoryItemObject.toDictionary];
     
 }

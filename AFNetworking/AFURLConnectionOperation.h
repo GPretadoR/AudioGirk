@@ -82,11 +82,11 @@
  - Operation copies do not include `completionBlock`. `completionBlock` often strongly captures a reference to `self`, which would otherwise have the unintuitive side-effect of pointing to the _original_ operation when copied.
  */
 
-typedef enum {
+typedef NS_ENUM(unsigned int, AFURLConnectionOperationSSLPinningMode) {
     AFSSLPinningModeNone,
     AFSSLPinningModePublicKey,
     AFSSLPinningModeCertificate,
-} AFURLConnectionOperationSSLPinningMode;
+};
 
 @interface AFURLConnectionOperation : NSOperation <NSURLConnectionDelegate,
 #if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000) || \
@@ -214,7 +214,7 @@ NSCoding, NSCopying>
  
  @param urlRequest The request object to be used by the operation connection.
  */
-- (id)initWithRequest:(NSURLRequest *)urlRequest;
+- (instancetype)initWithRequest:(NSURLRequest *)urlRequest NS_DESIGNATED_INITIALIZER;
 
 ///----------------------------------
 /// @name Pausing / Resuming Requests
@@ -232,7 +232,7 @@ NSCoding, NSCopying>
 
  @return `YES` if the operation is currently paused, otherwise `NO`.
  */
-- (BOOL)isPaused;
+@property (NS_NONATOMIC_IOSONLY, getter=isPaused, readonly) BOOL paused;
 
 /**
  Resumes the execution of the paused request operation.

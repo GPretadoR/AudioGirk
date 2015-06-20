@@ -7,33 +7,21 @@
 //
 
 #import "RentalLogicManager.h"
-#import "SQLiteManager/SQLiteManager.h"
+#import "CreateDB.h"
+#import "Downloader.h"
 
-@implementation RentalLogicManager
+@implementation RentalLogicManager {
+
+    Downloader *downloader;
+}
 
 @synthesize delegate;
 
 
-+ (void) scheduleRemoveNotification{
-    
-    SQLiteManager *dbManager = [[SQLiteManager alloc] initWithDatabaseNamed:@"audioBooks1.sqlite"];
-    NSString *sqlQuery = @"SELECT bookName, expireDate FROM myBooks";
-    NSArray *expireDateArray = [dbManager getRowsForQuery:sqlQuery];
-    NSComparisonResult result;
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    for (NSDictionary *dict in expireDateArray) {
-        NSDate *expireDate = [dateFormat dateFromString:[NSString stringWithFormat:@"%@",[dict objectForKey:@"expireDate"]]];
-        result = [expireDate compare:[NSDate date]];
-        if (result == NSOrderedAscending) {
-            sqlQuery = [NSString stringWithFormat:@"DELETE FROM myBooks WHERE expireDate = '%@'",[dateFormat stringFromDate:expireDate]];
-            [dbManager doQuery:sqlQuery];
-            NSString *message = [NSString stringWithFormat:@"Rental period of \"%@\" is expired. The item was removed.",[dict objectForKey:@"bookName"]];
-            [RentalLogicManager scheduleNotificationOn:[NSDate date] text:message action:@"Show" sound:nil launchImage:nil andInfo:nil];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    }
++ (void) scheduleRemoveNotificationWithMessage:(NSString*) message{
+    [RentalLogicManager scheduleNotificationOn:[NSDate date] text:message action:@"Show" sound:nil launchImage:nil andInfo:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 + (void) scheduleNotificationOn:(NSDate*) fireDate
@@ -49,15 +37,12 @@
     localNotification.alertBody = alertText;
     localNotification.alertAction = alertAction;
 	
-	if(soundfileName == nil)
-	{
+	if(soundfileName == nil){
 		localNotification.soundName = UILocalNotificationDefaultSoundName;
 	}
-	else
-	{
+	else{
 		localNotification.soundName = soundfileName;
 	}
-    
 	localNotification.alertLaunchImage = launchImage;
 	
 //    localNotification.applicationIconBadgeNumber = self.badgeCount;
@@ -66,6 +51,90 @@
 	// Schedule it with the app
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 
+}
+
++ (void) deleteExpiredBooks{
+    [CreateDB initialize];
+    NSString *sqlQuery = @"SELECT bookName, expireDate FROM myBooks";
+    NSArray *expireDateArray = [[SQLiteManager sharedDBManager] getRowsForQuery:sqlQuery];
+    NSComparisonResult result;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    for (NSDictionary *dict in expireDateArray) {
+        NSDate *expireDate = [dateFormat dateFromString:[NSString stringWithFormat:@"%@",dict[@"expireDate"]]];
+        result = [expireDate compare:[NSDate date]];
+        if (result == NSOrderedAscending) {
+            sqlQuery = [NSString stringWithFormat:@"DELETE FROM myBooks WHERE expireDate = '%@'",[dateFormat stringFromDate:expireDate]];
+            [RentalLogicManager doSQLQuery:sqlQuery];
+            NSString *message = [NSString stringWithFormat:@"Rental period of \"%@\" is expired. The item was removed.",dict[@"bookName"]];
+            [RentalLogicManager scheduleRemoveNotificationWithMessage:message];
+        }
+    }
+}
+
++ (void) checkUpdateOrDownload:(BookItemsObject*) bookItemObject{
+    
+    NSString *sqlQuery = [NSString stringWithFormat:@"SELECT expireDate FROM myBooks WHERE bookName = '%@';", bookItemObject.b_name];
+    NSArray *expireDateArray = [[SQLiteManager sharedDBManager] getRowsForQuery:sqlQuery];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    if ([expireDateArray count] > 0) {
+        NSDictionary *dict = expireDateArray[0];
+        NSDate *expireDate = [dateFormat dateFromString:(NSString*)dict[@"expireDate"]];
+        NSString *expireDateString = [dateFormat stringFromDate:[expireDate dateByAddingTimeInterval:60*60*24*10]];
+        sqlQuery = [NSString stringWithFormat:@"UPDATE myBooks SET expireDate = '%@' WHERE bookName = '%@';", expireDateString, bookItemObject.b_name];
+        [RentalLogicManager doSQLQuery:sqlQuery];
+    }else {
+        [[NSNotificationCenter defaultCenter] addObserver:[self class] selector:@selector(addRecordToDB:) name:@"didCompleteDownloadNotification" object:nil];
+        [Downloader downloadFileAtPath:[NSString stringWithFormat:@"http://109.68.124.16/book_files/%@/%@.zip", bookItemObject.format, bookItemObject.id] withBookItemsObject:bookItemObject];
+        //TODO: Perform download
+    }
+    
+}
+
++ (void) addRecordToDB:(NSNotification*) notifObject{
+    
+    BookItemsObject *bookItemsObject = [[notifObject userInfo] valueForKey:@"bookObject"];
+    
+    NSString *bookID = bookItemsObject.id;
+    NSString *bookName = bookItemsObject.b_name;
+    NSString *bookImageName = bookItemsObject.b_image;
+    NSString *bookAuthor = bookItemsObject.b_author;
+    NSString *audioDuration = @"To BE DONE";// bookItemsObject.duration
+    NSString *audioNarrator = @"TBD";//[downloadedDictionary objectForKey:@"narrator"];
+    NSString *bookFileName = [NSString stringWithFormat:@"%@.zip", bookID];
+    NSString *bookFormat = bookItemsObject.format;//[downloadedDictionary objectForKey:@"format"];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *expireDate = [dateFormat stringFromDate:[[NSDate date] dateByAddingTimeInterval:60*60*24*10]];
+    
+    NSString *sqlString = [NSString stringWithFormat:@"INSERT INTO myBooks (bookSourceID, bookImageName, bookName, audioDuration, audioNarrator, bookFileName , format, expireDate) VALUES ('%@','%@','%@','%@','%@','%@','%@','%@');", bookID, bookImageName, bookName, audioDuration, audioNarrator, bookFileName, bookFormat, expireDate];
+    [RentalLogicManager doSQLQuery:sqlString];
+    
+    sqlString = [NSString stringWithFormat:@"INSERT INTO author (bookAuthorName) VALUES ('%@');", bookAuthor];
+    [RentalLogicManager doSQLQuery:sqlString];
+
+    
+    NSArray *idsArray = [RentalLogicManager getRowsForQuery:@"select seq from sqlite_sequence"];
+    
+    sqlString = [NSString stringWithFormat:@"INSERT INTO bookAuthor (bookId, authorId) VALUES ('%@', '%@')", (idsArray[0])[@"seq"], (idsArray[1])[@"seq"]];
+    [RentalLogicManager doSQLQuery:sqlString];
+    
+}
+
++ (NSError*) doSQLQuery:(NSString*)queryString {
+    SQLiteManager *dbManager = [SQLiteManager sharedDBManager];
+    NSError *error = nil;
+    error = [dbManager doQuery:queryString];
+    if (error != nil) {
+        NSLog(@"Error : %@",[error localizedDescription]);
+    }
+    return error;
+}
+
++ (NSArray*) getRowsForQuery:(NSString*) queryString {
+    return [[SQLiteManager sharedDBManager] getRowsForQuery:queryString];
 }
 
 

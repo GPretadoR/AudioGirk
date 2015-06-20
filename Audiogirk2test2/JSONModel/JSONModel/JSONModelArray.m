@@ -23,7 +23,7 @@
     Class _targetClass;
 }
 
-- (id)initWithArray:(NSArray *)array modelClass:(Class)cls
+- (instancetype)initWithArray:(NSArray *)array modelClass:(Class)cls
 {
     self = [super init];
     
@@ -36,12 +36,12 @@
 
 - (id)firstObject
 {
-    return [self objectAtIndex:0];
+    return self[0];
 }
 
 - (id)lastObject
 {
-    return [self objectAtIndex:_storage.count - 1];
+    return self[_storage.count - 1];
 }
 
 - (id)objectAtIndex:(NSUInteger)index

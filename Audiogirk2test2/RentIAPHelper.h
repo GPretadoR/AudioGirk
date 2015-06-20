@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "IAPHelper.h"
+
+
 @interface RentIAPHelper : IAPHelper
 
+
++ (RentIAPHelper *)sharedInstance;
 @end

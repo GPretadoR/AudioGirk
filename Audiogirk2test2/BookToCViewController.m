@@ -31,7 +31,7 @@
 
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -95,7 +95,7 @@
     if (bookToCCell == nil) {
         bookToCCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    bookToCCell.textLabel.text = [[loadedEpub.spineArray objectAtIndex:indexPath.row] title];
+    bookToCCell.textLabel.text = [(loadedEpub.spineArray)[indexPath.row] title];
     return bookToCCell;
     
 }
@@ -105,7 +105,7 @@
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         return;
     }
-    readerViewController.bookPathToLoad=[[loadedEpub.spineArray objectAtIndex:indexPath.row]spinePath];
+    readerViewController.bookPathToLoad=[(loadedEpub.spineArray)[indexPath.row]spinePath];
     readerViewController.bookID = bookID;
     [self.navigationController pushViewController:readerViewController animated:YES];
 }

@@ -10,7 +10,7 @@
 
 @implementation AGBarButtonItem
 
-- (id)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(UIImage *)image
 {
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     self = [super initWithCustomView:button];
@@ -31,7 +31,7 @@
     return self;
 }
 
-- (id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action
+- (instancetype)initWithImage:(UIImage *)image target:(id)target action:(SEL)action
 {
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     self = [super initWithCustomView:button];

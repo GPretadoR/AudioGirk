@@ -23,7 +23,7 @@ NSString* const kJSONModelKeyPath = @"kJSONModelKeyPath";
 
 @implementation JSONModelError
 
-+(id)errorInvalidDataWithMessage:(NSString*)message
++(instancetype)errorInvalidDataWithMessage:(NSString*)message
 {
 	message = [NSString stringWithFormat:@"Invalid JSON data: %@", message];
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
@@ -31,42 +31,42 @@ NSString* const kJSONModelKeyPath = @"kJSONModelKeyPath";
                                   userInfo:@{NSLocalizedDescriptionKey:message}];
 }
 
-+(id)errorInvalidDataWithMissingKeys:(NSSet *)keys
++(instancetype)errorInvalidDataWithMissingKeys:(NSSet *)keys
 {
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
                                       code:kJSONModelErrorInvalidData
                                   userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON data. Required JSON keys are missing from the input. Check the error user information.",kJSONModelMissingKeys:[keys allObjects]}];
 }
 
-+(id)errorInvalidDataWithTypeMismatch:(NSString*)mismatchDescription
++(instancetype)errorInvalidDataWithTypeMismatch:(NSString*)mismatchDescription
 {
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
                                       code:kJSONModelErrorInvalidData
                                   userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON data. The JSON type mismatches the expected type. Check the error user information.",kJSONModelTypeMismatch:mismatchDescription}];
 }
 
-+(id)errorBadResponse
++(instancetype)errorBadResponse
 {
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
                                       code:kJSONModelErrorBadResponse
                                   userInfo:@{NSLocalizedDescriptionKey:@"Bad network response. Probably the JSON URL is unreachable."}];
 }
 
-+(id)errorBadJSON
++(instancetype)errorBadJSON
 {
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
                                       code:kJSONModelErrorBadJSON
                                   userInfo:@{NSLocalizedDescriptionKey:@"Malformed JSON. Check the JSONModel data input."}];    
 }
 
-+(id)errorModelIsInvalid
++(instancetype)errorModelIsInvalid
 {
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
                                       code:kJSONModelErrorModelIsInvalid
                                   userInfo:@{NSLocalizedDescriptionKey:@"Model does not validate. The custom validation for the input data failed."}];
 }
 
-+(id)errorInputIsNil
++(instancetype)errorInputIsNil
 {
     return [JSONModelError errorWithDomain:JSONModelErrorDomain
                                       code:kJSONModelErrorNilInput

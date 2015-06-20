@@ -214,7 +214,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 }
 #endif
 
-- (id)initWithRequest:(NSURLRequest *)urlRequest {
+- (instancetype)initWithRequest:(NSURLRequest *)urlRequest {
     self = [super initWithRequest:urlRequest];
     if (!self) {
         return nil;

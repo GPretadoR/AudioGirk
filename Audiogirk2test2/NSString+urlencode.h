@@ -6,6 +6,6 @@
 
 @interface NSString (urlencode)
 
-- (NSString *)urlencode;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *urlencode;
 
 @end

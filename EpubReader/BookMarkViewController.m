@@ -24,7 +24,7 @@
 @synthesize delegate;
 @synthesize bmNavBarButtonItem,BMNavItem;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -51,9 +51,9 @@
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     if (![bookMarksArray count]==0) {
         
-        NSString* element=[bookMarksArray objectAtIndex:indexPath.row];
+        NSString* element=bookMarksArray[indexPath.row];
         NSArray * components=[element componentsSeparatedByString:@"-"];
-        NSString * rowText= [components objectAtIndex:0];
+        NSString * rowText= components[0];
         cell.textLabel.text=[NSString stringWithFormat:@"%@",rowText];
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         cell.textLabel.adjustsFontSizeToFitWidth = NO;
@@ -64,9 +64,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString* element=[bookMarksArray objectAtIndex:indexPath.row];
+    NSString* element=bookMarksArray[indexPath.row];
     NSArray * components=[element componentsSeparatedByString:@"-"];
-    [delegate didBookMarkSelected:[[components objectAtIndex:1] floatValue]];
+    [delegate didBookMarkSelected:[components[1] floatValue]];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,7 +82,7 @@
         bookmarks = [marray mutableCopy];
         bookMarksArray = [marray mutableCopy];
         [tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         [tableView endUpdates];
         [userDefs setObject:bookmarks forKey:[NSString stringWithFormat:@"bookmarks_%@",bookID]];
         [userDefs synchronize];

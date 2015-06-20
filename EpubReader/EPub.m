@@ -14,7 +14,7 @@
 @interface EPub()
 
 - (void) parseEpub;
-- (NSString*) parseManifestFile;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *parseManifestFile;
 - (void) parseOPF:(NSString*)opfPath;
 
 @end
@@ -27,7 +27,7 @@
 
 @synthesize spineArray;
 
-- (id) initWithEPubPath:(NSString *)path{
+- (instancetype) initWithEPubPath:(NSString *)path{
 	if((self=[super init])){
 		epubFilePath = [path retain];
 		spineArray = [[NSMutableArray alloc] init];
@@ -67,7 +67,7 @@
     int i=0;
     NSString* dictStoreValue=[NSString stringWithFormat:@"valueDict%d",i];
 	CXMLDocument* opfFile = [[CXMLDocument alloc] initWithContentsOfURL:[NSURL fileURLWithPath:opfPath] options:0 error:nil];
-	NSArray* itemsArray = [opfFile nodesForXPath:@"//opf:item" namespaceMappings:[NSDictionary dictionaryWithObject:@"http://www.idpf.org/2007/opf" forKey:@"opf"] error:nil];
+	NSArray* itemsArray = [opfFile nodesForXPath:@"//opf:item" namespaceMappings:@{@"opf": @"http://www.idpf.org/2007/opf"} error:nil];
 //	NSLog(@"itemsArray size: %d", [itemsArray count]);
     
     NSString* ncxFileName;
@@ -95,16 +95,16 @@
 //        NSString* href = [[element attributeForName:@"href"] stringValue];
 //        
         NSString* attrOfContent=@"//ncx:content[@src]";
-        NSArray* tmpNavPoints = [ncxToc nodesForXPath:attrOfContent namespaceMappings:[NSDictionary dictionaryWithObject:@"http://www.daisy.org/z3986/2005/ncx/" forKey:@"ncx"] error:nil];
+        NSArray* tmpNavPoints = [ncxToc nodesForXPath:attrOfContent namespaceMappings:@{@"ncx": @"http://www.daisy.org/z3986/2005/ncx/"} error:nil];
     NSString *valueOfContent=nil;
         for (CXMLElement *element in tmpNavPoints) {
             valueOfContent=[[element attributeForName:@"src"]stringValue];
 //            NSLog(@"elements:%@",valueOfContent);
         
         NSString* xpath = [NSString stringWithFormat:@"//ncx:content[@src='%@']/../ncx:navLabel/ncx:text", valueOfContent];
-        NSArray* navPoints = [ncxToc nodesForXPath:xpath namespaceMappings:[NSDictionary dictionaryWithObject:@"http://www.daisy.org/z3986/2005/ncx/" forKey:@"ncx"] error:nil];
+        NSArray* navPoints = [ncxToc nodesForXPath:xpath namespaceMappings:@{@"ncx": @"http://www.daisy.org/z3986/2005/ncx/"} error:nil];
         if([navPoints count]!=0){
-            CXMLElement* titleElement = [navPoints objectAtIndex:0];
+            CXMLElement* titleElement = navPoints[0];
 //            NSLog(@"Title:%@",[titleElement stringValue]);
             dictStoreValue=[NSString stringWithFormat:@"valueDict%d",i];
             [titleDictionary setValue:[titleElement stringValue] forKey:dictStoreValue];
@@ -113,7 +113,7 @@
     }
     i=0;
 	
-	NSArray* itemRefsArray = [opfFile nodesForXPath:@"//opf:itemref" namespaceMappings:[NSDictionary dictionaryWithObject:@"http://www.idpf.org/2007/opf" forKey:@"opf"] error:nil];
+	NSArray* itemRefsArray = [opfFile nodesForXPath:@"//opf:itemref" namespaceMappings:@{@"opf": @"http://www.idpf.org/2007/opf"} error:nil];
 //	NSLog(@"itemRefsArray size: %d", [itemRefsArray count]);
 	NSMutableArray* tmpArray = [[NSMutableArray alloc] init];
     int count = 0;

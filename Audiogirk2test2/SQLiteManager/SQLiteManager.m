@@ -8,15 +8,17 @@
 
 #import "SQLiteManager.h"
 
+
 // Private methods
 @interface SQLiteManager (Private)
 
-- (NSString *)getDatabasePath;
+@property (NS_NONATOMIC_IOSONLY, getter=getDatabasePath, readonly, copy) NSString *databasePath;
 - (NSError *)createDBErrorWithDescription:(NSString*)description andCode:(int)code;
 
 @end
 
-
+static dispatch_once_t predicate;
+static SQLiteManager *dbManager;
 
 @implementation SQLiteManager
 
@@ -31,13 +33,21 @@
  * @return the SQLiteManager object initialised.
  */
 
-- (id)initWithDatabaseNamed:(NSString *)name {
+- (instancetype)initWithDatabaseNamed:(NSString *)name {
 	self = [super init];
 	if (self != nil) {
 		databaseName = [[NSString alloc] initWithString:name];
 		db = nil;
 	}
 	return self;
+}
+
++ (SQLiteManager*) sharedDBManager{
+    dispatch_once(&predicate, ^{
+        dbManager = [[self alloc] initWithDatabaseNamed:@"audioBooks1.sqlite"];
+        [dbManager createEditableCopyOfDatabaseIfNeeded:@"audioBooks1.sqlite"];
+    });
+    return dbManager;
 }
 
 #pragma mark SQLite Operations
@@ -61,7 +71,7 @@
 	int result = sqlite3_open(dbpath, &db);
 	if (result != SQLITE_OK) {
         const char *errorMsg = sqlite3_errmsg(db);
-        NSString *errorStr = [NSString stringWithFormat:@"The database could not be opened: %@",[NSString stringWithCString:errorMsg encoding:NSUTF8StringEncoding]];
+        NSString *errorStr = [NSString stringWithFormat:@"The database could not be opened: %@",@(errorMsg)];
         error = [self createDBErrorWithDescription:errorStr	andCode:kDBFailAtOpen];
 	}
 	
@@ -96,7 +106,7 @@
 		
 		if (sqlite3_step(statement) == SQLITE_ERROR) {
 			const char *errorMsg = sqlite3_errmsg(db);
-			errorQuery = [self createDBErrorWithDescription:[NSString stringWithCString:errorMsg encoding:NSUTF8StringEncoding]
+			errorQuery = [self createDBErrorWithDescription:@(errorMsg)
 													andCode:kDBErrorQuery];
 		}
 		sqlite3_finalize(statement);
@@ -162,7 +172,7 @@
 		
 		if (sqlite3_step(statement) == SQLITE_ERROR) {
 			const char *errorMsg = sqlite3_errmsg(db);
-			errorQuery = [self createDBErrorWithDescription:[NSString stringWithCString:errorMsg encoding:NSUTF8StringEncoding]
+			errorQuery = [self createDBErrorWithDescription:@(errorMsg)
 													andCode:kDBErrorQuery];
 		}
 		sqlite3_finalize(statement);
@@ -230,7 +240,7 @@
 	
 	if (returnCode == SQLITE_ERROR) {
 		const char *errorMsg = sqlite3_errmsg(db);
-		NSError *errorQuery = [self createDBErrorWithDescription:[NSString stringWithCString:errorMsg encoding:NSUTF8StringEncoding]
+		NSError *errorQuery = [self createDBErrorWithDescription:@(errorMsg)
                                                          andCode:kDBErrorQuery];
 		NSLog(@"%@", errorQuery);
 	}
@@ -242,7 +252,7 @@
 		for (int i = 0; i<columns; i++) {
 			const char *name = sqlite3_column_name(statement, i);
             
-			NSString *columnName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+			NSString *columnName = @(name);
 			
 			int type = sqlite3_column_type(statement, i);
 			
@@ -250,19 +260,19 @@
 				case SQLITE_INTEGER:
 				{
 					int value = sqlite3_column_int(statement, i);
-					[result setObject:[NSNumber numberWithInt:value] forKey:columnName];
+					result[columnName] = @(value);
 					break;
 				}
 				case SQLITE_FLOAT:
 				{
 					float value = sqlite3_column_double(statement, i);
-					[result setObject:[NSNumber numberWithFloat:value] forKey:columnName];
+					result[columnName] = @(value);
 					break;
 				}
 				case SQLITE_TEXT:
 				{
 					const char *value = (const char*)sqlite3_column_text(statement, i);
-					[result setObject:[NSString stringWithCString:value encoding:NSUTF8StringEncoding] forKey:columnName];
+					result[columnName] = @(value);
 					break;
 				}
                     
@@ -272,20 +282,20 @@
                     if (bytes > 0) {
                         const void *blob = sqlite3_column_blob(statement, i);
                         if (blob != NULL) {
-                            [result setObject:[NSData dataWithBytes:blob length:bytes] forKey:columnName];
+                            result[columnName] = [NSData dataWithBytes:blob length:bytes];
                         }
                     }
 					break;
                 }
                     
 				case SQLITE_NULL:
-					[result setObject:[NSNull null] forKey:columnName];
+					result[columnName] = [NSNull null];
 					break;
                     
 				default:
 				{
 					const char *value = (const char *)sqlite3_column_text(statement, i);
-					[result setObject:[NSString stringWithCString:value encoding:NSUTF8StringEncoding] forKey:columnName];
+					result[columnName] = @(value);
 					break;
 				}
                     
@@ -320,7 +330,7 @@
 	if (db != nil) {
 		if (sqlite3_close(db) != SQLITE_OK){
 			const char *errorMsg = sqlite3_errmsg(db);
-			NSString *errorStr = [NSString stringWithFormat:@"The database could not be closed: %@",[NSString stringWithCString:errorMsg encoding:NSUTF8StringEncoding]];
+			NSString *errorStr = [NSString stringWithFormat:@"The database could not be closed: %@",@(errorMsg)];
 			error = [self createDBErrorWithDescription:errorStr andCode:kDBFailAtClose];
 		}
 		
@@ -363,19 +373,19 @@
 	//loop through all tables
 	for (int i = 0; i<[rows count]; i++) {
 		
-		NSDictionary *obj = [rows objectAtIndex:i];
+		NSDictionary *obj = rows[i];
 		//get sql "create table" sentence
-		NSString *sql = [obj objectForKey:@"sql"];
+		NSString *sql = obj[@"sql"];
 		[dump appendString:[NSString stringWithFormat:@"%@;\n",sql]];
         
 		//get table name
-		NSString *tableName = [obj objectForKey:@"name"];
+		NSString *tableName = obj[@"name"];
         
 		//get all table content
 		NSArray *tableContent = [self getRowsForQuery:[NSString stringWithFormat:@"SELECT * FROM %@",tableName]];
 		
 		for (int j = 0; j<[tableContent count]; j++) {
-			NSDictionary *item = [tableContent objectAtIndex:j];
+			NSDictionary *item = tableContent[j];
 			
 			//keys are column names
 			NSArray *keys = [item allKeys];
@@ -441,7 +451,7 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:dbNameToCopy];
     //NSLog(@"writablePath = %@",writableDBPath);
     
@@ -486,7 +496,7 @@
 	} else {
         // Get the documents directory
         NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docsDir = [dirPaths objectAtIndex:0];
+        NSString *docsDir = dirPaths[0];
         
         return [docsDir stringByAppendingPathComponent:databaseName];
 	}
@@ -504,7 +514,7 @@
 
 - (NSError *)createDBErrorWithDescription:(NSString*)description andCode:(int)code {
 	
-	NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:description, NSLocalizedDescriptionKey, nil];
+	NSDictionary *userInfo = @{NSLocalizedDescriptionKey: description};
 	NSError *error = [NSError errorWithDomain:@"SQLite Error" code:code userInfo:userInfo];
 	
 	return error;

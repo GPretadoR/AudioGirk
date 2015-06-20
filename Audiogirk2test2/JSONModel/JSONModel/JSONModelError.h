@@ -65,39 +65,39 @@ extern NSString* const kJSONModelKeyPath;
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
  */
-+(id)errorInvalidDataWithMessage:(NSString*)message;
++(instancetype)errorInvalidDataWithMessage:(NSString*)message;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
  * @param keys a set of field names that were required, but not found in the input
  */
-+(id)errorInvalidDataWithMissingKeys:(NSSet*)keys;
++(instancetype)errorInvalidDataWithMissingKeys:(NSSet*)keys;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorInvalidData = 1
  * @param A description of the type mismatch that was encountered.
  */
-+(id)errorInvalidDataWithTypeMismatch:(NSString*)mismatchDescription;
++(instancetype)errorInvalidDataWithTypeMismatch:(NSString*)mismatchDescription;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorBadResponse = 2
  */
-+(id)errorBadResponse;
++(instancetype)errorBadResponse;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorBadJSON = 3
  */
-+(id)errorBadJSON;
++(instancetype)errorBadJSON;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorModelIsInvalid = 4
  */
-+(id)errorModelIsInvalid;
++(instancetype)errorModelIsInvalid;
 
 /**
  * Creates a JSONModelError instance with code kJSONModelErrorNilInput = 5
  */
-+(id)errorInputIsNil;
++(instancetype)errorInputIsNil;
 
 /**
  * Creates a new JSONModelError with the same values plus information about the key-path of the error.

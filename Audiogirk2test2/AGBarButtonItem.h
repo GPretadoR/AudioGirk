@@ -11,7 +11,7 @@
 @interface AGBarButtonItem : UIBarButtonItem {
     UIButton *button;
 }
-- (id)initWithImage:(UIImage *)image;
-- (id)initWithImage:(UIImage *)image target:(id)target action:(SEL)action;
+- (instancetype)initWithImage:(UIImage *)image NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithImage:(UIImage *)image target:(id)target action:(SEL)action NS_DESIGNATED_INITIALIZER;
 
 @end

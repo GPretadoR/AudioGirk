@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "BookItemsModel.h"
 
+UIKIT_EXTERN NSString *const didCompleteDownloadNotification;
+
 @interface Downloader : NSObject
+
+
 
 @property (nonatomic, retain) NSString *downloadBookFormat;
 @property (nonatomic, retain) NSDictionary *downloadedDictionary;
-@property (nonatomic, strong) BookItemsObject *bookItemsObject;
 
-- (void) downloadFileAtPath:(NSString*)path ;
+
++ (void) downloadFileAtPath:(NSString*)path withBookItemsObject:(BookItemsObject*) bookItemsObject;
 @end

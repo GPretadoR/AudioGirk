@@ -8,11 +8,13 @@
 
 #import "DecriptionViewController.h"
 #import "AppDelegate.h"
-#import "Downloader.h"
+
 #import "SQLiteManager/SQLiteManager.h"
+
 #import "Utils.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "RentIAPHelper.h"
 
 @interface DecriptionViewController ()
 
@@ -21,7 +23,6 @@
 @implementation DecriptionViewController {
 
     NSString* downloadURL;
-    Downloader* downloader;
     SQLiteManager *dbManager;
     NSMutableArray *myBooksItems;
     UITapGestureRecognizer *tapBehindGesture;
@@ -40,12 +41,11 @@
 @synthesize bookItemObject;
 @synthesize bannerItemObject;
 @synthesize delegate;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        downloader = [[Downloader alloc]init];
         
     }
     return self;
@@ -79,9 +79,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    dbManager=[[SQLiteManager alloc]initWithDatabaseNamed:@"audioBooks1.sqlite"];
+    dbManager=[SQLiteManager sharedDBManager];
     [dbManager getDatabaseDump];
-    [downloadButton addTarget:self action:@selector(downloadTheBook) forControlEvents:UIControlEventTouchUpInside];
+    [downloadButton addTarget:self action:@selector(getTheBook) forControlEvents:UIControlEventTouchUpInside];
     
     if(!tapBehindGesture) {
         tapBehindGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBehindDetected:)];
@@ -124,7 +124,7 @@
 }
 - (void) setupAudioViewWithDirName:(NSString*)filename{
     
-    NSString *path = [NSString stringWithFormat:@"http://hd.am/book_files/sample_audio/%@/prog_index.m3u8",filename];
+    NSString *path = [NSString stringWithFormat:@"http://109.68.124.16/book_files/sample_audio/%@/prog_index.m3u8",filename];
     NSURL *streamURL = [NSURL URLWithString:path];
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self
@@ -166,23 +166,23 @@
     
     NSString *sqlStr = [NSString stringWithFormat:@"select * from 'myBooks'"];
     myBooksItems=[NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
-    downloader.bookItemsObject = bookItemObject;
+
     
     if ([myBooksItems count] == 0) {
         return;
     }
     NSDictionary *bookDict;
     for (int i = 0; i < [myBooksItems count]; i++) {
-        bookDict = [myBooksItems objectAtIndex:i];
-        if ([[bookDict objectForKey:@"bookID"] intValue] == [bookItemObject.id intValue]) {
+        bookDict = myBooksItems[i];
+        if ([bookDict[@"bookID"] intValue] == [bookItemObject.id intValue]) {
             [downloadButton setTitle:@"Open" forState:UIControlStateNormal];
-            [downloadButton removeTarget:self action:@selector(downloadTheBook) forControlEvents:UIControlEventTouchUpInside];
+            [downloadButton removeTarget:self action:@selector(getTheBook) forControlEvents:UIControlEventTouchUpInside];
             [downloadButton addTarget:self action:@selector(openBook) forControlEvents:UIControlEventTouchUpInside];
             [sampleButton removeFromSuperview];
         }else {
             [downloadButton setTitle:@"Rent" forState:UIControlStateNormal];
             [downloadButton removeTarget:self action:@selector(openBook) forControlEvents:UIControlEventTouchUpInside];
-            [downloadButton addTarget:self action:@selector(downloadTheBook) forControlEvents:UIControlEventTouchUpInside];
+            [downloadButton addTarget:self action:@selector(getTheBook) forControlEvents:UIControlEventTouchUpInside];
             if (![sampleButton isDescendantOfView:self.view]) {
                 [self.view addSubview:sampleButton];
             }
@@ -238,34 +238,14 @@
 - (IBAction)likeButtonPressed:(id)sender {
 }
 
-- (IBAction)sampleBookButtonPressed:(id)sender {
-    buttonTag = [sender tag];
-    [self startDownload];
-}
-- (void)downloadTheBook {
-    buttonTag = downloadButton.tag;
-    [self startDownload];
-}
-- (void) startDownload{
-    [self checkSampleOrFull];
-    [downloader downloadFileAtPath:downloadURL];
-}
-- (void) checkSampleOrFull{
+
+- (void)getTheBook {
+
+    [RentIAPHelper setBookItemsObject:bookItemObject];
+    [[RentIAPHelper sharedInstance] rentProductWithIdentifier:@"com.testAppId.audio.3monthlyrage"];
     
-    NSString *type = @"";
-    if (buttonTag == 1) {
-        type = @"sample_";
-    }else if (buttonTag == 2){
-        type = @"";
-    }
-    [self urlFormerWithType:type];
-}
 
-- (NSString*) urlFormerWithType:(NSString*) type{
-    downloadURL = [NSString stringWithFormat:@"http://109.68.124.16/book_files/%@%@/%@.zip",type,bookItemObject.format, bookItemObject.id];
-    return downloadURL;
 }
-
 - (void)tapBehindDetected:(UITapGestureRecognizer *)sender
 {
     

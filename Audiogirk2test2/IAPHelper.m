@@ -7,10 +7,14 @@
 //
 
 #import "IAPHelper.h"
-#import "VerificationController.h"
 
+#import "RentalLogicManager.h"
+#import "SandboxReceiptValidationStore.h"
+#import "SVProgressHUD.h"
+
+BookItemsObject* bookItemObject;
 // Declaration of a notification we'll use to notify listeners when a product has been purchased
-NSString *const IAPHelperProductPurchasedNotification;
+NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
 
 @implementation IAPHelper {
 
@@ -20,14 +24,23 @@ NSString *const IAPHelperProductPurchasedNotification;
     NSMutableSet * _purchasedProductIdentifiers;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)rentProductWithIdentifier:(NSString *) productIdentifier{
-    NSLog(@"User requests to remove ads");
     
     if([SKPaymentQueue canMakePayments]){
         NSLog(@"User can make payments");
         SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:productIdentifier]];
         productsRequest.delegate = self;
         [productsRequest start];
+        [SVProgressHUD showWithStatus:@"Please Wait..."];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"User cannot make payments probably due to parental controls" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -49,6 +62,18 @@ NSString *const IAPHelperProductPurchasedNotification;
     //this is called when the user restores purchases, you should hook this up to a button
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
+#pragma mark BookItemsObject set get
++ (BookItemsObject*) getBookItemsObject{
+    return bookItemObject;
+}
+
++ (void)setBookItemsObject:(BookItemsObject*) theBookItemObject {
+    if (theBookItemObject != bookItemObject) {
+        bookItemObject = theBookItemObject;
+    }
+}
+
+
 #pragma mark - SKProductsRequestDelegate
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
@@ -56,7 +81,7 @@ NSString *const IAPHelperProductPurchasedNotification;
     SKProduct *validProduct = nil;
     NSUInteger count = [response.products count];
     if(count > 0){
-        validProduct = [response.products objectAtIndex:0];
+        validProduct = (response.products)[0];
         NSLog(@"Products Available!");
         [self purchase:validProduct];
     }
@@ -68,17 +93,13 @@ NSString *const IAPHelperProductPurchasedNotification;
 
 - (void)request:(SKRequest *)request didFailWithError:(NSError *)error
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Failed to load list of products."
-                                                      message:nil
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    [message show];
     NSLog(@"Failed to load list of products.");
+    [SVProgressHUD showErrorWithStatus:@"Failed to load list of products."];
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
+    [SVProgressHUD dismiss];
     for (SKPaymentTransaction *transaction in transactions) {
         switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchased:
@@ -94,21 +115,30 @@ NSString *const IAPHelperProductPurchasedNotification;
         }
     };
 }
-
+-(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue{
+    if (queue.transactions.count == 0)
+    {
+        //No item found for Restore"
+        [SVProgressHUD showWithStatus:@"No items to restore"];
+    }
+    else
+    {
+        // Restore items
+        for (int i = 0; i < queue.transactions.count; i++) {
+            [self performSelectorOnMainThread:@selector(restoreCompletedTransactions:) withObject:queue.transactions[i] waitUntilDone:YES];
+        }
+     
+    }
+    
+}
+-(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error{
+    [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Error restoring /n %@", [error localizedDescription]]];
+}
 // called when the transaction was successful
 - (void)completeTransaction:(SKPaymentTransaction *)transaction
 {
     NSLog(@"completeTransaction...");
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Rent successfully!"
-                                                      message:@"Thank you for your purchase. Enjoy!"
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    [message show];
-    
-    [self validateReceiptForTransaction:transaction];
-
+    [self validateReceiptForTransaction:transaction isSuccess:[[[SandboxReceiptValidationStore alloc] init] successfullyVerified]];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
@@ -116,15 +146,8 @@ NSString *const IAPHelperProductPurchasedNotification;
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction
 {
     NSLog(@"restoreTransaction...");
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Restored successfully!"
-                                                      message:@"Enjoy!"
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    [message show];
-    
-    [self validateReceiptForTransaction:transaction];
+
+    [self validateReceiptForTransaction:transaction isSuccess:[[[SandboxReceiptValidationStore alloc] init] successfullyVerified]];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
@@ -153,7 +176,7 @@ NSString *const IAPHelperProductPurchasedNotification;
 {
     NSLog(@"provideContentForProductIdentifier");
     
-    [_purchasedProductIdentifiers addObject:productIdentifier];
+    [RentalLogicManager checkUpdateOrDownload:bookItemObject];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification
                                                         object:productIdentifier
@@ -161,17 +184,18 @@ NSString *const IAPHelperProductPurchasedNotification;
 }
 
 
-- (void)validateReceiptForTransaction:(SKPaymentTransaction *)transaction {
-    VerificationController * verifier = [VerificationController sharedInstance];
-    [verifier verifyPurchase:transaction completionHandler:^(BOOL success) {
-        if (success) {
-            NSLog(@"Successfully verified receipt!");
-            [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
-        } else {
-            NSLog(@"Failed to validate receipt.");
-            [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-        }
-    }];
+- (void)validateReceiptForTransaction:(SKPaymentTransaction *)transaction isSuccess:(BOOL) success {
+
+    if (success){
+        [SVProgressHUD showSuccessWithStatus:@"Successfully Completed!"];
+        [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
+    } else {
+        [SVProgressHUD showErrorWithStatus:@"Failed to validate receipt"];
+        NSLog(@"Failed to validate receipt.");
+        [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+    }
+
+
 }
 
 

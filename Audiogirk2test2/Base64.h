@@ -37,7 +37,7 @@
 
 + (NSData *)dataWithBase64EncodedString:(NSString *)string;
 - (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
-- (NSString *)base64EncodedString;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *base64EncodedString;
 
 @end
 
@@ -46,8 +46,8 @@
 
 + (NSString *)stringWithBase64EncodedString:(NSString *)string;
 - (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
-- (NSString *)base64EncodedString;
-- (NSString *)base64DecodedString;
-- (NSData *)base64DecodedData;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *base64EncodedString;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *base64DecodedString;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSData *base64DecodedData;
 
 @end

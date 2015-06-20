@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) CGFloat constrainedSize;
 
-- (id)initWithViewController:(UIViewController*)controller constrained:(CGFloat)constrainedSize;
+- (instancetype)initWithViewController:(UIViewController*)controller constrained:(CGFloat)constrainedSize NS_DESIGNATED_INITIALIZER;
 
 - (void)shrinkSide;
 - (void)shrinkSideAnimated:(BOOL)animated;

@@ -24,16 +24,17 @@ enum errorCodes {
 	NSString *databaseName; // The database name
 }
 - (void)createEditableCopyOfDatabaseIfNeeded:(NSString*)dbNameToCopy;
-- (id)initWithDatabaseNamed:(NSString *)name;
+- (instancetype)initWithDatabaseNamed:(NSString *)name NS_DESIGNATED_INITIALIZER;
++ (SQLiteManager*) sharedDBManager;
 
 // SQLite Operations
-- (NSError *) openDatabase;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSError *openDatabase;
 - (NSError *) doQuery:(NSString *)sql;
 - (NSError *) doUpdateQuery:(NSString *)sql withParams:(NSArray *)params;
 - (NSArray *) getRowsForQuery:(NSString *)sql;
-- (NSError *) closeDatabase;
-- (NSInteger) getLastInsertRowID;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSError *closeDatabase;
+@property (NS_NONATOMIC_IOSONLY, getter=getLastInsertRowID, readonly) NSInteger lastInsertRowID;
 
-- (NSString *)getDatabaseDump;
+@property (NS_NONATOMIC_IOSONLY, getter=getDatabaseDump, readonly, copy) NSString *databaseDump;
 
 @end

@@ -34,13 +34,13 @@
 @interface NSString (HTML)
 
 // Instance Methods
-- (NSString *)stringByConvertingHTMLToPlainText;
-- (NSString *)stringByDecodingHTMLEntities;
-- (NSString *)stringByEncodingHTMLEntities;
-- (NSString *)stringWithNewLinesAsBRs;
-- (NSString *)stringByRemovingNewLinesAndWhitespace;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringByConvertingHTMLToPlainText;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringByDecodingHTMLEntities;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringByEncodingHTMLEntities;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringWithNewLinesAsBRs;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringByRemovingNewLinesAndWhitespace;
 
 // DEPRECIATED - Please use NSString stringByConvertingHTMLToPlainText
-- (NSString *)stringByStrippingTags; 
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *stringByStrippingTags; 
 
 @end

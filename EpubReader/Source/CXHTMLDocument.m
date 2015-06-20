@@ -54,7 +54,7 @@
 // Differs from initWithXMLString by using libXML's HTML parser, which automatically decodes XHTML/HTML entities found within the document
 // which eliminates the need to resanitize strings extracted from the document
 // libXML treats a htmlDocPtr the same as xmlDocPtr
-- (id)initWithXHTMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithXHTMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
 {
 #pragma unused (inOptions)
 	if ((self = [super init]) != NULL)
@@ -97,9 +97,7 @@
 		{
 			xmlErrorPtr theLastErrorPtr = xmlGetLastError();
 			
-			NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-																	 theLastErrorPtr ? [NSString stringWithUTF8String:theLastErrorPtr->message] : @"unknown", NSLocalizedDescriptionKey,
-																	 NULL];
+			NSDictionary *theUserInfo = @{NSLocalizedDescriptionKey: theLastErrorPtr ? @(theLastErrorPtr->message) : @"unknown"};
 			
 			theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
 			
@@ -118,7 +116,7 @@
 	return(self);
 }
 
-- (id)initWithXHTMLData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
+- (instancetype)initWithXHTMLData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
 {
 #pragma unused (inOptions)
   if ((self = [super init]) != NULL)

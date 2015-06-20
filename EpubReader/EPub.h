@@ -17,7 +17,7 @@
 
 @property(nonatomic, retain) NSArray* spineArray;
 
-- (id) initWithEPubPath:(NSString*)path;
+- (instancetype) initWithEPubPath:(NSString*)path NS_DESIGNATED_INITIALIZER;
 
 
 @end

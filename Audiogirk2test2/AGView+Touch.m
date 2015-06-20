@@ -12,7 +12,7 @@
 
 
 
-- (id)initWithFrame:(CGRect)frame selector:(SEL)selectr withObject:(id)object andTarget:(id)target fromInstance:(id)theInstance {
+- (instancetype)initWithFrame:(CGRect)frame selector:(SEL)selectr withObject:(id)object andTarget:(id)target fromInstance:(id)theInstance {
 
     self = [super initWithFrame:frame];
     if (self) {

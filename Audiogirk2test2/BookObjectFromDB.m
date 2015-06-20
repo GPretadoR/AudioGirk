@@ -53,16 +53,16 @@ static BookObjectFromDB *bookObjectFromDB;
 - (void) dictionaryToObject:(NSArray*) array{
 
     for (NSDictionary *dict in array) {
-        self.id = [dict objectForKey:@"id"];
-        _bookID  = [dict objectForKey:@"bookID"];
-        _bookImageName = [dict objectForKey:@"bookImageName"];
-        _bookName = [dict objectForKey:@"bookName"];
-        _bookAuthor = [dict objectForKey:@"bookAuthor"];
-        _audioDuration = [dict objectForKey:@"audioDuration"];
-        _audioNarrator = [dict objectForKey:@"audioNarrator"];
-        _bookFileName = [dict objectForKey:@"bookFileName"];
-        _format = [dict objectForKey:@"format"];
-        _expireDate = [dict objectForKey:@"expireDate"];
+        self.id = dict[@"id"];
+        _bookID  = dict[@"bookID"];
+        _bookImageName = dict[@"bookImageName"];
+        _bookName = dict[@"bookName"];
+        _bookAuthorName = dict[@"bookAuthorName"];
+        _audioDuration = dict[@"audioDuration"];
+        _audioNarrator = dict[@"audioNarrator"];
+        _bookFileName = dict[@"bookFileName"];
+        _format = dict[@"format"];
+        _expireDate = dict[@"expireDate"];
     }
 }
 

@@ -94,7 +94,7 @@
 }
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -134,7 +134,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     StoreCollectionViewCell *cell = (StoreCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"myCellIdentifier" forIndexPath:indexPath];
-    [cell.stImageView setImageWithURL:[NSURL URLWithString:[[itemItems objectAtIndex:indexPath.row] objectForKey:@"image_url"]]];
+    [cell.stImageView setImageWithURL:[NSURL URLWithString:itemItems[indexPath.row][@"image_url"]]];
     
     return cell;
 }

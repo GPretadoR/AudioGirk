@@ -34,7 +34,7 @@
 
 @implementation CXMLNode (CXMLNode_PrivateExtensions)
 
-- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc
+- (instancetype)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc
 {
 if (inLibXMLNode == NULL)
 	return nil;
@@ -47,7 +47,7 @@ if ((self = [super init]) != NULL)
 return(self);
 }
 
-+ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc
++ (instancetype)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc
 {
 // TODO more checking.
 if (inLibXMLNode == NULL)

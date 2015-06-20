@@ -102,7 +102,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     }
 }
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {
@@ -125,7 +125,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     return objModel;
 }
 
--(id)initWithString:(NSString*)string error:(JSONModelError**)err
+-(instancetype)initWithString:(NSString*)string error:(JSONModelError**)err
 {
     JSONModelError* initError = nil;
     id objModel = [self initWithString:string usingEncoding:NSUTF8StringEncoding error:&initError];
@@ -133,7 +133,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     return objModel;
 }
 
--(id)initWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding error:(JSONModelError**)err
+-(instancetype)initWithString:(NSString *)string usingEncoding:(NSStringEncoding)encoding error:(JSONModelError**)err
 {
     //check for nil input
     if (!string) {
@@ -158,7 +158,7 @@ static JSONKeyMapper* globalKeyMapper = nil;
     return objModel;
 }
 
--(id)initWithDictionary:(NSDictionary*)dict error:(NSError**)err
+-(instancetype)initWithDictionary:(NSDictionary*)dict error:(NSError**)err
 {
     //check for nil input
     if (!dict) {

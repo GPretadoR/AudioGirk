@@ -36,7 +36,7 @@ NSString *secret=@",O3?}C6P<F19sY#z";
     NSMutableString *url = [[NSMutableString alloc] initWithCapacity:15];
     
     for (NSString *key in params) {
-        NSString *value = [params objectForKey:key];
+        NSString *value = params[key];
         if (url.length > 0) {
             [url appendString:@"&"];
         }

@@ -30,7 +30,7 @@ static NSDateFormatter *_dateFormatter;
 
 @implementation JSONValueTransformer
 
--(id)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {
@@ -138,7 +138,7 @@ static NSDateFormatter *_dateFormatter;
 #pragma mark - BOOL <-> number/string
 -(NSNumber*)BOOLFromNSNumber:(NSNumber*)number
 {
-    if (isNull(number)) return [NSNumber numberWithBool:NO];
+    if (isNull(number)) return @NO;
     return [NSNumber numberWithBool: number.intValue==0?NO:YES];
 }
 
@@ -147,7 +147,7 @@ static NSDateFormatter *_dateFormatter;
     if (string != nil && 
         ([string caseInsensitiveCompare:@"true"] == NSOrderedSame ||
         [string caseInsensitiveCompare:@"yes"] == NSOrderedSame)) {
-        return [NSNumber numberWithBool:YES];
+        return @YES;
     }
     return [NSNumber numberWithBool: ([string intValue]==0)?NO:YES];
 }
@@ -175,7 +175,7 @@ static NSDateFormatter *_dateFormatter;
 
 -(NSNumber*)NSNumberFromfloat:(float)f
 {
-    return [NSNumber numberWithFloat:f];
+    return @(f);
 }
 
 #pragma mark - string <-> number

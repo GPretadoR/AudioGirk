@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "RentIAPHelper.h"
 
 @interface SettingsViewController ()
 
@@ -14,7 +15,7 @@
 
 @implementation SettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad
 {
+    self.title=@"Settings";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -33,6 +35,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)restorPurchases:(id)sender {
+    
+    [[RentIAPHelper sharedInstance] restoreCompletedTransactions];
+    
 }
 
 @end

@@ -80,7 +80,7 @@ BOOL isScrollPressed=NO;
 
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -121,7 +121,7 @@ BOOL isScrollPressed=NO;
         [parentView1 addSubview:sliderButton];
         UIBarButtonItem *slideBarButtonItem=[[UIBarButtonItem alloc]initWithCustomView:parentView1];
         
-        NSArray *buttonsArray=[[NSArray alloc]initWithObjects:modalButton,slideBarButtonItem,nil];
+        NSArray *buttonsArray=@[modalButton,slideBarButtonItem];
         
         [self.navigationItem setRightBarButtonItems:buttonsArray];
         
@@ -237,7 +237,7 @@ BOOL isScrollPressed=NO;
                                  options:NSJSONReadingMutableContainers
                                  error:nil];
         
-        NSDictionary *jsonDict = [NSDictionary dictionaryWithObjects:@[booksJson[0],bannersJson[0],categoryJson] forKeys:@[@"bookItemsArray",@"bannerItemsArray",@"categoryItemsArray"]];
+        NSDictionary *jsonDict = @{@"bookItemsArray": booksJson[0],@"bannerItemsArray": bannersJson[0],@"categoryItemsArray": categoryJson};
         //4
         dispatch_async(dispatch_get_main_queue(), ^{
             //code executed on the main queue
@@ -393,8 +393,8 @@ BOOL isScrollPressed=NO;
             //            view = [[[NSBundle mainBundle] loadNibNamed:@"View" owner:self options:nil] lastObject];
             if ([bannerItems count]!=0) {
                 //                NSLog(@"JSON:%@",[items objectAtIndex:index]);
-                bannerDict = [bannerItems objectAtIndex:index];
-                bannerItemObj = [bannerItems objectAtIndex:index];
+                bannerDict = bannerItems[index];
+                bannerItemObj = bannerItems[index];
                 
                 NSURL *imageURL=[NSURL URLWithString:bannerItemObj.b_image];
                 view = [[[NSBundle mainBundle] loadNibNamed:@"View" owner:self options:nil] lastObject];
@@ -469,7 +469,7 @@ BOOL isScrollPressed=NO;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     StoreCollectionViewCell *cell = (StoreCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"myCellIdentifier" forIndexPath:indexPath];
-    bookItemObj = [storeItems objectAtIndex:indexPath.row];
+    bookItemObj = storeItems[indexPath.row];
 
     cell.stAuthorName.text = bookItemObj.b_author;
     cell.stBookName.text = bookItemObj.b_name;
@@ -499,7 +499,7 @@ BOOL isScrollPressed=NO;
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"Selected items # %ld",(long)indexPath.row);
-    bookItemObj = [storeItems objectAtIndex:indexPath.row];
+    bookItemObj = storeItems[indexPath.row];
     [self showDescriptions:bookItemObj];
     
 }
@@ -586,7 +586,7 @@ BOOL isScrollPressed=NO;
     BookItemsObject *bio;
     [storeItems removeAllObjects];
     for (int i = 0; i < [objects count]; i++) {
-        bio = [objects objectAtIndex:i];
+        bio = objects[i];
         if ([bio.format isEqualToString:key]) {
             [storeItems addObject:bio];
         }

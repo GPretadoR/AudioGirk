@@ -14,6 +14,6 @@
 	CXMLElement *_parent;
 }
 
-- (id) initWithPrefix:(NSString *)prefix URI:(NSString *)uri parentElement:(CXMLElement *)parent;
+- (instancetype) initWithPrefix:(NSString *)prefix URI:(NSString *)uri parentElement:(CXMLElement *)parent NS_DESIGNATED_INITIALIZER;
 
 @end

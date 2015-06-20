@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *bookID;
 @property (nonatomic, strong) NSString *bookImageName;
 @property (nonatomic, strong) NSString *bookName;
-@property (nonatomic, strong) NSString *bookAuthor;
+@property (nonatomic, strong) NSString *bookAuthorName;
 @property (nonatomic, strong) NSString *audioDuration;
 @property (nonatomic, strong) NSString *audioNarrator;
 @property (nonatomic, strong) NSString *bookFileName;
@@ -24,5 +24,5 @@
 
 + (BookObjectFromDB*) sharedObjectFromArray:(NSArray*)arrayOfDictionary;
 + (BookObjectFromDB*) getBookObjectForDictionary:(NSDictionary*) dictionary;
-- (instancetype)initWithArray:(NSArray*)arrayDict;
+- (instancetype)initWithArray:(NSArray*)arrayDict NS_DESIGNATED_INITIALIZER;
 @end

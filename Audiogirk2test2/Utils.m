@@ -107,13 +107,12 @@ UIView *localView;
 }
 
 + (CGSize)getTextBoundsSize:(NSString*)text font:(UIFont*)font{
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
+    NSDictionary *attributes = @{NSFontAttributeName: font};
     CGSize textSize = [text sizeWithAttributes:attributes];
     return textSize;
 }
 
 + (UIView *)viewToAddOn {
-    
     return localView;
 }
 +(void)setViewToAddOn:(UIView *)view{
@@ -154,7 +153,7 @@ UIView *localView;
  */
 + (NSString *)applicationDocumentsDirectory {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *basePath = ([paths count] > 0) ? paths[0] : nil;
     return basePath;
 }
 /*Function Name : unzipAndSaveFile
