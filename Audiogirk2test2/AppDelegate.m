@@ -14,6 +14,9 @@
 #import "IIWrapController.h"
 #import "RentalLogicManager.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <GoogleSignIn/GoogleSignIn.h>
+
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 
 @implementation AppDelegate {
@@ -77,7 +80,15 @@ BOOL isCreated=FALSE;
     self.window.rootViewController = [[IIWrapController alloc] initWithViewController:deckController];
     [self.window makeKeyAndVisible];
 
-    return YES;
+    
+    if ([FBSDKAccessToken currentAccessToken]) {
+        // User is logged in, do work such as go to next view controller.
+        NSLog(@"token = %@",[FBSDKAccessToken currentAccessToken].userID);
+    }
+
+    
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void) showSolidStatusBar:(BOOL) solidStatusBar
@@ -132,6 +143,7 @@ BOOL isCreated=FALSE;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
     [RentalLogicManager deleteExpiredBooks];
 }
 
@@ -139,5 +151,28 @@ BOOL isCreated=FALSE;
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    BOOL shouldOpen = FALSE;
+    
+    if ([url.scheme hasPrefix:@"fb"]) {
+        shouldOpen = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                    openURL:url
+                                                        sourceApplication:sourceApplication
+                                                               annotation:annotation];
+    }else if ([url.scheme hasPrefix:@"com.google"]){
+        shouldOpen = [[GIDSignIn sharedInstance] handleURL:url
+                                         sourceApplication:sourceApplication
+                                                annotation:annotation];
+    
+    }
+    
+    return shouldOpen;
+}
+
 
 @end
