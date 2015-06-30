@@ -8,10 +8,10 @@
 
 #import "LoginViewController.h"
 #import "FBLoginHelper.h"
-
 #import "GoogleLoginHelper.h"
+#import "TwitterLoginHelper.h"
 
-@interface LoginViewController () <FBLoginHelperDelegate, GoogleLoginHelperDelegate>
+@interface LoginViewController () <FBLoginHelperDelegate, GoogleLoginHelperDelegate, TwitterLoginHelperDelegate>
 
 @end
 
@@ -24,19 +24,20 @@
     [super viewDidLoad];
     [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(500, 100) withPermissions:@[@"email"]];
     [FBLoginHelper sharedHelper].delegate = self;
+    
     [self createButtonInRect:CGRectMake(100, 100, 80, 30) title:@"Login" action:@selector(logOut) backGroundImage:nil highlightImage:nil];
     
     [[GoogleLoginHelper sharedHelper] showDefaultGoogleLoginButtonOnView:self.view atPoint:CGPointMake(100, 200)];
     [GoogleLoginHelper sharedHelper].delegate = self;
     
-    
-    
+    [[TwitterLoginHelper sharedHelper] addTwitterLoginButtonOnView:self.view withOrigin:CGPointMake(350, 400)];
+    [TwitterLoginHelper sharedHelper].delegate = self;
 }
 
 - (UIButton*)createButtonInRect:(CGRect)rect title:(NSString*)title action:(SEL)action backGroundImage:(UIImage*)backgroundImage highlightImage:(UIImage*)highlightImage{
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:[GoogleLoginHelper class]
+    [button addTarget:self
                action:action
      forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:title forState:UIControlStateNormal];
@@ -54,6 +55,7 @@
     [self.view addSubview:imageView];
     return imageView;
 }
+
 
 #pragma FBLoginDelegates
 -(void)fbDidLoginWithUserInfo:(id)result{
@@ -73,12 +75,21 @@
 
 }
 
+#pragma mark
+
+-(void)twitterDidLoginWithDictionary:(NSDictionary *)userInfo{
+
+    NSLog(@"Success login %@", [userInfo objectForKey:@"name"]);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void) logOut{
+    [[TwitterLoginHelper sharedHelper] twitterGuestLogin];
+}
 /*
 #pragma mark - Navigation
 

@@ -16,6 +16,9 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
+
 
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 
@@ -80,11 +83,13 @@ BOOL isCreated=FALSE;
     self.window.rootViewController = [[IIWrapController alloc] initWithViewController:deckController];
     [self.window makeKeyAndVisible];
 
+    [Fabric with:@[TwitterKit]];
     
     if ([FBSDKAccessToken currentAccessToken]) {
         // User is logged in, do work such as go to next view controller.
         NSLog(@"token = %@",[FBSDKAccessToken currentAccessToken].userID);
     }
+
 
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application
