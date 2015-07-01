@@ -33,6 +33,8 @@
     NSInteger buttonTag;
     
     MPMoviePlayerController *streamPlayer;
+    
+    BOOL didLayout;
 }
 
 @synthesize descrImageView,bookName,authorName,timeLabel,description;
@@ -55,6 +57,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self checkBookAvailability];
     [self configureView];
+    [self.view setNeedsLayout];
 
 }
 -(void)viewDidDisappear:(BOOL)animated{
@@ -93,9 +96,29 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+
+- (void) viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [self layout];
+}
+- (void) layout{
+    self.view.superview.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    self.view.superview.layer.cornerRadius = 8.0;
+    self.view.superview.layer.masksToBounds = YES;
+    
+    CGRect screen = self.view.superview.bounds;
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    float x = (screen.size.width - frame.size.width)*.5f;
+    float y = (screen.size.height - frame.size.height)*.5f;
+    frame = CGRectMake(x, y, frame.size.width, frame.size.height);
+    
+    self.view.frame = frame;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+
     // Dispose of any resources that can be recreated.
 }
 #pragma mark Methods
@@ -103,23 +126,29 @@
 - (void) configureView{
     
     if (bookItemObject != nil) {
-        authorName = [self changeFrameOfLabel:authorName andText:bookItemObject.b_author];
-        bookName = [self changeFrameOfLabel:bookName andText:bookItemObject.b_name];
+        authorName.text = bookItemObject.b_author;
+        bookName.text = bookItemObject.b_name;
         timeLabel.text = @"43:59";
         description.text = bookItemObject.b_desc;
         [descrImageView setImageWithURL:[NSURL URLWithString:bookItemObject.b_image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
         
     }else if (bannerItemObject != nil){
-        authorName = [self changeFrameOfLabel:authorName andText:bannerItemObject.b_author];
-        bookName = [self changeFrameOfLabel:bookName andText:bannerItemObject.b_name];
+        authorName.text = bannerItemObject.b_author;
+        bookName.text = bannerItemObject.b_name;
         timeLabel.text = @"43:59";
         description.text = bannerItemObject.b_desc;
         [descrImageView setImageWithURL:[NSURL URLWithString:bannerItemObject.b_image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     }
+    CGRect tmpRect = description.frame;
     if ([bookItemObject.format isEqualToString:@"audio"] || [bookItemObject.format isEqualToString:@"mixed"]) {
-        [self setupAudioViewWithDirName:bookItemObject.id];        
+        [self setupAudioViewWithDirName:bookItemObject.id];
+        tmpRect.origin.y = 300;
+        tmpRect.size.height = 310;
+    }else {
+        tmpRect.origin.y -= 40;
+        tmpRect.size.width += 40;
     }
-        
+    description.frame = tmpRect;
 
 }
 - (void) setupAudioViewWithDirName:(NSString*)filename{
@@ -141,11 +170,11 @@
 
     if (!streamPlayer) {
         streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
-        
         // depending on your implementation your view may not have it's bounds set here
         // in that case consider calling the following 4 msgs later
         [streamPlayer.view setFrame: CGRectMake(20, line.frame.origin.y + 22, line.frame.size.width, 39)];
-        streamPlayer.view.backgroundColor = [UIColor clearColor];
+        streamPlayer.view.backgroundColor = [UIColor redColor];
+        
         
         streamPlayer.controlStyle = MPMovieControlStyleDefault;
         streamPlayer.movieSourceType = MPMovieSourceTypeStreaming;
@@ -153,8 +182,7 @@
         
         [streamPlayer prepareToPlay];
         streamPlayer.shouldAutoplay = NO;
-
-//        [streamPlayer pause];
+    
     }
 
 }
@@ -162,6 +190,7 @@
     
     
 }
+
 - (void) checkBookAvailability{
     
     NSString *sqlStr = [NSString stringWithFormat:@"select * from 'myBooks'"];
@@ -236,6 +265,7 @@
 }
 
 - (IBAction)likeButtonPressed:(id)sender {
+    NSLog(@"current time :%f", [streamPlayer currentPlaybackTime]);
 }
 
 
@@ -243,7 +273,6 @@
 
     [RentIAPHelper setBookItemsObject:bookItemObject];
     [[RentIAPHelper sharedInstance] rentProductWithIdentifier:@"com.testAppId.audio.3monthlyrage"];
-    
 
 }
 - (void)tapBehindDetected:(UITapGestureRecognizer *)sender

@@ -182,6 +182,24 @@
 		80E9EE6F1B3F323600382135 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE6D1B3F323600382135 /* GoogleSignIn.framework */; };
 		80E9EE711B3F38DC00382135 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE701B3F38DC00382135 /* AddressBook.framework */; };
 		80E9EE731B3F3B0C00382135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */; };
+		80E9EE7A1B418CE000382135 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE761B418CE000382135 /* Fabric.framework */; };
+		80E9EE7B1B418CE000382135 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE771B418CE000382135 /* TwitterKit.framework */; };
+		80E9EE7C1B418CE000382135 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE781B418CE000382135 /* TwitterKitResources.bundle */; };
+		80E9EE7D1B418CE000382135 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE791B418CE000382135 /* TwitterCore.framework */; };
+		80E9EE801B418D6400382135 /* TwitterLoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE7F1B418D6400382135 /* TwitterLoginHelper.m */; };
+		80E9EEBA1B42DC1600382135 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEA81B42DC1600382135 /* MZAppearance.m */; };
+		80E9EEBB1B42DC1600382135 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEAA1B42DC1600382135 /* NSInvocation+Copy.m */; };
+		80E9EEBC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEAC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m */; };
+		80E9EEBD1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEAE1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.m */; };
+		80E9EEBE1B42DC1600382135 /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEB01B42DC1600382135 /* MZFormSheetController.m */; };
+		80E9EEBF1B42DC1600382135 /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEB21B42DC1600382135 /* MZFormSheetSegue.m */; };
+		80E9EEC01B42DC1600382135 /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEB51B42DC1600382135 /* MZTransition.m */; };
+		80E9EEC11B42DC1600382135 /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEB71B42DC1600382135 /* UIImage+Additional.m */; };
+		80E9EEC21B42DC1600382135 /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEB91B42DC1600382135 /* UIViewController+TargetViewController.m */; };
+		80E9EED11B44318B00382135 /* closeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EECD1B44318B00382135 /* closeButton.png */; };
+		80E9EED21B44318B00382135 /* likeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EECE1B44318B00382135 /* likeButton.png */; };
+		80E9EED31B44318B00382135 /* rentButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EECF1B44318B00382135 /* rentButton.png */; };
+		80E9EED41B44318B00382135 /* shareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EED01B44318B00382135 /* shareButton.png */; };
 		80EDA17C19B6541A00D9FF62 /* gh.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA17B19B6541A00D9FF62 /* gh.png */; };
 		80EDA18219B6628800D9FF62 /* vv.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18119B6628800D9FF62 /* vv.png */; };
 		80EDA18819BB971300D9FF62 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18619BB971300D9FF62 /* book.png */; };
@@ -474,6 +492,35 @@
 		80E9EE6D1B3F323600382135 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		80E9EE701B3F38DC00382135 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80E9EE761B418CE000382135 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		80E9EE771B418CE000382135 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		80E9EE781B418CE000382135 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		80E9EE791B418CE000382135 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		80E9EE7E1B418D6400382135 /* TwitterLoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterLoginHelper.h; sourceTree = "<group>"; };
+		80E9EE7F1B418D6400382135 /* TwitterLoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterLoginHelper.m; sourceTree = "<group>"; };
+		80E9EEA71B42DC1600382135 /* MZAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAppearance.h; sourceTree = "<group>"; };
+		80E9EEA81B42DC1600382135 /* MZAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAppearance.m; sourceTree = "<group>"; };
+		80E9EEA91B42DC1600382135 /* NSInvocation+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Copy.h"; sourceTree = "<group>"; };
+		80E9EEAA1B42DC1600382135 /* NSInvocation+Copy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Copy.m"; sourceTree = "<group>"; };
+		80E9EEAB1B42DC1600382135 /* MZFormSheetBackgroundWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindow.h; sourceTree = "<group>"; };
+		80E9EEAC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindow.m; sourceTree = "<group>"; };
+		80E9EEAD1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetBackgroundWindowViewController.h; sourceTree = "<group>"; };
+		80E9EEAE1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetBackgroundWindowViewController.m; sourceTree = "<group>"; };
+		80E9EEAF1B42DC1600382135 /* MZFormSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetController.h; sourceTree = "<group>"; };
+		80E9EEB01B42DC1600382135 /* MZFormSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetController.m; sourceTree = "<group>"; };
+		80E9EEB11B42DC1600382135 /* MZFormSheetSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZFormSheetSegue.h; sourceTree = "<group>"; };
+		80E9EEB21B42DC1600382135 /* MZFormSheetSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZFormSheetSegue.m; sourceTree = "<group>"; };
+		80E9EEB31B42DC1600382135 /* MZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZMacro.h; sourceTree = "<group>"; };
+		80E9EEB41B42DC1600382135 /* MZTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTransition.h; sourceTree = "<group>"; };
+		80E9EEB51B42DC1600382135 /* MZTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTransition.m; sourceTree = "<group>"; };
+		80E9EEB61B42DC1600382135 /* UIImage+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additional.h"; sourceTree = "<group>"; };
+		80E9EEB71B42DC1600382135 /* UIImage+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additional.m"; sourceTree = "<group>"; };
+		80E9EEB81B42DC1600382135 /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
+		80E9EEB91B42DC1600382135 /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
+		80E9EECD1B44318B00382135 /* closeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeButton.png; sourceTree = "<group>"; };
+		80E9EECE1B44318B00382135 /* likeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeButton.png; sourceTree = "<group>"; };
+		80E9EECF1B44318B00382135 /* rentButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rentButton.png; sourceTree = "<group>"; };
+		80E9EED01B44318B00382135 /* shareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareButton.png; sourceTree = "<group>"; };
 		80EDA17B19B6541A00D9FF62 /* gh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gh.png; sourceTree = "<group>"; };
 		80EDA18119B6628800D9FF62 /* vv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vv.png; sourceTree = "<group>"; };
 		80EDA18619BB971300D9FF62 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
@@ -496,10 +543,12 @@
 				5092BCBD186B2E9000948930 /* libxml2.2.dylib in Frameworks */,
 				5092BCBB186B2D2E00948930 /* libxml2.dylib in Frameworks */,
 				80E9ED371B3D8C8600382135 /* FBSDKCoreKit.framework in Frameworks */,
+				80E9EE7A1B418CE000382135 /* Fabric.framework in Frameworks */,
 				5092BC011858B2E000948930 /* CFNetwork.framework in Frameworks */,
 				5092BC021858B2E000948930 /* MobileCoreServices.framework in Frameworks */,
 				5092BC031858B2E000948930 /* Security.framework in Frameworks */,
 				80E9EE6F1B3F323600382135 /* GoogleSignIn.framework in Frameworks */,
+				80E9EE7B1B418CE000382135 /* TwitterKit.framework in Frameworks */,
 				5017D37318009D4200056E8F /* QuartzCore.framework in Frameworks */,
 				5017D37118009D1200056E8F /* SDWebImage.framework in Frameworks */,
 				50BBE4C517ECA74700BD039F /* CoreImage.framework in Frameworks */,
@@ -508,6 +557,7 @@
 				50BBE45217EC76A400BD039F /* CoreGraphics.framework in Frameworks */,
 				50BBE45417EC76A400BD039F /* UIKit.framework in Frameworks */,
 				50BBE45017EC76A400BD039F /* Foundation.framework in Frameworks */,
+				80E9EE7D1B418CE000382135 /* TwitterCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +567,7 @@
 		50BBE44317EC76A400BD039F = {
 			isa = PBXGroup;
 			children = (
+				80E9EEA51B42DC1600382135 /* MZFormSheetController */,
 				80AEDCE418F07B6300285B3A /* AFNetworking */,
 				50395270181183DB0074A90C /* ItemRecord.h */,
 				50395271181183DB0074A90C /* ItemRecord.m */,
@@ -542,6 +593,10 @@
 		50BBE44E17EC76A400BD039F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80E9EE761B418CE000382135 /* Fabric.framework */,
+				80E9EE771B418CE000382135 /* TwitterKit.framework */,
+				80E9EE781B418CE000382135 /* TwitterKitResources.bundle */,
+				80E9EE791B418CE000382135 /* TwitterCore.framework */,
 				80E9EE701B3F38DC00382135 /* AddressBook.framework */,
 				80E9EE6C1B3F323600382135 /* GoogleSignIn.bundle */,
 				80E9EE6D1B3F323600382135 /* GoogleSignIn.framework */,
@@ -574,6 +629,7 @@
 		50BBE45517EC76A400BD039F /* Audiogirk2test2 */ = {
 			isa = PBXGroup;
 			children = (
+				80E9EE811B42D55400382135 /* FormSheet */,
 				80E9EE111B3D966000382135 /* AudioPlayer */,
 				50BBE48417EC781600BD039F /* ViewDeck */,
 				50BBE48D17EC781600BD039F /* Images */,
@@ -639,6 +695,10 @@
 		50BBE48D17EC781600BD039F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80E9EECD1B44318B00382135 /* closeButton.png */,
+				80E9EECE1B44318B00382135 /* likeButton.png */,
+				80E9EECF1B44318B00382135 /* rentButton.png */,
+				80E9EED01B44318B00382135 /* shareButton.png */,
 				80E9A0731B2F8EC90051AE79 /* categoriesIcon.png */,
 				80E9A0741B2F8EC90051AE79 /* categoriesIcon@2x.png */,
 				80E9A0751B2F8EC90051AE79 /* downloadedIcon.png */,
@@ -1054,8 +1114,51 @@
 				80E9EE671B3F295500382135 /* GoogleLoginHelper.h */,
 				80E9EE681B3F295500382135 /* GoogleLoginHelper.m */,
 				80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */,
+				80E9EE7E1B418D6400382135 /* TwitterLoginHelper.h */,
+				80E9EE7F1B418D6400382135 /* TwitterLoginHelper.m */,
 			);
 			path = "Social Logins";
+			sourceTree = "<group>";
+		};
+		80E9EE811B42D55400382135 /* FormSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FormSheet;
+			sourceTree = "<group>";
+		};
+		80E9EEA51B42DC1600382135 /* MZFormSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				80E9EEA61B42DC1600382135 /* Additional */,
+				80E9EEAB1B42DC1600382135 /* MZFormSheetBackgroundWindow.h */,
+				80E9EEAC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m */,
+				80E9EEAD1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.h */,
+				80E9EEAE1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.m */,
+				80E9EEAF1B42DC1600382135 /* MZFormSheetController.h */,
+				80E9EEB01B42DC1600382135 /* MZFormSheetController.m */,
+				80E9EEB11B42DC1600382135 /* MZFormSheetSegue.h */,
+				80E9EEB21B42DC1600382135 /* MZFormSheetSegue.m */,
+				80E9EEB31B42DC1600382135 /* MZMacro.h */,
+				80E9EEB41B42DC1600382135 /* MZTransition.h */,
+				80E9EEB51B42DC1600382135 /* MZTransition.m */,
+				80E9EEB61B42DC1600382135 /* UIImage+Additional.h */,
+				80E9EEB71B42DC1600382135 /* UIImage+Additional.m */,
+				80E9EEB81B42DC1600382135 /* UIViewController+TargetViewController.h */,
+				80E9EEB91B42DC1600382135 /* UIViewController+TargetViewController.m */,
+			);
+			path = MZFormSheetController;
+			sourceTree = "<group>";
+		};
+		80E9EEA61B42DC1600382135 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				80E9EEA71B42DC1600382135 /* MZAppearance.h */,
+				80E9EEA81B42DC1600382135 /* MZAppearance.m */,
+				80E9EEA91B42DC1600382135 /* NSInvocation+Copy.h */,
+				80E9EEAA1B42DC1600382135 /* NSInvocation+Copy.m */,
+			);
+			path = Additional;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1068,6 +1171,7 @@
 				50BBE44817EC76A400BD039F /* Sources */,
 				50BBE44917EC76A400BD039F /* Frameworks */,
 				50BBE44A17EC76A400BD039F /* Resources */,
+				80E9EE751B418C9D00382135 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1127,7 +1231,9 @@
 				8031EB4918B74E0E0076C655 /* gmonsoro.png in Resources */,
 				80EDA18919BB971300D9FF62 /* headphone.png in Resources */,
 				80E9EDD61B3D926C00382135 /* BookMarkViewController.xib in Resources */,
+				80E9EED11B44318B00382135 /* closeButton.png in Resources */,
 				80E9A08A1B2F8EC90051AE79 /* wishLIstIcon@2x.png in Resources */,
+				80E9EED41B44318B00382135 /* shareButton.png in Resources */,
 				80EDA18819BB971300D9FF62 /* book.png in Resources */,
 				80E9A0871B2F8EC90051AE79 /* storeIcon.png in Resources */,
 				50BBE49717EC781600BD039F /* done_btn@2x.png in Resources */,
@@ -1143,6 +1249,7 @@
 				80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */,
 				80E9EE4A1B3D977100382135 /* SettingsViewController.xib in Resources */,
 				80E9EE1B1B3D966100382135 /* AudioViewController.xib in Resources */,
+				80E9EE7C1B418CE000382135 /* TwitterKitResources.bundle in Resources */,
 				80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */,
 				50BBE45A17EC76A400BD039F /* InfoPlist.strings in Resources */,
 				80E9EE471B3D977100382135 /* ItemsViewController.xib in Resources */,
@@ -1150,6 +1257,7 @@
 				8031EB4A18B74E0E0076C655 /* gpotter.png in Resources */,
 				80E9EE4D1B3D977100382135 /* View.xib in Resources */,
 				80E9A0841B2F8EC90051AE79 /* mybooksIcon@2x.png in Resources */,
+				80E9EED21B44318B00382135 /* likeButton.png in Resources */,
 				50BBE46317EC76A400BD039F /* Main.storyboard in Resources */,
 				8031EB4D18B74E0E0076C655 /* sorokpyat.png in Resources */,
 				80B99CCF1ACDFC2E00F9325B /* delete.png in Resources */,
@@ -1166,6 +1274,7 @@
 				80EDA18219B6628800D9FF62 /* vv.png in Resources */,
 				80E9A0851B2F8EC90051AE79 /* settingsIcon.png in Resources */,
 				80E9EE451B3D977100382135 /* CategoriesViewController.xib in Resources */,
+				80E9EED31B44318B00382135 /* rentButton.png in Resources */,
 				80E9EE4C1B3D977100382135 /* StoreCollectionViewCell.xib in Resources */,
 				50A890C4180C5F8900BFD32B /* back@2x.png in Resources */,
 				80E9EE4E1B3D977100382135 /* WishListViewController.xib in Resources */,
@@ -1180,11 +1289,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		80E9EE751B418C9D00382135 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run b5092e346e1141a509b8e2724bc31a2a839c0009 9ca2d0c6ce5eae11b14354ac28c1e8f843e73a6d598ba84d600a82bdef961491";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50BBE44817EC76A400BD039F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E9EEBC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m in Sources */,
 				80E9EE041B3D933C00382135 /* Downloader.m in Sources */,
 				80E9EDDA1B3D926C00382135 /* EPub.m in Sources */,
 				80E9EDE51B3D926C00382135 /* ReaderSettingsViewController.m in Sources */,
@@ -1194,11 +1320,14 @@
 				80E9EDE91B3D926C00382135 /* CXMLDocument_CreationExtensions.m in Sources */,
 				80E9ED871B3D918400382135 /* NSString+MD5.m in Sources */,
 				80E9ED8B1B3D918400382135 /* ServerRequest.m in Sources */,
+				80E9EEBF1B42DC1600382135 /* MZFormSheetSegue.m in Sources */,
 				80AEDCF818F07B6300285B3A /* AFHTTPClient.m in Sources */,
 				80E9ED8A1B3D918400382135 /* ServerJSONRequest.m in Sources */,
+				80E9EEBD1B42DC1600382135 /* MZFormSheetBackgroundWindowViewController.m in Sources */,
 				80AEDCFF18F07B6300285B3A /* AFXMLRequestOperation.m in Sources */,
 				80E9ED7E1B3D918400382135 /* JSONHTTPClient.m in Sources */,
 				80E9ED841B3D918400382135 /* BookItemsObject.m in Sources */,
+				80E9EEC11B42DC1600382135 /* UIImage+Additional.m in Sources */,
 				80E9EE531B3D977100382135 /* ItemsViewController.m in Sources */,
 				80E9EE4B1B3D977100382135 /* StoreCollectionViewCell.m in Sources */,
 				80E9EDF11B3D926C00382135 /* CXMLNamespaceNode.m in Sources */,
@@ -1213,8 +1342,10 @@
 				80E9EDEB1B3D926C00382135 /* CXHTMLDocument.m in Sources */,
 				80E9EDF41B3D926C00382135 /* CXMLNode_XPathExtensions.m in Sources */,
 				80E9ED741B3D918400382135 /* AGBarButtonItem.m in Sources */,
+				80E9EEC21B42DC1600382135 /* UIViewController+TargetViewController.m in Sources */,
 				80E9EDD51B3D926C00382135 /* BookMarkViewController.m in Sources */,
 				80E9EE571B3D977100382135 /* StoreViewController.m in Sources */,
+				80E9EE801B418D6400382135 /* TwitterLoginHelper.m in Sources */,
 				80AEDCFD18F07B6300285B3A /* AFPropertyListRequestOperation.m in Sources */,
 				80E9EE1A1B3D966100382135 /* AudioViewController.m in Sources */,
 				80E9EE4F1B3D977100382135 /* AlreadyDownloadedViewController.m in Sources */,
@@ -1248,6 +1379,7 @@
 				80E9EDE71B3D926C00382135 /* ReaderViewController.m in Sources */,
 				80E9EDD91B3D926C00382135 /* Chapter.m in Sources */,
 				80E9EE581B3D977100382135 /* WishListViewController.m in Sources */,
+				80E9EEC01B42DC1600382135 /* MZTransition.m in Sources */,
 				80E9ED771B3D918400382135 /* Base64.m in Sources */,
 				80E9EE521B3D977100382135 /* InfoViewController.m in Sources */,
 				50BBE49917EC781600BD039F /* iCarousel.m in Sources */,
@@ -1260,6 +1392,7 @@
 				80AEDCFE18F07B6300285B3A /* AFURLConnectionOperation.m in Sources */,
 				50BBE49517EC781600BD039F /* IIWrapController.m in Sources */,
 				80E9EE5E1B3D990900382135 /* CreateDB.m in Sources */,
+				80E9EEBA1B42DC1600382135 /* MZAppearance.m in Sources */,
 				80E9EDE21B3D926C00382135 /* MyBooksViewController.m in Sources */,
 				80E9EE061B3D933C00382135 /* RentalLogicManager.m in Sources */,
 				80AEDCFB18F07B6300285B3A /* AFJSONRequestOperation.m in Sources */,
@@ -1272,12 +1405,14 @@
 				80E9EE081B3D933C00382135 /* SandboxReceiptValidationStore.m in Sources */,
 				80E9EDDB1B3D926C00382135 /* EpubContent.m in Sources */,
 				80E9ED7D1B3D918400382135 /* JSONAPI.m in Sources */,
+				80E9EEBB1B42DC1600382135 /* NSInvocation+Copy.m in Sources */,
 				80E9EDEE1B3D926C00382135 /* CXMLElement.m in Sources */,
 				80E9ED881B3D918400382135 /* NSString+urlencode.m in Sources */,
 				80E9EE561B3D977100382135 /* SettingsViewController.m in Sources */,
 				80E9EDEC1B3D926C00382135 /* CXMLDocument.m in Sources */,
 				80E9EDDD1B3D926C00382135 /* ioapi.c in Sources */,
 				80E9EDF71B3D926C00382135 /* XMLHandler.m in Sources */,
+				80E9EEBE1B42DC1600382135 /* MZFormSheetController.m in Sources */,
 				80E9EE431B3D977100382135 /* CategoriesCollectionViewCell.m in Sources */,
 				80E9EE631B3D9ABB00382135 /* LoginViewController.m in Sources */,
 				80E9ED781B3D918400382135 /* JSONModel.m in Sources */,

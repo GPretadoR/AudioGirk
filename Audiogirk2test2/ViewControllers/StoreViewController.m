@@ -137,8 +137,8 @@ BOOL isScrollPressed=NO;
 
 - (void)viewDidLoad
 {
-    LoginViewController *loginView = [[LoginViewController alloc] init];
-    [self.navigationController presentViewController:loginView animated:YES completion:nil];
+//    LoginViewController *loginView = [[LoginViewController alloc] init];
+//    [self.navigationController presentViewController:loginView animated:YES completion:nil];
     
     serverRequest = [[ServerRequest alloc] init];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
@@ -369,8 +369,6 @@ BOOL isScrollPressed=NO;
     self.child = childController;
     [super addChildViewController:childController];
 }
-
-
 
 #pragma mark iCarousel
 
