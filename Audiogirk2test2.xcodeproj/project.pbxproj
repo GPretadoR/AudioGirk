@@ -200,6 +200,8 @@
 		80E9EED21B44318B00382135 /* likeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EECE1B44318B00382135 /* likeButton.png */; };
 		80E9EED31B44318B00382135 /* rentButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EECF1B44318B00382135 /* rentButton.png */; };
 		80E9EED41B44318B00382135 /* shareButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EED01B44318B00382135 /* shareButton.png */; };
+		80E9EEDD1B44648500382135 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EEDC1B44648500382135 /* icon.png */; };
+		80E9EEDF1B4466E800382135 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EEDE1B4466E800382135 /* InfoViewController.xib */; };
 		80EDA17C19B6541A00D9FF62 /* gh.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA17B19B6541A00D9FF62 /* gh.png */; };
 		80EDA18219B6628800D9FF62 /* vv.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18119B6628800D9FF62 /* vv.png */; };
 		80EDA18819BB971300D9FF62 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18619BB971300D9FF62 /* book.png */; };
@@ -521,6 +523,8 @@
 		80E9EECE1B44318B00382135 /* likeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likeButton.png; sourceTree = "<group>"; };
 		80E9EECF1B44318B00382135 /* rentButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rentButton.png; sourceTree = "<group>"; };
 		80E9EED01B44318B00382135 /* shareButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareButton.png; sourceTree = "<group>"; };
+		80E9EEDC1B44648500382135 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		80E9EEDE1B4466E800382135 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		80EDA17B19B6541A00D9FF62 /* gh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gh.png; sourceTree = "<group>"; };
 		80EDA18119B6628800D9FF62 /* vv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vv.png; sourceTree = "<group>"; };
 		80EDA18619BB971300D9FF62 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 		50BBE48D17EC781600BD039F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				80E9EEDC1B44648500382135 /* icon.png */,
 				80E9EECD1B44318B00382135 /* closeButton.png */,
 				80E9EECE1B44318B00382135 /* likeButton.png */,
 				80E9EECF1B44318B00382135 /* rentButton.png */,
@@ -1053,6 +1058,7 @@
 				80E9EE211B3D977100382135 /* CategoriesCollectionViewCell.xib */,
 				80E9EE221B3D977100382135 /* CategoriesViewController.xib */,
 				80E9EE231B3D977100382135 /* DecriptionViewController.xib */,
+				80E9EEDE1B4466E800382135 /* InfoViewController.xib */,
 				80E9EE241B3D977100382135 /* ItemsViewController.xib */,
 				80E9EE251B3D977100382135 /* LeftViewCell.xib */,
 				80E9EE261B3D977100382135 /* LeftViewController.xib */,
@@ -1244,6 +1250,7 @@
 				50BBE49817EC781600BD039F /* menu@2x.png in Resources */,
 				80EDA17C19B6541A00D9FF62 /* gh.png in Resources */,
 				8031EB4B18B74E0E0076C655 /* kmargo.png in Resources */,
+				80E9EEDF1B4466E800382135 /* InfoViewController.xib in Resources */,
 				80E9EDD81B3D926C00382135 /* BookToCViewController.xib in Resources */,
 				80E9EE481B3D977100382135 /* LeftViewCell.xib in Resources */,
 				80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */,
@@ -1273,6 +1280,7 @@
 				80E9EE441B3D977100382135 /* CategoriesCollectionViewCell.xib in Resources */,
 				80EDA18219B6628800D9FF62 /* vv.png in Resources */,
 				80E9A0851B2F8EC90051AE79 /* settingsIcon.png in Resources */,
+				80E9EEDD1B44648500382135 /* icon.png in Resources */,
 				80E9EE451B3D977100382135 /* CategoriesViewController.xib in Resources */,
 				80E9EED31B44318B00382135 /* rentButton.png in Resources */,
 				80E9EE4C1B3D977100382135 /* StoreCollectionViewCell.xib in Resources */,

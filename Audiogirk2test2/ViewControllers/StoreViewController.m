@@ -194,7 +194,7 @@ BOOL isScrollPressed=NO;
     descrView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     descrView.delegate = self;
     
-    infoViewController = [[InfoViewController alloc] init];
+    infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:[NSBundle mainBundle]];
     infoViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     infoViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     

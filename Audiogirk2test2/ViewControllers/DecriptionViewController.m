@@ -43,6 +43,7 @@
 @synthesize bookItemObject;
 @synthesize bannerItemObject;
 @synthesize delegate;
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -195,7 +196,6 @@
     
     NSString *sqlStr = [NSString stringWithFormat:@"select * from 'myBooks'"];
     myBooksItems=[NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
-
     
     if ([myBooksItems count] == 0) {
         return;

@@ -15,19 +15,32 @@
 
 @implementation InfoViewController{
 
-    UITextView *informTextView;
-    UIButton *closeButton;
-    UIImageView *logoView;
+    IBOutlet UITextView *informTextView;
+    IBOutlet UIButton *closeButton;
+
     
     CGSize screenSize;
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        
+    }
+    return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.view setNeedsLayout];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.frame = CGRectMake(0, 0, 540, 620);
     screenSize = self.view.frame.size;
-    [self uiConfigurations];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,27 +48,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) uiConfigurations{
-    
-    [Utils setViewToAddOn:self.view];
-    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
-    bgImageView.image = [UIImage imageNamed:@"vv.png"]; //bkg-3.jpg bkg-7.jpg bkg-9.jpg Blur-1.png
-    [self.view addSubview:bgImageView];
-    
-    informTextView = [Utils createTextViewWithRect:CGRectMake(screenSize.width/2 - 200, screenSize.height/2 - 100, 400, 200) contentText:@"iGirk-ը իրենից ներկայացնում է էլեկտրոնային և աուդիո գրականության համար նախատեսված հավելված։ Հավելվածում համակցվել են աուդիո և տեքստային տարբերակները ու «վարձակալության» մեխանիզմը: iGirk-ի հիմնական առավելություններն են ծառայության մատչելիությունը, հարմարավետությունը և շարժունակությունը: Մատչելիությունը ապահովվում է ծառայության հարմար արժեքով, իսկ հարմարավետությունը՝ հեշտ օգտագործմամբ: Ժամանակակից աշխարհում ժամանակի սղության պայմաններում ծառայության շարժունակությունը դարձել է այն հենասյունը, որի վրա հիմնվում է կազմակերպության գործունեությունը:"];
-    informTextView.backgroundColor = [UIColor clearColor];
-    informTextView.textAlignment = NSTextAlignmentCenter;
-    
-    closeButton = [Utils createButtonInRect:CGRectMake(screenSize.width - 50, 10, 40, 40) title:@"X" target:self action:@selector(closeButtonPressed) backGroundImage:nil highlightImage:nil];
-    logoView = [Utils createImageViewWithRect:CGRectMake(50, 50, 150, 150) image:[UIImage imageNamed:@"placeholder.png"]];
+- (void) viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    [self layout];
 }
-
+- (void) layout{
+    self.view.superview.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.5];
+    self.view.superview.layer.cornerRadius = 8.0;
+    self.view.superview.layer.masksToBounds = YES;
+    
+    CGRect screen = self.view.superview.bounds;
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    float x = (screen.size.width - frame.size.width)*.5f;
+    float y = (screen.size.height - frame.size.height)*.5f;
+    frame = CGRectMake(x, y, frame.size.width, frame.size.height);
+    
+    self.view.frame = frame;
+}
 #pragma mark Actions
 
-- (void) closeButtonPressed{
-    
+- (IBAction) closeButtonPressed:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 /*
 #pragma mark - Navigation
