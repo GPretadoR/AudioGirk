@@ -10,6 +10,8 @@
 #import "FBLoginHelper.h"
 #import "GoogleLoginHelper.h"
 #import "TwitterLoginHelper.h"
+#import "Utils.h"
+#import "ServerRequest.h"
 
 @interface LoginViewController () <FBLoginHelperDelegate, GoogleLoginHelperDelegate, TwitterLoginHelperDelegate>
 
@@ -17,49 +19,58 @@
 
 @implementation LoginViewController {
 
+    UITextField *emailField;
+    UITextField *passwordField;
+    
+    UIButton *submitButton;
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(500, 100) withPermissions:@[@"email"]];
-    [FBLoginHelper sharedHelper].delegate = self;
     
-    [self createButtonInRect:CGRectMake(100, 100, 80, 30) title:@"Login" action:@selector(logOut) backGroundImage:nil highlightImage:nil];
+    self.view.backgroundColor = rgba(200, 200, 100, 1);
     
-    [[GoogleLoginHelper sharedHelper] showDefaultGoogleLoginButtonOnView:self.view atPoint:CGPointMake(100, 200)];
-    [GoogleLoginHelper sharedHelper].delegate = self;
+    [Utils setViewToAddOn:self.view];
     
-    [[TwitterLoginHelper sharedHelper] addTwitterLoginButtonOnView:self.view withOrigin:CGPointMake(350, 400)];
-    [TwitterLoginHelper sharedHelper].delegate = self;
+//    [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 80) withPermissions:@[@"email"]];
+//    [FBLoginHelper sharedHelper].delegate = self;
+//    
+//    [[GoogleLoginHelper sharedHelper] showDefaultGoogleLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 150)];
+//    [GoogleLoginHelper sharedHelper].delegate = self;
+//    
+//    [[TwitterLoginHelper sharedHelper] addTwitterLoginButtonOnView:self.view withOrigin:CGPointMake(self.view.center.x - 100, 220)];
+//    [TwitterLoginHelper sharedHelper].delegate = self;
+    
+    emailField = [Utils createTextFieldWithRect:CGRectMake(self.view.center.x - 100, 300, 200, 50) title:@"" placeHolderText:@"Email"];
+    passwordField = [Utils createTextFieldWithRect:CGRectMake(self.view.center.x - 100, 360, 200, 50) title:@"" placeHolderText:@"Password"];
+    passwordField.secureTextEntry = YES;
+    
+    submitButton = [Utils createButtonInRect:CGRectMake(self.view.center.x - 100, passwordField.frame.origin.y + passwordField.frame.size.height + 10, 200, 50) title:@"Submit" target:self action:@selector(submitButtonPressed) backGroundImage:[UIImage imageNamed:@"gh.png"] highlightImage:nil];
+    
 }
 
-- (UIButton*)createButtonInRect:(CGRect)rect title:(NSString*)title action:(SEL)action backGroundImage:(UIImage*)backgroundImage highlightImage:(UIImage*)highlightImage{
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
-               action:action
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:title forState:UIControlStateNormal];
-    button.frame = rect;
-    [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
-    // Pressed state background
-    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
-    [self.view addSubview:button]; //invisible is a selector see below
-    
-    return button;
+#pragma mark Helper methods
+- (void) submitButtonPressed{
+  [self postWithParams:@{@"username" : emailField.text, @"password" : passwordField.text}];
 }
-- (UIImageView*) createImageViewWithRect:(CGRect)rect image:(UIImage*)image{
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:rect];
-    imageView.image = image;
-    [self.view addSubview:imageView];
-    return imageView;
+- (void) postWithParams:(NSDictionary *)params{
+    [ServerRequest makePostRequestWithURL:@"http://109.68.124.16/api/v1/login" params:params success:^(id responseObj) {
+        if (![@"" isEqualToString:[responseObj objectForKey:@"token"]] && [responseObj objectForKey:@"token"] != nil ) {
+            NSUserDefaults *userDefs = [NSUserDefaults standardUserDefaults];
+            [userDefs setObject:[responseObj objectForKey:@"token"] forKey:@"token"];
+            [userDefs synchronize];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"Error login: %@", [error localizedDescription]);
+    }];
+    
 }
-
-
 #pragma FBLoginDelegates
 -(void)fbDidLoginWithUserInfo:(id)result{
     NSLog(@"Delegate Results: %@",result);
+    [self postWithParams:@{emailField.text : @"username", passwordField.text : @"password"}];
 }
 -(void)fbDidLogOut{
     NSLog(@"logout");
@@ -68,18 +79,18 @@
 #pragma GOOGLE Login delegates
 
 -(void)googleDidLoggedInWithUserInfo:(NSDictionary *)userInfo{
-    [self createImageViewWithRect:CGRectMake(300, 300, 100, 100) image:[GoogleLoginHelper getGoogleAccountAvatar]];
+    NSLog(@"Delegate Results: %@",userInfo);
 }
 -(void)googleDidSignOut{
 
 
 }
 
-#pragma mark
+#pragma mark Twitter Login
 
 -(void)twitterDidLoginWithDictionary:(NSDictionary *)userInfo{
 
-    NSLog(@"Success login %@", [userInfo objectForKey:@"name"]);
+    NSLog(@"Success login %@", userInfo);
 }
 
 - (void)didReceiveMemoryWarning {

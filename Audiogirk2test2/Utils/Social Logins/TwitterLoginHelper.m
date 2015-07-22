@@ -41,6 +41,7 @@
         [self updateButtonUI];
     }];
     logInButton.center = origin;
+    logInButton.frame = CGRectMake(origin.x, origin.y, 200, 50);
     [view addSubview:logInButton];
 }
 

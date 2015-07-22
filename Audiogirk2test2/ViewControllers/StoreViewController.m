@@ -29,7 +29,6 @@
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 #define offset (iOSVersion7)?20:0
 
-#import "LoginViewController.h"
 
 @interface StoreViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     AppDelegate *appDelegate;
@@ -137,9 +136,6 @@ BOOL isScrollPressed=NO;
 
 - (void)viewDidLoad
 {
-//    LoginViewController *loginView = [[LoginViewController alloc] init];
-//    [self.navigationController presentViewController:loginView animated:YES completion:nil];
-    
     serverRequest = [[ServerRequest alloc] init];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;

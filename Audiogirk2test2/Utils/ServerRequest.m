@@ -4,6 +4,8 @@
 
 
 #import "ServerRequest.h"
+#import "AFNetworking.h"
+
 
 @interface ServerRequest () <NSURLConnectionDelegate>
 
@@ -21,6 +23,22 @@
     }
     
     return self;
+}
+-(void)addNumber:(int)number1 withNumber:(int)number2 andCompletionHandler:(void (^)(int result))completionHandler{
+    int result = number1 + number2;
+    completionHandler(result);
+}
+
++ (void) makePostRequestWithURL:(NSString*) urlString params:(NSDictionary *) params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure{
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:urlString parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        failure(error);
+    }];
 }
 
 - (void)getWithUrlString:(NSString *)urlString completion:(void (^)(NSArray *items))cb {

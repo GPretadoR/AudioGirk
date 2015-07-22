@@ -48,6 +48,7 @@
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.delegate = self;
     loginButton.center = point;
+    loginButton.frame = CGRectMake(point.x, point.y, 200, 50);
     loginButton.readPermissions = permissions;
     [view addSubview:loginButton];
 }

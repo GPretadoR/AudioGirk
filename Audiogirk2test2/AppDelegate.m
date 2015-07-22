@@ -19,6 +19,7 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 
+#import "LoginViewController.h"
 
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 
@@ -90,8 +91,8 @@ BOOL isCreated=FALSE;
         NSLog(@"token = %@",[FBSDKAccessToken currentAccessToken].userID);
     }
 
-
-    
+    [self checkLoginState];
+        
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
@@ -126,6 +127,16 @@ BOOL isCreated=FALSE;
         [self.statusBarBackground removeFromSuperview];
         self.statusBarBackground.frame=CGRectMake(0, 0, self.window.bounds.size.width, 20.0f);
         [self.window addSubview:self.statusBarBackground];
+    }
+}
+
+- (void) checkLoginState{
+    NSUserDefaults *userdefs = [NSUserDefaults standardUserDefaults];
+//    [userdefs removeObjectForKey:@"token"];
+//    [userdefs synchronize];
+    if ([@"" isEqualToString:[userdefs objectForKey:@"token"]]) {
+        LoginViewController *loginView = [[LoginViewController alloc] init];
+        [self.navigationController presentViewController:loginView animated:NO completion:nil];
     }
 }
 - (void)applicationWillResignActive:(UIApplication *)application

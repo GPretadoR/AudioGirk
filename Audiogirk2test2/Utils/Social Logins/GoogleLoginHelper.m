@@ -46,7 +46,7 @@ static NSString * const kClientID = @"308320484366-mvhto43q6dk4sjf27eomss74fto70
 }
 
 - (void) showDefaultGoogleLoginButtonOnView:(UIView*) view atPoint:(CGPoint) origin{
-    signInButton = [[GIDSignInButton alloc] initWithFrame:CGRectMake(origin.x, origin.y, 100, 50)];
+    signInButton = [[GIDSignInButton alloc] initWithFrame:CGRectMake(origin.x, origin.y, 200, 50)];
     [view addSubview:signInButton];
     [self updateButtonUI];
 }
