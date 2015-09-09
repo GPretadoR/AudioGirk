@@ -12,6 +12,7 @@
 #import "TwitterLoginHelper.h"
 #import "Utils.h"
 #import "ServerRequest.h"
+#import "SVProgressHUD.h"
 
 @interface LoginViewController () <FBLoginHelperDelegate, GoogleLoginHelperDelegate, TwitterLoginHelperDelegate>
 
@@ -33,12 +34,12 @@
     
     [Utils setViewToAddOn:self.view];
     
-//    [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 80) withPermissions:@[@"email"]];
-//    [FBLoginHelper sharedHelper].delegate = self;
-//    
+    [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 80) withPermissions:@[@"email"]];
+    [FBLoginHelper sharedHelper].delegate = self;
+//
 //    [[GoogleLoginHelper sharedHelper] showDefaultGoogleLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 150)];
 //    [GoogleLoginHelper sharedHelper].delegate = self;
-//    
+
 //    [[TwitterLoginHelper sharedHelper] addTwitterLoginButtonOnView:self.view withOrigin:CGPointMake(self.view.center.x - 100, 220)];
 //    [TwitterLoginHelper sharedHelper].delegate = self;
     
@@ -52,18 +53,30 @@
 
 #pragma mark Helper methods
 - (void) submitButtonPressed{
-  [self postWithParams:@{@"username" : emailField.text, @"password" : passwordField.text}];
+    if (![@"" isEqualToString:emailField.text] && ![@"" isEqualToString:passwordField.text]) {
+        [self postWithParams:@{@"email" : emailField.text, @"password" : passwordField.text}];
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"Both fields are required"];
+    }
+
 }
 - (void) postWithParams:(NSDictionary *)params{
-    [ServerRequest makePostRequestWithURL:@"http://109.68.124.16/api/v1/login" params:params success:^(id responseObj) {
-        if (![@"" isEqualToString:[responseObj objectForKey:@"token"]] && [responseObj objectForKey:@"token"] != nil ) {
+    [ServerRequest makePostRequestWithURL:@"http://109.68.124.16/api/v1/register" params:params success:^(id responseObj) {
+        NSString *token = [[responseObj objectForKey:@"auth"] objectForKey:@"access_token"];
+        NSString *message = [responseObj objectForKey:@"message"];
+        NSString *success = [responseObj objectForKey:@"success"];
+        if ([success intValue] == 1 && success != nil ) {
             NSUserDefaults *userDefs = [NSUserDefaults standardUserDefaults];
-            [userDefs setObject:[responseObj objectForKey:@"token"] forKey:@"token"];
+            [userDefs setObject:token forKey:@"token"];
             [userDefs synchronize];
+            [SVProgressHUD showSuccessWithStatus:message];
             [self dismissViewControllerAnimated:YES completion:nil];
+        }else {
+            [SVProgressHUD setStatus:message];
         }
     } failure:^(NSError *error) {
         NSLog(@"Error login: %@", [error localizedDescription]);
+        [SVProgressHUD showErrorWithStatus:@"Registration Error!!!"];
     }];
     
 }

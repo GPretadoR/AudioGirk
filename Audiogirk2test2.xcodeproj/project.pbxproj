@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5017D37118009D1200056E8F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5026F47617F31E520018471D /* SDWebImage.framework */; };
 		5017D37318009D4200056E8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5017D37218009D4200056E8F /* QuartzCore.framework */; };
 		50395272181183DB0074A90C /* ItemRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 50395271181183DB0074A90C /* ItemRecord.m */; };
 		5092BC011858B2E000948930 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5092BBFD1858B2E000948930 /* CFNetwork.framework */; };
@@ -610,7 +609,6 @@
 				80E9EE6F1B3F323600382135 /* GoogleSignIn.framework in Frameworks */,
 				80E9EE7B1B418CE000382135 /* TwitterKit.framework in Frameworks */,
 				5017D37318009D4200056E8F /* QuartzCore.framework in Frameworks */,
-				5017D37118009D1200056E8F /* SDWebImage.framework in Frameworks */,
 				50BBE4C517ECA74700BD039F /* CoreImage.framework in Frameworks */,
 				50BBE4C617ECA74700BD039F /* ImageIO.framework in Frameworks */,
 				80E9ED391B3D8C8600382135 /* FBSDKShareKit.framework in Frameworks */,

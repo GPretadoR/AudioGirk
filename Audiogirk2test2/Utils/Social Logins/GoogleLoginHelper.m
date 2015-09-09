@@ -41,6 +41,7 @@ static NSString * const kClientID = @"308320484366-mvhto43q6dk4sjf27eomss74fto70
         [GIDSignIn sharedInstance].uiDelegate = self;
         [GIDSignIn sharedInstance].delegate = self;
         [GIDSignIn sharedInstance].shouldFetchBasicProfile = YES;
+        [GIDSignIn sharedInstance].allowsSignInWithWebView = YES;
     }
     return self;
 }
@@ -49,6 +50,10 @@ static NSString * const kClientID = @"308320484366-mvhto43q6dk4sjf27eomss74fto70
     signInButton = [[GIDSignInButton alloc] initWithFrame:CGRectMake(origin.x, origin.y, 200, 50)];
     [view addSubview:signInButton];
     [self updateButtonUI];
+}
+
++ (void) googleCustomSignIn{
+    [[GIDSignIn sharedInstance] signIn];
 }
 
 + (void) logOut {
@@ -76,15 +81,19 @@ static NSString * const kClientID = @"308320484366-mvhto43q6dk4sjf27eomss74fto70
 
 #pragma mark GOOGLE SIGN IN DELEGATES
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // Perform any operations on signed in user here.
-    NSString *userId = user.userID;                  // For client-side use only!
-    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-    NSString *name = user.profile.name;
-    NSString *email = user.profile.email;
-    NSDictionary *userDictionary = @{@"userID" : userId, @"idToken" : idToken, @"name" : name, @"email" : email};
-    
-    [self updateButtonUI];
-    [delegate googleDidLoggedInWithUserInfo:userDictionary];
+    if (!error) {
+        // Perform any operations on signed in user here.
+        NSString *userId = user.userID;                  // For client-side use only!
+        NSString *idToken = user.authentication.idToken; // Safe to send to the server
+        NSString *name = user.profile.name;
+        NSString *email = user.profile.email;
+        NSDictionary *userDictionary = @{@"userID" : userId ? userId : @"", @"idToken" : idToken ? idToken : @"", @"name" : name ? name : @"", @"email" : email ? email : @""};
+        
+        [self updateButtonUI];
+        [delegate googleDidLoggedInWithUserInfo:userDictionary];
+    }else{
+        [delegate googleDidFailedToLoginWithError:error];
+    }
 }
 
 - (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error {

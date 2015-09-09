@@ -26,6 +26,7 @@
 
 //Class Methods
 + (instancetype) sharedHelper;
++ (void) googleCustomSignIn;
 + (void) logOut;
 + (UIImage*) getGoogleAccountAvatar;
 @end

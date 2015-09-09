@@ -111,7 +111,7 @@
     NSString *s = @"";
     @try {
         NSData *postdata = [dataString dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        NSString *postlength = [NSString stringWithFormat:@"%d", [postdata length]];
+        NSString *postlength = [NSString stringWithFormat:@"%lu", [postdata length]];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:[NSURL URLWithString:urlString]];
         [request setTimeoutInterval:60];

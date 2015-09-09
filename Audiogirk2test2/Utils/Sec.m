@@ -54,7 +54,7 @@ NSString *secret=@",O3?}C6P<F19sY#z";
     // This is the destination
     uint8_t digest[CC_SHA1_DIGEST_LENGTH] = {0};
     // This one function does an unkeyed SHA1 hash of your hash data
-    CC_SHA1(keyData.bytes, keyData.length, digest);
+    CC_SHA1(keyData.bytes, (unsigned int)keyData.length, digest);
     
     // Now convert to NSData structure to make it usable again
     NSData *out = [NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH];

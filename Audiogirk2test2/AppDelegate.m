@@ -132,9 +132,9 @@ BOOL isCreated=FALSE;
 
 - (void) checkLoginState{
     NSUserDefaults *userdefs = [NSUserDefaults standardUserDefaults];
-//    [userdefs removeObjectForKey:@"token"];
-//    [userdefs synchronize];
-    if ([@"" isEqualToString:[userdefs objectForKey:@"token"]]) {
+    [userdefs removeObjectForKey:@"token"];
+    [userdefs synchronize];
+    if ([@"" isEqualToString:[userdefs objectForKey:@"token"]] || [userdefs objectForKey:@"token"] == nil) {
         LoginViewController *loginView = [[LoginViewController alloc] init];
         [self.navigationController presentViewController:loginView animated:NO completion:nil];
     }
