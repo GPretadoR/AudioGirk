@@ -162,8 +162,8 @@
 		80E9EE071B3D933C00382135 /* RentIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE001B3D933C00382135 /* RentIAPHelper.m */; };
 		80E9EE081B3D933C00382135 /* SandboxReceiptValidationStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE031B3D933C00382135 /* SandboxReceiptValidationStore.m */; };
 		80E9EE191B3D966000382135 /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE131B3D966000382135 /* AudioPlayerViewController.m */; };
-		80E9EE1A1B3D966100382135 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE151B3D966000382135 /* AudioViewController.m */; };
-		80E9EE1B1B3D966100382135 /* AudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE161B3D966000382135 /* AudioViewController.xib */; };
+		80E9EE1A1B3D966100382135 /* AudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE151B3D966000382135 /* AudioView.m */; };
+		80E9EE1B1B3D966100382135 /* AudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE161B3D966000382135 /* AudioView.xib */; };
 		80E9EE1C1B3D966100382135 /* YMCAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE181B3D966000382135 /* YMCAudioPlayer.m */; };
 		80E9EE421B3D977100382135 /* AlreadyDownloadedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE1E1B3D977100382135 /* AlreadyDownloadedViewController.xib */; };
 		80E9EE431B3D977100382135 /* CategoriesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE201B3D977100382135 /* CategoriesCollectionViewCell.m */; };
@@ -226,6 +226,7 @@
 		80EDA18219B6628800D9FF62 /* vv.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18119B6628800D9FF62 /* vv.png */; };
 		80EDA18819BB971300D9FF62 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18619BB971300D9FF62 /* book.png */; };
 		80EDA18919BB971300D9FF62 /* headphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18719BB971300D9FF62 /* headphone.png */; };
+		80EE4EC31BA9890800C88F10 /* AGDefines.h in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4EC21BA9886100C88F10 /* AGDefines.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -490,9 +491,9 @@
 		80E9EE031B3D933C00382135 /* SandboxReceiptValidationStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SandboxReceiptValidationStore.m; sourceTree = "<group>"; };
 		80E9EE121B3D966000382135 /* AudioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerViewController.h; sourceTree = "<group>"; };
 		80E9EE131B3D966000382135 /* AudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerViewController.m; sourceTree = "<group>"; };
-		80E9EE141B3D966000382135 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
-		80E9EE151B3D966000382135 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = "<group>"; };
-		80E9EE161B3D966000382135 /* AudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioViewController.xib; sourceTree = "<group>"; };
+		80E9EE141B3D966000382135 /* AudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioView.h; sourceTree = "<group>"; };
+		80E9EE151B3D966000382135 /* AudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioView.m; sourceTree = "<group>"; };
+		80E9EE161B3D966000382135 /* AudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioView.xib; sourceTree = "<group>"; };
 		80E9EE171B3D966000382135 /* YMCAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMCAudioPlayer.h; sourceTree = "<group>"; };
 		80E9EE181B3D966000382135 /* YMCAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMCAudioPlayer.m; sourceTree = "<group>"; };
 		80E9EE1E1B3D977100382135 /* AlreadyDownloadedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlreadyDownloadedViewController.xib; sourceTree = "<group>"; };
@@ -584,6 +585,7 @@
 		80EDA18119B6628800D9FF62 /* vv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vv.png; sourceTree = "<group>"; };
 		80EDA18619BB971300D9FF62 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		80EDA18719BB971300D9FF62 /* headphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphone.png; sourceTree = "<group>"; };
+		80EE4EC21BA9886100C88F10 /* AGDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -919,6 +921,7 @@
 				80E9ED711B3D918400382135 /* ServerRequest.m */,
 				80E9ED721B3D918400382135 /* Utils.h */,
 				80E9ED731B3D918400382135 /* Utils.m */,
+				80EE4EC21BA9886100C88F10 /* AGDefines.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1003,6 +1006,8 @@
 		80E9ED8D1B3D926C00382135 /* EpubReader */ = {
 			isa = PBXGroup;
 			children = (
+				80E9ED9D1B3D926C00382135 /* minizip */,
+				80E9EDB41B3D926C00382135 /* Source */,
 				80E9ED8E1B3D926C00382135 /* BookMarkViewController.h */,
 				80E9ED8F1B3D926C00382135 /* BookMarkViewController.m */,
 				80E9ED901B3D926C00382135 /* BookMarkViewController.xib */,
@@ -1018,7 +1023,6 @@
 				80E9ED9A1B3D926C00382135 /* GTMDefines.h */,
 				80E9ED9B1B3D926C00382135 /* GTMNSString+HTML.h */,
 				80E9ED9C1B3D926C00382135 /* GTMNSString+HTML.m */,
-				80E9ED9D1B3D926C00382135 /* minizip */,
 				80E9EDA91B3D926C00382135 /* MyBooksViewController.h */,
 				80E9EDAA1B3D926C00382135 /* MyBooksViewController.m */,
 				80E9EDAB1B3D926C00382135 /* MyBooksViewController.xib */,
@@ -1030,7 +1034,6 @@
 				80E9EDB11B3D926C00382135 /* ReaderViewController.h */,
 				80E9EDB21B3D926C00382135 /* ReaderViewController.m */,
 				80E9EDB31B3D926C00382135 /* ReaderViewController.xib */,
-				80E9EDB41B3D926C00382135 /* Source */,
 				80E9EDD21B3D926C00382135 /* UIWebViewSearch.js */,
 				80E9EDD31B3D926C00382135 /* XMLHandler.h */,
 				80E9EDD41B3D926C00382135 /* XMLHandler.m */,
@@ -1137,9 +1140,9 @@
 			children = (
 				80E9EE121B3D966000382135 /* AudioPlayerViewController.h */,
 				80E9EE131B3D966000382135 /* AudioPlayerViewController.m */,
-				80E9EE141B3D966000382135 /* AudioViewController.h */,
-				80E9EE151B3D966000382135 /* AudioViewController.m */,
-				80E9EE161B3D966000382135 /* AudioViewController.xib */,
+				80E9EE141B3D966000382135 /* AudioView.h */,
+				80E9EE151B3D966000382135 /* AudioView.m */,
+				80E9EE161B3D966000382135 /* AudioView.xib */,
 				80E9EE171B3D966000382135 /* YMCAudioPlayer.h */,
 				80E9EE181B3D966000382135 /* YMCAudioPlayer.m */,
 			);
@@ -1354,7 +1357,7 @@
 				80E9EE481B3D977100382135 /* LeftViewCell.xib in Resources */,
 				80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */,
 				80E9EE4A1B3D977100382135 /* SettingsViewController.xib in Resources */,
-				80E9EE1B1B3D966100382135 /* AudioViewController.xib in Resources */,
+				80E9EE1B1B3D966100382135 /* AudioView.xib in Resources */,
 				80E9EE7C1B418CE000382135 /* TwitterKitResources.bundle in Resources */,
 				80E9EF151B4A76D000382135 /* icon@2x.png in Resources */,
 				80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */,
@@ -1411,7 +1414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run b5092e346e1141a509b8e2724bc31a2a839c0009 9ca2d0c6ce5eae11b14354ac28c1e8f843e73a6d598ba84d600a82bdef961491";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1420,6 +1423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80EE4EC31BA9890800C88F10 /* AGDefines.h in Sources */,
 				803DD5751B5E7B7800E8E0CF /* UIImageView+WebCache.m in Sources */,
 				803DD5711B5E7B7800E8E0CF /* UIImage+GIF.m in Sources */,
 				80E9EEBC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m in Sources */,
@@ -1461,7 +1465,7 @@
 				80E9EDD51B3D926C00382135 /* BookMarkViewController.m in Sources */,
 				80E9EE571B3D977100382135 /* StoreViewController.m in Sources */,
 				80E9EE801B418D6400382135 /* TwitterLoginHelper.m in Sources */,
-				80E9EE1A1B3D966100382135 /* AudioViewController.m in Sources */,
+				80E9EE1A1B3D966100382135 /* AudioView.m in Sources */,
 				80E9EE4F1B3D977100382135 /* AlreadyDownloadedViewController.m in Sources */,
 				80E9EE051B3D933C00382135 /* IAPHelper.m in Sources */,
 				80E9EE501B3D977100382135 /* CategoriesViewController.m in Sources */,
