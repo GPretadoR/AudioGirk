@@ -14,6 +14,7 @@
 #import "AGView+Touch.h"
 #import "ServerRequest.h"
 #import "Sec.h"
+#import "SVProgressHUD.h"
 
 #import "StoreCollectionViewCell.h"
 
@@ -193,9 +194,9 @@ BOOL isScrollPressed=NO;
     infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:[NSBundle mainBundle]];
     infoViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     infoViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    
-    
+ 
     serverJSONRequest = [[ServerJSONRequest alloc] init];
+    [NSThread detachNewThreadSelector:@selector(showWithStatus:) toTarget:[SVProgressHUD class] withObject:@"Loading..."];
     [serverJSONRequest checkInternetConnection:^(BOOL isReachable){
         if (isReachable) {
             [self requestJson];
@@ -220,7 +221,7 @@ BOOL isScrollPressed=NO;
                                     [NSURL URLWithString:@"http://109.68.124.16/api/v1/categories"]
                                     ];
         //3
-        
+        [NSThread detachNewThreadSelector:@selector(dismiss) toTarget:[SVProgressHUD class] withObject:nil];
         NSArray* booksJson = [NSJSONSerialization
                               JSONObjectWithData:booksJsonData
                               options:NSJSONReadingMutableContainers
@@ -255,8 +256,6 @@ BOOL isScrollPressed=NO;
         });
         
     });
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -466,10 +465,10 @@ BOOL isScrollPressed=NO;
 {
     StoreCollectionViewCell *cell = (StoreCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"myCellIdentifier" forIndexPath:indexPath];
     bookItemObj = storeItems[indexPath.row];
-
+    [cell showIconWithFormat:bookItemObj.format];
     cell.stAuthorName.text = bookItemObj.b_author;
     cell.stBookName.text = bookItemObj.b_name;
-    [cell.stImageView setImageWithURL:[NSURL URLWithString:bookItemObj.b_image]];
+    [cell.stImageView setImageWithURL:[NSURL URLWithString:bookItemObj.b_image] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     
     return cell;
 }

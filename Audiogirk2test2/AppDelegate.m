@@ -21,6 +21,8 @@
 
 #import "LoginViewController.h"
 
+#import "ServerJSONRequest.h"
+
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 
 @implementation AppDelegate {
@@ -44,7 +46,6 @@ BOOL isCreated=FALSE;
 //        //Added on 19th Sep 2013
 //        self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
 //    }
-
     if (iOSVersion7) {
         // Add a status bar background
         if ([[UIApplication sharedApplication] statusBarOrientation]==UIDeviceOrientationPortrait) {
@@ -80,19 +81,19 @@ BOOL isCreated=FALSE;
     storeView.behavior=IIViewDeckNavigationControllerIntegrated;
     IIViewDeckController* deckController = [[IIViewDeckController alloc] initWithCenterViewController:navigationController leftViewController:leftViewController];
     
-    deckController.maxSize=462;
+    deckController.maxSize = 462;
     self.window.rootViewController = [[IIWrapController alloc] initWithViewController:deckController];
     [self.window makeKeyAndVisible];
 
-    [Fabric with:@[TwitterKit]];
+//    [Fabric with:@[TwitterKit]];
     
     if ([FBSDKAccessToken currentAccessToken]) {
         // User is logged in, do work such as go to next view controller.
         NSLog(@"token = %@",[FBSDKAccessToken currentAccessToken].userID);
     }
 
-    [self checkLoginState];
-        
+//    [self checkLoginState];
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application
                                     didFinishLaunchingWithOptions:launchOptions];
 }
@@ -161,6 +162,15 @@ BOOL isCreated=FALSE;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSDKAppEvents activateApp];
     [RentalLogicManager deleteExpiredBooks];
+    ServerJSONRequest *serverJSONRequest = [[ServerJSONRequest alloc] init];
+ 
+    [serverJSONRequest checkInternetConnection:^(BOOL isReachable){
+        if (isReachable) {
+            return;
+        }else{
+        
+        }
+    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

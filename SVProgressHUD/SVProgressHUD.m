@@ -186,7 +186,7 @@ NSString * const SVProgressHUDStatusUserInfoKey = @"SVProgressHUDStatusUserInfoK
 }
 
 - (void)updatePosition {
-	
+
     CGFloat hudWidth = 100;
     CGFloat hudHeight = 100;
     CGFloat stringWidth = 0;

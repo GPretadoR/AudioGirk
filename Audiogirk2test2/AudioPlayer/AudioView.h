@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "YMCAudioPlayer.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "BookObjectFromDB.h"
 
-
-@interface AudioViewController : UIViewController <AVAudioSessionDelegate, AVAudioPlayerDelegate>
+@interface AudioView : UIView <AVAudioSessionDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) YMCAudioPlayer *audioPlayer;
 @property (strong, nonatomic) IBOutlet UILabel *duration;
@@ -24,7 +24,9 @@
 @property BOOL scrubbing;
 
 @property NSTimer *timer;
-@property (strong, nonatomic) NSString *bookID;
-@property (strong, nonatomic) NSString *bookFormat;
 
+@property (strong, nonatomic) BookObjectFromDB *bookObjDB;
+
+- (void) prepareToPlay;
+- (void) playerSetup;
 @end

@@ -34,8 +34,8 @@
     
     [Utils setViewToAddOn:self.view];
     
-    [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 80) withPermissions:@[@"email"]];
-    [FBLoginHelper sharedHelper].delegate = self;
+//    [[FBLoginHelper sharedHelper] showFBDefaultLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 80) withPermissions:@[@"email"]];
+//    [FBLoginHelper sharedHelper].delegate = self;
 //
 //    [[GoogleLoginHelper sharedHelper] showDefaultGoogleLoginButtonOnView:self.view atPoint:CGPointMake(self.view.center.x - 100, 150)];
 //    [GoogleLoginHelper sharedHelper].delegate = self;

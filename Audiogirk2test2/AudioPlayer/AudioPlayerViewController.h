@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "BookObjectFromDB.h"
+
+#import "YMCAudioPlayer.h"
+#import <MediaPlayer/MediaPlayer.h>
+
 @interface AudioPlayerViewController : UIViewController <AVAudioSessionDelegate, AVAudioPlayerDelegate>
 
-@property (nonatomic, strong)NSString *bookID;
-@property (nonatomic, strong)NSString *bookFormat;
+@property (nonatomic, strong) BookObjectFromDB *bookObjDB;
 @end

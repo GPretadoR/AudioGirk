@@ -43,8 +43,6 @@
 @property (nonatomic, strong)NSString *_strFileName;
 @property (nonatomic) MPMoviePlayerController *audioPlayer;
 
-@property (nonatomic, strong) NSString *bookID;
-@property (nonatomic, strong) NSString *bookFormat;
 @property (nonatomic, strong) BookObjectFromDB *bookObjDB;
 
 @property (weak, nonatomic) IBOutlet UITableView *chapterTableView;

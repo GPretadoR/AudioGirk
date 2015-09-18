@@ -6,62 +6,54 @@
 //  Copyright (c) 2014 Garnik Ghazaryan. All rights reserved.
 //
 
-#import "AudioViewController.h"
+#import "AudioView.h"
 #import "SQLiteManager.h"
 
-@interface AudioViewController ()
+@interface AudioView ()
 
 @end
 
-@implementation AudioViewController {
+@implementation AudioView {
 
-    SQLiteManager *dbManager;
-    NSArray *dbArray;
-    NSDictionary *bookDictionary;
     
 }
-@synthesize bookID;
-@synthesize bookFormat;
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
+@synthesize bookObjDB;
+
+-(instancetype)initWithFrame:(CGRect)frame {
+
+    self = [super initWithFrame:frame];
     if (self) {
         // Custom initialization
-
     }
     return self;
-}
-#pragma mark View LifeCycle
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 
-    dbManager = [SQLiteManager sharedDBManager];
-    
-    NSString *sqlStr = [NSString stringWithFormat:@"SELECT * FROM 'mybooks' WHERE bookID = '%@' AND format = '%@' ",bookID, bookFormat];
-    dbArray=[NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
-    
-    if ([dbArray count] > 0) {
-        bookDictionary = dbArray[0];
-    }else{
-        return;
-    }
-    NSString *strFileName = [NSString stringWithFormat:@"%@",[bookDictionary[@"bookFileName"] stringByDeletingPathExtension]];
-    NSString *audioFilePath = [NSString stringWithFormat:@"%@_%@",bookDictionary[@"format"],strFileName ];
+}
+- (void) playerSetup{
+    [self configurePlayerView];
+}
+- (void) configurePlayerView{
     
     self.audioPlayer = [[YMCAudioPlayer alloc] init];
-    [self setupAudioPlayer:[NSString stringWithFormat:@"%@/%@",audioFilePath,strFileName]];
-    
+
     NSError *setCategoryError = nil;
     NSError *activationError = nil;
-
+    
     [AVAudioSession sharedInstance];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruption:) name:AVAudioSessionInterruptionNotification object:nil];
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
     [[AVAudioSession sharedInstance] setActive:YES error:&activationError];
     NSLog(@"Errors with audiosession : Cat: %@ active: %@",[setCategoryError localizedDescription],[activationError localizedDescription]);
+}
+
+- (void) prepareToPlay{
+    
+    NSString *strFileName = [[NSString stringWithFormat:@"%@",bookObjDB.bookSourceID ] stringByDeletingPathExtension];
+    NSString *audioFilePath = [NSString stringWithFormat:@"%@_%@", bookObjDB.format,strFileName ];
+    
+    [self setupAudioPlayer:[NSString stringWithFormat:@"%@/%@",audioFilePath,strFileName]];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -75,11 +67,7 @@
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder];
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 
 #pragma mark Audioplayer setup
@@ -90,8 +78,8 @@
     
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
     
-    NSString *bookName = bookDictionary[@"bookName"];
-    NSString *authorName = bookDictionary[@"bookAuthor"];
+    NSString *bookName = bookObjDB.bookName;
+    NSString *authorName = bookObjDB.bookAuthorName;
     
     songInfo[MPMediaItemPropertyTitle] = bookName;
     songInfo[MPMediaItemPropertyArtist] = authorName;

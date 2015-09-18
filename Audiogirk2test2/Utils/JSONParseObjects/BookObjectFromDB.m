@@ -54,7 +54,7 @@ static BookObjectFromDB *bookObjectFromDB;
 
     for (NSDictionary *dict in array) {
         self.id = dict[@"id"];
-        _bookID  = dict[@"bookID"];
+        _bookSourceID  = dict[@"bookSourceID"];
         _bookImageName = dict[@"bookImageName"];
         _bookName = dict[@"bookName"];
         _bookAuthorName = dict[@"bookAuthorName"];

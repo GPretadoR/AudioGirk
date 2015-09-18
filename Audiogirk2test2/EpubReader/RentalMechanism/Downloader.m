@@ -12,6 +12,7 @@
 #import "SQLiteManager.h"
 #import "Utils.h"
 
+#import "AGDefines.h"
 
 @implementation Downloader {
     
@@ -60,7 +61,7 @@
             [NSThread sleepForTimeInterval:0.3];
             if ([Utils unzipAndSaveFile:[outputPath lastPathComponent] atPath:[outputPath stringByDeletingLastPathComponent]]) {
                 //TODO: Trigger RentalLogic [Post Notification download complete]
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"didCompleteDownloadNotification" object:nil userInfo:@{@"bookObject" : bookItemsObject}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:didCompleteDownloadNotification object:nil userInfo:@{@"bookObject" : bookItemsObject}];
             }
             [self performSelectorInBackground:@selector(dismissSuccess) withObject:nil];
 //        }else{

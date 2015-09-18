@@ -18,6 +18,6 @@
 
 }
 
--(void)showReader:(NSDictionary*)dictionaryOfItems;
+
 - (UIViewController*)checkControllerForBookType:(NSString*)bookFormat;
 @end

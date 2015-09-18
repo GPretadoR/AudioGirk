@@ -62,19 +62,6 @@
 
 #pragma mark Table View Config
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (tableView == self.searchDisplayController.searchResultsTableView){
-        bookObject = searchResult[indexPath.row];
-        [storeViewController showDescriptions:bookObject];
-    }else {
-        [self chooseViewControllerWithIndex:indexPath.row];
-    }
-    
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
@@ -136,9 +123,6 @@
         cell.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:17.0/255.0f green:17.0/255.0f blue:17.0/255.0f alpha:1];
         leftViewcell.label.textColor=[UIColor whiteColor];//[UIColor colorWithRed:73.0/255.0f green:95.0/255.0f blue:112.0/255.0f alpha:1];
     }
-
-    
-    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -176,6 +160,19 @@
             break;
     }
     return 0.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView){
+        bookObject = searchResult[indexPath.row];
+        [storeViewController showDescriptions:bookObject];
+    }else {
+        [self chooseViewControllerWithIndex:indexPath.row];
+    }
+    
 }
 
 - (IBAction)log:(id)sender {

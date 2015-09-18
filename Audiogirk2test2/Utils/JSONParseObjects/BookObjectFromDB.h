@@ -11,7 +11,7 @@
 @interface BookObjectFromDB : NSObject
 
 @property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *bookID;
+@property (nonatomic, strong) NSString *bookSourceID;	
 @property (nonatomic, strong) NSString *bookImageName;
 @property (nonatomic, strong) NSString *bookName;
 @property (nonatomic, strong) NSString *bookAuthorName;

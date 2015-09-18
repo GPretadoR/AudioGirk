@@ -82,7 +82,7 @@ UIImageView *waitViewImage;
 {
     [super viewDidLoad];
     
-    self.title=@"Categories";
+    self.title = @"Categories";
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;

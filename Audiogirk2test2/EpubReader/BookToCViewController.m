@@ -24,8 +24,7 @@
 @synthesize _ePubContent;
 @synthesize _rootPath;
 @synthesize _strFileName;
-@synthesize bookID;
-@synthesize bookFormat;
+
 @synthesize chapterTableView;
 @synthesize bookObjDB;
 
@@ -42,7 +41,7 @@
 }
 
 #pragma mark View Lifecycle
-- (void)viewDidLoad
+- (void)viewDidLoad     
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -52,8 +51,8 @@
     
     documentDirectory = [Utils applicationDocumentsDirectory];
     
-    _strFileName=[NSString stringWithFormat:@"%@.epub",bookID];
-    epubPath= [NSString stringWithFormat:@"%@/%@_%@/%@", documentDirectory, bookFormat, bookID, bookID];
+    _strFileName=[NSString stringWithFormat:@"%@.epub", bookObjDB.bookSourceID];
+    epubPath= [NSString stringWithFormat:@"%@/%@_%@", documentDirectory, bookObjDB.format, bookObjDB.bookSourceID];
     
     loadedEpub=[[EPub alloc]initWithEPubPath:[NSString stringWithFormat:@"%@/%@",epubPath,_strFileName]];
 //    for (int i=0; i<[loadedEpub.spineArray count]; i++) {
@@ -106,7 +105,7 @@
         return;
     }
     readerViewController.bookPathToLoad=[(loadedEpub.spineArray)[indexPath.row]spinePath];
-    readerViewController.bookID = bookID;
+    readerViewController.bookID = bookObjDB.bookSourceID;
     [self.navigationController pushViewController:readerViewController animated:YES];
 }
 

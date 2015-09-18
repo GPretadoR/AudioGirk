@@ -7,17 +7,17 @@
 //
 
 #import "AudioPlayerViewController.h"
-#import "AudioViewController.h"
+#import "AudioView.h"
 
 @interface AudioPlayerViewController ()
 
 @end
 
 @implementation AudioPlayerViewController {
-    AudioViewController *audioPlayer;
+    AudioView *audioPlayer;
 }
-@synthesize bookID;
-@synthesize bookFormat;
+
+@synthesize bookObjDB;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,20 +33,21 @@
     [super viewDidLoad];
     
     [self.view setBackgroundColor:[UIColor redColor]];
-    audioPlayer = [[AudioViewController alloc] initWithNibName:@"AudioViewController" bundle:nil];
-    audioPlayer.bookID = bookID;
-    audioPlayer.bookFormat = bookFormat;
-    audioPlayer.view.frame = CGRectMake(0, 100, audioPlayer.view.frame.size.width, audioPlayer.view.frame.size.height);
-    [self.view addSubview:audioPlayer.view];
-    
+////    audioPlayer = [[AudioView alloc] initWithFrame:CGRectMake(0, 100, 481, 115)];
+//    audioPlayer =  [[[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:nil options:nil] objectAtIndex:0];
+//    audioPlayer.bookObjDB = bookObjDB;
+//    [audioPlayer startPlaying];
+//    [self.view addSubview:audioPlayer];
+
+    UIViewController *controller=[[UIViewController alloc] initWithNibName:@"AudioView" bundle:nil];
+    audioPlayer = (AudioView*)controller.view;
+    audioPlayer.frame = CGRectMake(50, 100, audioPlayer.frame.size.width, audioPlayer.frame.size.height);
+    audioPlayer.bookObjDB = bookObjDB;
+    [audioPlayer playerSetup];
+    [audioPlayer prepareToPlay];
+    [self.view addSubview:audioPlayer];
 
     // Do any additional setup after loading the view.
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [audioPlayer viewDidAppear:YES];
-}
--(void)viewDidDisappear:(BOOL)animated{
-    [audioPlayer viewDidDisappear:YES];
 }
 - (void)didReceiveMemoryWarning
 {

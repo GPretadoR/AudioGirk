@@ -10,6 +10,8 @@
 #import "CreateDB.h"
 #import "Downloader.h"
 
+#import "AGDefines.h"
+
 @implementation RentalLogicManager {
 
     Downloader *downloader;
@@ -64,7 +66,7 @@
         NSDate *expireDate = [dateFormat dateFromString:[NSString stringWithFormat:@"%@",dict[@"expireDate"]]];
         result = [expireDate compare:[NSDate date]];
         if (result == NSOrderedAscending) {
-            sqlQuery = [NSString stringWithFormat:@"DELETE FROM myBooks WHERE expireDate = '%@'",[dateFormat stringFromDate:expireDate]];
+            sqlQuery = [NSString stringWithFormat:@"DELETE FROM myBooks WHERE expireDate = \"%@\"",[dateFormat stringFromDate:expireDate]];
             [RentalLogicManager doSQLQuery:sqlQuery];
             NSString *message = [NSString stringWithFormat:@"Rental period of \"%@\" is expired. The item was removed.",dict[@"bookName"]];
             [RentalLogicManager scheduleRemoveNotificationWithMessage:message];
@@ -74,7 +76,7 @@
 
 + (void) checkUpdateOrDownload:(BookItemsObject*) bookItemObject{
     
-    NSString *sqlQuery = [NSString stringWithFormat:@"SELECT expireDate FROM myBooks WHERE bookName = '%@';", bookItemObject.b_name];
+    NSString *sqlQuery = [NSString stringWithFormat:@"SELECT expireDate FROM myBooks WHERE bookName = \"%@\";", bookItemObject.b_name];
     NSArray *expireDateArray = [[SQLiteManager sharedDBManager] getRowsForQuery:sqlQuery];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -82,10 +84,11 @@
         NSDictionary *dict = expireDateArray[0];
         NSDate *expireDate = [dateFormat dateFromString:(NSString*)dict[@"expireDate"]];
         NSString *expireDateString = [dateFormat stringFromDate:[expireDate dateByAddingTimeInterval:60*60*24*10]];
-        sqlQuery = [NSString stringWithFormat:@"UPDATE myBooks SET expireDate = '%@' WHERE bookName = '%@';", expireDateString, bookItemObject.b_name];
+        sqlQuery = [NSString stringWithFormat:@"UPDATE myBooks SET expireDate = \"%@\" WHERE bookName = \"%@\";", expireDateString, bookItemObject.b_name];
         [RentalLogicManager doSQLQuery:sqlQuery];
     }else {
-        [[NSNotificationCenter defaultCenter] addObserver:[self class] selector:@selector(addRecordToDB:) name:@"didCompleteDownloadNotification" object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self  name:didCompleteDownloadNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addRecordToDB:) name:didCompleteDownloadNotification object:nil];
         [Downloader downloadFileAtPath:[NSString stringWithFormat:@"http://109.68.124.16/book_files/%@/%@.zip", bookItemObject.format, bookItemObject.id] withBookItemsObject:bookItemObject];
         //TODO: Perform download
     }
@@ -109,16 +112,16 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *expireDate = [dateFormat stringFromDate:[[NSDate date] dateByAddingTimeInterval:60*60*24*10]];
     
-    NSString *sqlString = [NSString stringWithFormat:@"INSERT INTO myBooks (bookSourceID, bookImageName, bookName, audioDuration, audioNarrator, bookFileName , format, expireDate) VALUES ('%@','%@','%@','%@','%@','%@','%@','%@');", bookID, bookImageName, bookName, audioDuration, audioNarrator, bookFileName, bookFormat, expireDate];
+    NSString *sqlString = [NSString stringWithFormat:@"INSERT INTO myBooks (bookSourceID, bookImageName, bookName, audioDuration, audioNarrator, bookFileName , format, expireDate) VALUES (\"%@\",\"%@\" ,\"%@\" ,\"%@\" ,\"%@\" ,\"%@\" ,\"%@\" ,\"%@\");", bookID, bookImageName, bookName, audioDuration, audioNarrator, bookFileName, bookFormat, expireDate];
     [RentalLogicManager doSQLQuery:sqlString];
     
-    sqlString = [NSString stringWithFormat:@"INSERT INTO author (bookAuthorName) VALUES ('%@');", bookAuthor];
+    sqlString = [NSString stringWithFormat:@"INSERT INTO author (bookAuthorName) VALUES (\"%@\");", bookAuthor];
     [RentalLogicManager doSQLQuery:sqlString];
 
     
     NSArray *idsArray = [RentalLogicManager getRowsForQuery:@"select seq from sqlite_sequence"];
     
-    sqlString = [NSString stringWithFormat:@"INSERT INTO bookAuthor (bookId, authorId) VALUES ('%@', '%@')", (idsArray[0])[@"seq"], (idsArray[1])[@"seq"]];
+    sqlString = [NSString stringWithFormat:@"INSERT INTO bookAuthor (bookId, authorId) VALUES (\"%@\", \"%@\")", (idsArray[0])[@"seq"], (idsArray[1])[@"seq"]];
     [RentalLogicManager doSQLQuery:sqlString];
     
 }

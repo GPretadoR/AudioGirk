@@ -17,4 +17,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *stBookIcon;
 @property (strong, nonatomic) IBOutlet UIImageView *stHeadPhoneIcon;
 
+- (void) showIconWithFormat:(NSString*) bookFormat;
+
 @end

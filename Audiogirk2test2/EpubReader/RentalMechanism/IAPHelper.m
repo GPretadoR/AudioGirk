@@ -35,6 +35,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 - (void)rentProductWithIdentifier:(NSString *) productIdentifier{
     
+//    TODO: Remove This line
+    [RentalLogicManager checkUpdateOrDownload:bookItemObject];
+    return;
+    
     if([SKPaymentQueue canMakePayments]){
         NSLog(@"User can make payments");
         SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:productIdentifier]];
@@ -125,7 +129,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     {
         // Restore items
         for (int i = 0; i < queue.transactions.count; i++) {
-            [self performSelectorOnMainThread:@selector(restoreCompletedTransactions:) withObject:queue.transactions[i] waitUntilDone:YES];
+            [self performSelectorOnMainThread:@selector(restoreCompletedTransactions) withObject:queue.transactions[i] waitUntilDone:YES];
         }
      
     }

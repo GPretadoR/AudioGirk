@@ -20,6 +20,19 @@
 
 - (void)awakeFromNib {
     // Initialization code
+
 }
 
+- (void) showIconWithFormat:(NSString *)bookFormat{
+    stBookIcon.hidden = NO;
+    stHeadPhoneIcon.hidden = NO;
+    if ([bookFormat isEqualToString:@"audio"]) {
+        stBookIcon.hidden = YES;
+        stHeadPhoneIcon.frame = CGRectMake(120, 92, 41, 28);
+    }else if ([bookFormat isEqualToString:@"text"]){
+        stHeadPhoneIcon.hidden = YES;
+    }else {
+        stHeadPhoneIcon.frame = CGRectMake(170, 92, 41, 28);
+    }
+}
 @end

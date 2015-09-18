@@ -77,7 +77,7 @@
     dbManager = [SQLiteManager sharedDBManager];
     [dbManager getDatabaseDump];
     NSString *sqlStr = [NSString stringWithFormat:@"SELECT myBooks.*, author.bookAuthorName FROM 'bookAuthor' INNER JOIN author ON bookAuthor.authorId = author.authorId INNER JOIN myBooks ON bookAuthor.bookId = myBooks.id;"];
-    myBooksItems=[NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
+    myBooksItems = [NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
     
     bookObjectFromDB = [BookObjectFromDB sharedObjectFromArray:myBooksItems];
     
@@ -193,11 +193,11 @@
     
     NSLog(@"Selected items # %ld",(long)indexPath.row);
     NSDictionary *currentBookObject = myBooksItems[indexPath.row];
-    bookObjectFromDB = [BookObjectFromDB getBookObjectForDictionary:myBooksItems[indexPath.row]];
+    bookObjectFromDB = [BookObjectFromDB getBookObjectForDictionary:currentBookObject];
     if (isEditing) {
         [self deleteObject:bookObjectFromDB atIndexPath:indexPath];
     }else{
-        [self showReader:currentBookObject];
+        [self showReader:bookObjectFromDB];
     }
     
     
@@ -223,10 +223,10 @@
     
     [_collectionView performBatchUpdates:^{
 
-        NSString *sqlStr = [NSString stringWithFormat:@"DELETE FROM 'myBooks' WHERE id = '%@'", bookObjectFromDB.id];
+        NSString *sqlStr = [NSString stringWithFormat:@"DELETE FROM 'myBooks' WHERE id = \"%@\"", bookObjectFromDB.id];
         [dbManager doQuery:sqlStr];
         [myBooksItems removeObjectAtIndex:indexPath.row]; // self.images is my data source
-        NSString *filename = [NSString stringWithFormat:@"%@_%@", bookObjectFromDB.format, bookObjectFromDB.bookID];
+        NSString *filename = [NSString stringWithFormat:@"%@_%@", bookObjectFromDB.format, bookObjectFromDB.bookSourceID];
         [Utils deleteFolderAtPath:filename inDocumentsDirectory:TRUE];
         [Utils deleteFolderAtPath:[NSString stringWithFormat:@"%@.zip",filename] inDocumentsDirectory:TRUE];
         // Now delete the items from the collection view.
@@ -237,15 +237,10 @@
 
 -(void)showReader:(BookObjectFromDB*)bookObject{
 
-    NSString *bookFormat = bookObjectFromDB.format;
-    NSString *bookID = bookObjectFromDB.bookID;
-    bookTableOfContent.bookID = bookID;
-    bookTableOfContent.bookFormat = bookFormat;
-    bookTableOfContent.bookObjDB = bookObject;
-    audioPlayerViewController.bookID = bookID;
-    audioPlayerViewController.bookFormat = bookFormat;
-    
-    UIViewController *viewToPush = [self checkControllerForBookType:bookFormat]; //Wrong BookID check with Aram
+    bookTableOfContent.bookObjDB = (BookObjectFromDB*)bookObject;
+    audioPlayerViewController.bookObjDB = (BookObjectFromDB*)bookObject;
+
+    UIViewController *viewToPush = [self checkControllerForBookType:bookObjectFromDB.format]; //TODO: Wrong BookID check with Aram
     [self.navigationController pushViewController:viewToPush animated:YES];
     
 }

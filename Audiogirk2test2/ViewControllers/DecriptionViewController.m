@@ -146,8 +146,8 @@
         tmpRect.origin.y = 300;
         tmpRect.size.height = 310;
     }else {
-        tmpRect.origin.y -= 40;
-        tmpRect.size.width += 40;
+        tmpRect.origin.y = 260;
+        tmpRect.size.height = 350;
     }
     description.frame = tmpRect;
 
@@ -272,7 +272,7 @@
 - (void)getTheBook {
 
     [RentIAPHelper setBookItemsObject:bookItemObject];
-    [[RentIAPHelper sharedInstance] rentProductWithIdentifier:@"com.testAppId.audio.3monthlyrage"];
+    [[RentIAPHelper sharedInstance] rentProductWithIdentifier:@"com.book1.audio"];
 
 }
 - (void)tapBehindDetected:(UITapGestureRecognizer *)sender

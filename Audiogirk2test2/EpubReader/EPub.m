@@ -40,7 +40,9 @@
 - (void) parseEpub{
     [Utils unzipAndSaveFile:[epubFilePath lastPathComponent] atPath:[epubFilePath stringByDeletingLastPathComponent]];
     NSString* opfPath = [self parseManifestFile];
-	[self parseOPF:opfPath];
+    if (opfPath) {
+        [self parseOPF:opfPath];
+    }
 }
 
 
