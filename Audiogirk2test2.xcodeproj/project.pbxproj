@@ -29,9 +29,6 @@
 		50BBE46017EC76A400BD039F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE45F17EC76A400BD039F /* AppDelegate.m */; };
 		50BBE46317EC76A400BD039F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BBE46117EC76A400BD039F /* Main.storyboard */; };
 		50BBE46817EC76A400BD039F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BBE46717EC76A400BD039F /* Images.xcassets */; };
-		50BBE49317EC781600BD039F /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE48617EC781600BD039F /* IISideController.m */; };
-		50BBE49417EC781600BD039F /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE48817EC781600BD039F /* IIViewDeckController.m */; };
-		50BBE49517EC781600BD039F /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE48A17EC781600BD039F /* IIWrapController.m */; };
 		50BBE49717EC781600BD039F /* done_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BBE48E17EC781600BD039F /* done_btn@2x.png */; };
 		50BBE49817EC781600BD039F /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50BBE48F17EC781600BD039F /* menu@2x.png */; };
 		50BBE49917EC781600BD039F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE49217EC781600BD039F /* iCarousel.m */; };
@@ -70,6 +67,7 @@
 		803DD5741B5E7B7800E8E0CF /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DD5621B5E7B7800E8E0CF /* UIImageView+HighlightedWebCache.m */; };
 		803DD5751B5E7B7800E8E0CF /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DD5641B5E7B7800E8E0CF /* UIImageView+WebCache.m */; };
 		803DD5761B5E7B7800E8E0CF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DD5661B5E7B7800E8E0CF /* UIView+WebCacheOperation.m */; };
+		805CE1061BAEF2100054BAF4 /* playerBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 805CE1051BAEF2100054BAF4 /* playerBack.png */; };
 		8072DD9918B624B000599E6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8072DD9818B624B000599E6B /* libsqlite3.dylib */; };
 		80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 80A7F9F1194A017E0045965E /* SVProgressHUD.bundle */; };
 		80A7F9F5194A017E0045965E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A7F9F3194A017E0045965E /* SVProgressHUD.m */; };
@@ -77,7 +75,6 @@
 		80A8F42F1899192C002ADA00 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8F42D1899192C002ADA00 /* AVFoundation.framework */; };
 		80A8F4301899192C002ADA00 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8F42E1899192C002ADA00 /* MediaPlayer.framework */; };
 		80A8F457189FE3E1002ADA00 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8F456189FE3E1002ADA00 /* libz.1.1.3.dylib */; };
-		80AFC3E61B01214400D73696 /* playerBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80AFC3E51B01214400D73696 /* playerBack.jpg */; };
 		80B99CCF1ACDFC2E00F9325B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B99CCE1ACDFC2E00F9325B /* delete.png */; };
 		80E9A0661B2B873C0051AE79 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9A0651B2B873C0051AE79 /* StoreKit.framework */; };
 		80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9A0711B2F34B40051AE79 /* placeholder.png */; };
@@ -227,6 +224,14 @@
 		80EDA18819BB971300D9FF62 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18619BB971300D9FF62 /* book.png */; };
 		80EDA18919BB971300D9FF62 /* headphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EDA18719BB971300D9FF62 /* headphone.png */; };
 		80EE4EC31BA9890800C88F10 /* AGDefines.h in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4EC21BA9886100C88F10 /* AGDefines.h */; };
+		80EE4EDB1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4ECD1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.m */; };
+		80EE4EDC1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4ECF1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.m */; };
+		80EE4EDD1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4ED11BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		80EE4EDE1BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4ED31BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.m */; };
+		80EE4EDF1BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4ED51BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		80EE4EE01BAED00700C88F10 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EE4ED71BAED00700C88F10 /* menu-button.png */; };
+		80EE4EE11BAED00700C88F10 /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80EE4ED81BAED00700C88F10 /* menu-button@2x.png */; };
+		80EE4EE21BAED00700C88F10 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EE4EDA1BAED00700C88F10 /* SlideNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,12 +267,6 @@
 		50BBE47617EC76A400BD039F /* Audiogirk2test2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Audiogirk2test2Tests-Info.plist"; sourceTree = "<group>"; };
 		50BBE47817EC76A400BD039F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50BBE47A17EC76A400BD039F /* Audiogirk2test2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Audiogirk2test2Tests.m; sourceTree = "<group>"; };
-		50BBE48517EC781600BD039F /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
-		50BBE48617EC781600BD039F /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
-		50BBE48717EC781600BD039F /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
-		50BBE48817EC781600BD039F /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
-		50BBE48917EC781600BD039F /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
-		50BBE48A17EC781600BD039F /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
 		50BBE48E17EC781600BD039F /* done_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "done_btn@2x.png"; sourceTree = "<group>"; };
 		50BBE48F17EC781600BD039F /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		50BBE49117EC781600BD039F /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -334,6 +333,7 @@
 		803DD5641B5E7B7800E8E0CF /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		803DD5651B5E7B7800E8E0CF /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		803DD5661B5E7B7800E8E0CF /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		805CE1051BAEF2100054BAF4 /* playerBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerBack.png; sourceTree = "<group>"; };
 		8072DD9818B624B000599E6B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		80A7F9F1194A017E0045965E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		80A7F9F2194A017E0045965E /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -586,6 +586,21 @@
 		80EDA18619BB971300D9FF62 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		80EDA18719BB971300D9FF62 /* headphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphone.png; sourceTree = "<group>"; };
 		80EE4EC21BA9886100C88F10 /* AGDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGDefines.h; sourceTree = "<group>"; };
+		80EE4ECB1BAED00700C88F10 /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		80EE4ECC1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		80EE4ECD1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		80EE4ECE1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		80EE4ECF1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		80EE4ED01BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		80EE4ED11BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		80EE4ED21BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		80EE4ED31BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		80EE4ED41BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		80EE4ED51BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		80EE4ED71BAED00700C88F10 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		80EE4ED81BAED00700C88F10 /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
+		80EE4ED91BAED00700C88F10 /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		80EE4EDA1BAED00700C88F10 /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +642,7 @@
 		50BBE44317EC76A400BD039F = {
 			isa = PBXGroup;
 			children = (
+				80EE4EC91BAED00700C88F10 /* SlideView */,
 				803DD5451B5E7B7800E8E0CF /* SDWebImage */,
 				803DD5281B5E7AFB00E8E0CF /* AFNetworking */,
 				80E9EEA51B42DC1600382135 /* MZFormSheetController */,
@@ -689,7 +705,6 @@
 			children = (
 				80E9EE811B42D55400382135 /* FormSheet */,
 				80E9EE111B3D966000382135 /* AudioPlayer */,
-				50BBE48417EC781600BD039F /* ViewDeck */,
 				50BBE48D17EC781600BD039F /* Images */,
 				50BBE49017EC781600BD039F /* iCarousel */,
 				80E9ED3A1B3D918400382135 /* Utils */,
@@ -737,19 +752,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		50BBE48417EC781600BD039F /* ViewDeck */ = {
-			isa = PBXGroup;
-			children = (
-				50BBE48517EC781600BD039F /* IISideController.h */,
-				50BBE48617EC781600BD039F /* IISideController.m */,
-				50BBE48717EC781600BD039F /* IIViewDeckController.h */,
-				50BBE48817EC781600BD039F /* IIViewDeckController.m */,
-				50BBE48917EC781600BD039F /* IIWrapController.h */,
-				50BBE48A17EC781600BD039F /* IIWrapController.m */,
-			);
-			path = ViewDeck;
-			sourceTree = "<group>";
-		};
 		50BBE48D17EC781600BD039F /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +784,7 @@
 				80EDA18719BB971300D9FF62 /* headphone.png */,
 				80EDA18119B6628800D9FF62 /* vv.png */,
 				80EDA17B19B6541A00D9FF62 /* gh.png */,
+				805CE1051BAEF2100054BAF4 /* playerBack.png */,
 				8031EB2C18B64F6D0076C655 /* BookImages */,
 				50A890CE180DAEAB00BFD32B /* ShowMenu.png */,
 				50A890CF180DAEAB00BFD32B /* ShowMenu@2x.png */,
@@ -1267,6 +1270,45 @@
 			path = Additional;
 			sourceTree = "<group>";
 		};
+		80EE4EC91BAED00700C88F10 /* SlideView */ = {
+			isa = PBXGroup;
+			children = (
+				80EE4ECA1BAED00700C88F10 /* Animations */,
+				80EE4ED61BAED00700C88F10 /* Assets */,
+				80EE4ED91BAED00700C88F10 /* SlideNavigationController.h */,
+				80EE4EDA1BAED00700C88F10 /* SlideNavigationController.m */,
+			);
+			name = SlideView;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		80EE4ECA1BAED00700C88F10 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				80EE4ECB1BAED00700C88F10 /* SlideNavigationContorllerAnimator.h */,
+				80EE4ECC1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.h */,
+				80EE4ECD1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.m */,
+				80EE4ECE1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.h */,
+				80EE4ECF1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.m */,
+				80EE4ED01BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				80EE4ED11BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				80EE4ED21BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.h */,
+				80EE4ED31BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.m */,
+				80EE4ED41BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				80EE4ED51BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		80EE4ED61BAED00700C88F10 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				80EE4ED71BAED00700C88F10 /* menu-button.png */,
+				80EE4ED81BAED00700C88F10 /* menu-button@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1349,9 +1391,11 @@
 				80E9A07F1B2F8EC90051AE79 /* categoriesIcon.png in Resources */,
 				80E9EF181B4A76D000382135 /* shareButton@2x.png in Resources */,
 				80E9EDF61B3D926C00382135 /* UIWebViewSearch.js in Resources */,
+				805CE1061BAEF2100054BAF4 /* playerBack.png in Resources */,
 				50BBE49817EC781600BD039F /* menu@2x.png in Resources */,
 				80EDA17C19B6541A00D9FF62 /* gh.png in Resources */,
 				8031EB4B18B74E0E0076C655 /* kmargo.png in Resources */,
+				80EE4EE11BAED00700C88F10 /* menu-button@2x.png in Resources */,
 				80E9EEDF1B4466E800382135 /* InfoViewController.xib in Resources */,
 				80E9EDD81B3D926C00382135 /* BookToCViewController.xib in Resources */,
 				80E9EE481B3D977100382135 /* LeftViewCell.xib in Resources */,
@@ -1361,6 +1405,7 @@
 				80E9EE7C1B418CE000382135 /* TwitterKitResources.bundle in Resources */,
 				80E9EF151B4A76D000382135 /* icon@2x.png in Resources */,
 				80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */,
+				80EE4EE01BAED00700C88F10 /* menu-button.png in Resources */,
 				50BBE45A17EC76A400BD039F /* InfoPlist.strings in Resources */,
 				80E9EE471B3D977100382135 /* ItemsViewController.xib in Resources */,
 				80E9EF171B4A76D000382135 /* rentButton@2x.png in Resources */,
@@ -1395,7 +1440,6 @@
 				50A890D0180DAEAB00BFD32B /* ShowMenu.png in Resources */,
 				80E9A0801B2F8EC90051AE79 /* categoriesIcon@2x.png in Resources */,
 				50A890D1180DAEAB00BFD32B /* ShowMenu@2x.png in Resources */,
-				80AFC3E61B01214400D73696 /* playerBack.jpg in Resources */,
 				80E9A0811B2F8EC90051AE79 /* downloadedIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1424,6 +1468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80EE4EC31BA9890800C88F10 /* AGDefines.h in Sources */,
+				80EE4EDD1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				803DD5751B5E7B7800E8E0CF /* UIImageView+WebCache.m in Sources */,
 				803DD5711B5E7B7800E8E0CF /* UIImage+GIF.m in Sources */,
 				80E9EEBC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m in Sources */,
@@ -1434,6 +1479,7 @@
 				80E9ED821B3D918400382135 /* BannerItemObject.m in Sources */,
 				80A7F9F5194A017E0045965E /* SVProgressHUD.m in Sources */,
 				80E9EDE91B3D926C00382135 /* CXMLDocument_CreationExtensions.m in Sources */,
+				80EE4EDB1BAED00700C88F10 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				80E9ED871B3D918400382135 /* NSString+MD5.m in Sources */,
 				80E9ED8B1B3D918400382135 /* ServerRequest.m in Sources */,
 				80E9EEBF1B42DC1600382135 /* MZFormSheetSegue.m in Sources */,
@@ -1448,6 +1494,7 @@
 				80E9EE4B1B3D977100382135 /* StoreCollectionViewCell.m in Sources */,
 				80E9EDF11B3D926C00382135 /* CXMLNamespaceNode.m in Sources */,
 				803DD5431B5E7AFB00E8E0CF /* AFURLResponseSerialization.m in Sources */,
+				80EE4EE21BAED00700C88F10 /* SlideNavigationController.m in Sources */,
 				803DD5411B5E7AFB00E8E0CF /* AFURLConnectionOperation.m in Sources */,
 				80E9EDDE1B3D926C00382135 /* mztools.c in Sources */,
 				80E9ED7A1B3D918400382135 /* JSONModelClassProperty.m in Sources */,
@@ -1474,6 +1521,7 @@
 				80E9EDE01B3D926C00382135 /* zip.c in Sources */,
 				80E9EE5F1B3D990900382135 /* SQLiteManager.m in Sources */,
 				80E9ED811B3D918400382135 /* JSONValueTransformer.m in Sources */,
+				80EE4EDF1BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				80E9EDE11B3D926C00382135 /* ZipArchive.mm in Sources */,
 				803DD5721B5E7B7800E8E0CF /* UIImage+MultiFormat.m in Sources */,
 				803DD56D1B5E7B7800E8E0CF /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1482,7 +1530,6 @@
 				80E9EDF21B3D926C00382135 /* CXMLNode.m in Sources */,
 				80E9EDEF1B3D926C00382135 /* CXMLElement_CreationExtensions.m in Sources */,
 				80E9EDDF1B3D926C00382135 /* unzip.c in Sources */,
-				50BBE49317EC781600BD039F /* IISideController.m in Sources */,
 				80E9EDEA1B3D926C00382135 /* CXMLNode_CreationExtensions.m in Sources */,
 				80E9EE541B3D977100382135 /* LeftViewCell.m in Sources */,
 				803DD5691B5E7B7800E8E0CF /* SDImageCache.m in Sources */,
@@ -1490,7 +1537,6 @@
 				80E9EE191B3D966000382135 /* AudioPlayerViewController.m in Sources */,
 				80E9ED791B3D918400382135 /* JSONModelArray.m in Sources */,
 				80E9ED7F1B3D918400382135 /* JSONModel+networking.m in Sources */,
-				50BBE49417EC781600BD039F /* IIViewDeckController.m in Sources */,
 				803DD5681B5E7B7800E8E0CF /* NSData+ImageContentType.m in Sources */,
 				50BBE46017EC76A400BD039F /* AppDelegate.m in Sources */,
 				80E9EDF01B3D926C00382135 /* CXMLElement_ElementTreeExtensions.m in Sources */,
@@ -1499,6 +1545,7 @@
 				80E9ED851B3D918400382135 /* BookObjectFromDB.m in Sources */,
 				80E9EDE71B3D926C00382135 /* ReaderViewController.m in Sources */,
 				80E9EDD91B3D926C00382135 /* Chapter.m in Sources */,
+				80EE4EDC1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				80E9EE581B3D977100382135 /* WishListViewController.m in Sources */,
 				80E9EEC01B42DC1600382135 /* MZTransition.m in Sources */,
 				80E9ED771B3D918400382135 /* Base64.m in Sources */,
@@ -1513,7 +1560,6 @@
 				80E9ED801B3D918400382135 /* JSONKeyMapper.m in Sources */,
 				803DD53D1B5E7AFB00E8E0CF /* AFHTTPRequestOperationManager.m in Sources */,
 				80E9ED7C1B3D918400382135 /* NSArray+JSONModel.m in Sources */,
-				50BBE49517EC781600BD039F /* IIWrapController.m in Sources */,
 				803DD5701B5E7B7800E8E0CF /* UIButton+WebCache.m in Sources */,
 				80E9EE5E1B3D990900382135 /* CreateDB.m in Sources */,
 				80E9EEBA1B42DC1600382135 /* MZAppearance.m in Sources */,
@@ -1523,6 +1569,7 @@
 				80E9EE061B3D933C00382135 /* RentalLogicManager.m in Sources */,
 				80E9EDED1B3D926C00382135 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				803DD56B1B5E7B7800E8E0CF /* SDWebImageDecoder.m in Sources */,
+				80EE4EDE1BAED00700C88F10 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				80E9ED831B3D918400382135 /* BookItemsModel.m in Sources */,
 				50395272181183DB0074A90C /* ItemRecord.m in Sources */,
 				80E9ED891B3D918400382135 /* Sec.m in Sources */,

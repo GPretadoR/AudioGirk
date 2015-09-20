@@ -73,9 +73,9 @@
 BOOL isScrollPressed=NO;
 
 
-@synthesize nav,child;
+@synthesize child;
 @synthesize adBannerCar,textOnlyCar,audioOnlyCar,audioTextCar;
-@synthesize behavior;
+
 @synthesize reserveStoreItems;
 
 
@@ -87,7 +87,7 @@ BOOL isScrollPressed=NO;
         // Custom initialization
         self.title=@"---STORE---";
         UIStoryboard *stBd=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        self = [stBd instantiateViewControllerWithIdentifier:@"storeViewController"];
+        self = [stBd instantiateViewControllerWithIdentifier:@"StoreViewController"];
         //Set VC title label
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         titleLabel.backgroundColor = [UIColor clearColor];
@@ -128,7 +128,6 @@ BOOL isScrollPressed=NO;
     }
     return self;
 }
-
 #pragma mark View LifeCycle
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -279,7 +278,7 @@ BOOL isScrollPressed=NO;
     [self.view addSubview:bgImageView];
     
     appDelegate =(AppDelegate *)[[UIApplication sharedApplication] delegate];
-    nav=appDelegate.navigationController;
+
     //Init iCarousels
     adBannerCar=[[iCarousel alloc]initWithFrame:CGRectMake(screenOriginX, screenOriginY, 768, 300)];
     //    adBannerCar.layer.borderColor=[UIColor blackColor].CGColor;
@@ -627,7 +626,7 @@ BOOL isScrollPressed=NO;
     [self presentViewController:infoViewController animated:YES completion:nil];
 }
 - (void)showMenu {
-    [self.viewDeckController toggleLeftViewAnimated:YES];
+ 
 }
 
 
@@ -652,6 +651,10 @@ BOOL isScrollPressed=NO;
     //    [myBookViewController showReader:descrView.bookDictionary];
 }
 
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 
 
 @end

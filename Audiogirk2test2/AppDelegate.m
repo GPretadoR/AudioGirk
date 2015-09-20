@@ -7,11 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "IIViewDeckController.h"
 #import "LeftViewController.h"
-
+#import "SlideNavigationController.h"
 #import "AGNavBar.h"
-#import "IIWrapController.h"
+
 #import "RentalLogicManager.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -21,19 +20,15 @@
 
 #import "LoginViewController.h"
 
-#import "ServerJSONRequest.h"
-
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 
 @implementation AppDelegate {
 
     RentalLogicManager *rentalLogic;
+    LeftViewController *leftViewController;
 }
 
 BOOL isCreated=FALSE;
-
-@synthesize leftViewController,navigationController,centerController;
-@synthesize storeView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -46,6 +41,7 @@ BOOL isCreated=FALSE;
 //        //Added on 19th Sep 2013
 //        self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
 //    }
+    UIColor *topBarColor = [UIColor colorWithRed:235/255.0f green:200/255.0f blue:94/255.0f alpha:1.0f];
     if (iOSVersion7) {
         // Add a status bar background
         if ([[UIApplication sharedApplication] statusBarOrientation]==UIDeviceOrientationPortrait) {
@@ -53,8 +49,8 @@ BOOL isCreated=FALSE;
         }else if ([[UIApplication sharedApplication] statusBarOrientation]==UIDeviceOrientationPortraitUpsideDown){
             self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0,self.window.bounds.size.height-20.0f , self.window.bounds.size.width, 20.0f)];
         }
-
-        self.statusBarBackground.backgroundColor = [UIColor colorWithRed:235/255.0f green:200/255.0f blue:94/255.0f alpha:1.0f];
+        
+        self.statusBarBackground.backgroundColor = topBarColor;
         self.statusBarBackground.alpha = 1.0;
         self.statusBarBackground.userInteractionEnabled = NO;
         self.statusBarBackground.layer.zPosition = 999; // Position its layer over all other views
@@ -70,21 +66,31 @@ BOOL isCreated=FALSE;
     
     leftViewController = [[LeftViewController alloc] initWithNibName:@"LeftViewController" bundle:nil];
     [leftViewController.view setBackgroundColor:[UIColor colorWithRed:243/255.0f green:119/255.0f blue:75/255.0f alpha:1.0f]];
-  
-    storeView = [[StoreViewController alloc]init];
-//    navigationController=[[UINavigationController alloc]initWithRootViewController:storeView];
-    navigationController=[[UINavigationController alloc]initWithNavigationBarClass:[AGNavBar class] toolbarClass:nil];
-    [navigationController setViewControllers:@[storeView]];
 
-    storeView.nav=navigationController;
-    self.centerController=storeView;
-    storeView.behavior=IIViewDeckNavigationControllerIntegrated;
-    IIViewDeckController* deckController = [[IIViewDeckController alloc] initWithCenterViewController:navigationController leftViewController:leftViewController];
+    [SlideNavigationController sharedInstance].leftMenu = leftViewController;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+    [SlideNavigationController sharedInstance].portraitSlideOffset = self.window.frame.size.width - 300;
+    [SlideNavigationController sharedInstance].view.backgroundColor = topBarColor;
+    [SlideNavigationController sharedInstance].enableSwipeGesture = YES;
     
-    deckController.maxSize = 462;
-    self.window.rootViewController = [[IIWrapController alloc] initWithViewController:deckController];
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Closed %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Opened %@", menu);
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *menu = note.userInfo[@"menu"];
+        NSLog(@"Revealed %@", menu);
+    }];
+    
+    self.window.rootViewController = [SlideNavigationController sharedInstance];
     [self.window makeKeyAndVisible];
-
+    leftViewController.storeViewController = self.window.rootViewController.childViewControllers[0];
 //    [Fabric with:@[TwitterKit]];
     
     if ([FBSDKAccessToken currentAccessToken]) {
@@ -137,7 +143,7 @@ BOOL isCreated=FALSE;
     [userdefs synchronize];
     if ([@"" isEqualToString:[userdefs objectForKey:@"token"]] || [userdefs objectForKey:@"token"] == nil) {
         LoginViewController *loginView = [[LoginViewController alloc] init];
-        [self.navigationController presentViewController:loginView animated:NO completion:nil];
+        [self.window.rootViewController.navigationController presentViewController:loginView animated:NO completion:nil];
     }
 }
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -162,15 +168,6 @@ BOOL isCreated=FALSE;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [FBSDKAppEvents activateApp];
     [RentalLogicManager deleteExpiredBooks];
-    ServerJSONRequest *serverJSONRequest = [[ServerJSONRequest alloc] init];
- 
-    [serverJSONRequest checkInternetConnection:^(BOOL isReachable){
-        if (isReachable) {
-            return;
-        }else{
-        
-        }
-    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

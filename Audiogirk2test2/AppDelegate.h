@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StoreViewController.h"
-
-@class LeftViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
 
@@ -20,10 +17,7 @@
 - (void) showSolidStatusBar:(BOOL) solidStatusBar;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) LeftViewController *leftViewController;
-@property (retain, nonatomic) UINavigationController *navigationController;
-@property (retain, nonatomic) UIViewController *centerController;
 @property (nonatomic, strong) UIView *statusBarBackground;
-@property (nonatomic, strong) StoreViewController* storeView;
+
 
 @end

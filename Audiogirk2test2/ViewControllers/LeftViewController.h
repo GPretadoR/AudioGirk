@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreViewController.h"
 
-@interface LeftViewController : UITableViewController <UITableViewDataSource,UITableViewDelegate>{
+@interface LeftViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>{
 
     NSMutableArray *items;
     NSMutableArray *arrayOfSections;
@@ -16,4 +17,5 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *lTableView;
 
+@property (strong, nonatomic) StoreViewController *storeViewController;
 @end

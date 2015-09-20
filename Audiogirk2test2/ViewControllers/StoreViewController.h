@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
-#import "IIViewDeckController.h"
 #import "DecriptionViewController.h"
 
 @interface StoreViewController : UIViewController <iCarouselDataSource,iCarouselDelegate,DescriptionViewControllerDelegate>{
@@ -23,10 +22,7 @@
 @property (strong, nonatomic) iCarousel *textOnlyCar;
 
 @property (nonatomic, strong) UIViewController *child;
-@property (nonatomic, strong) UINavigationController *nav;
 @property (nonatomic, strong) NSMutableArray *reserveStoreItems;
-
-@property (nonatomic, assign) IIViewDeckNavigationControllerBehavior behavior;
 
 - (void)addChildViewController:(UIViewController *)childController;
 -(void)showDescriptions:(id)object;
