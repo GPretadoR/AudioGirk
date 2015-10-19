@@ -8,13 +8,13 @@
 
 #import "LoginViewController.h"
 #import "FBLoginHelper.h"
-#import "GoogleLoginHelper.h"
-#import "TwitterLoginHelper.h"
+//#import "GoogleLoginHelper.h"
+//#import "TwitterLoginHelper.h"
 #import "Utils.h"
 #import "ServerRequest.h"
 #import "SVProgressHUD.h"
 
-@interface LoginViewController () <FBLoginHelperDelegate, GoogleLoginHelperDelegate, TwitterLoginHelperDelegate>
+@interface LoginViewController () <FBLoginHelperDelegate>
 
 @end
 
@@ -89,15 +89,7 @@
     NSLog(@"logout");
 }
 
-#pragma GOOGLE Login delegates
 
--(void)googleDidLoggedInWithUserInfo:(NSDictionary *)userInfo{
-    NSLog(@"Delegate Results: %@",userInfo);
-}
--(void)googleDidSignOut{
-
-
-}
 
 #pragma mark Twitter Login
 
@@ -112,7 +104,7 @@
 }
 
 - (void) logOut{
-    [[TwitterLoginHelper sharedHelper] twitterGuestLogin];
+
 }
 /*
 #pragma mark - Navigation

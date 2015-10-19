@@ -58,9 +58,9 @@
         if (!audioPlayerViewController) {
             audioPlayerViewController = [[AudioPlayerViewController alloc] init];
         }
-        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back.png"] target:self action:@selector(goBack)]];
+        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
         
-        [self createBookModel];
+        
     }
     return self;
 }
@@ -68,6 +68,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self createBookModel];
     
     self.title = @"My Books";
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
@@ -210,7 +211,7 @@
     
 }
 - (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"Done");
 }
 
@@ -255,5 +256,9 @@
     return viewControllerToPush;
 }
 
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 
 @end

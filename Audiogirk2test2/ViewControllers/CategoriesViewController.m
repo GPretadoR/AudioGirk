@@ -40,18 +40,21 @@ UIImageView *waitViewImage;
         // Custom initialization
         
         NSLog(@"Inited");
-        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back.png"] target:self action:@selector(goBack)]];
-        
+
+        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
         categoriesItems=[NSMutableArray array];
     }
     return self;
 }
 
 - (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
-
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 - (void)waitingView{
     
     waitViewImage=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];

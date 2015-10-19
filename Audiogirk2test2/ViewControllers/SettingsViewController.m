@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "RentIAPHelper.h"
+#import "AGBarButtonItem.h"
 
 @interface SettingsViewController ()
 
@@ -20,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
     }
     return self;
 }
@@ -40,6 +42,11 @@
     
     [[RentIAPHelper sharedInstance] restoreCompletedTransactions];
     
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
 }
 
 @end

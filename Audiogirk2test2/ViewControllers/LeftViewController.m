@@ -29,6 +29,7 @@
 #import "ServerJSONRequest.h"
 
 #import "SlideNavigationController.h"
+#import "SVProgressHUD.h"
 
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 #define offset (iOSVersion7)?20:0
@@ -44,6 +45,7 @@
     NSArray *searchResult;
     BookItemsObject *bookObject;
     NSArray *iconsArray;
+    ServerJSONRequest *serverJSONRequest;
 }
 
 @synthesize lTableView, storeViewController;
@@ -166,7 +168,19 @@
         bookObject = searchResult[indexPath.row];
         [storeViewController showDescriptions:bookObject];
     }else {
-        [self chooseViewControllerWithIndex:indexPath.row];
+        if (indexPath.row == 0) {
+            [NSThread detachNewThreadSelector:@selector(showWithStatus:) toTarget:[SVProgressHUD class] withObject:@"Loading..."];
+            [serverJSONRequest checkInternetConnection:^(BOOL isReachable){
+                [NSThread detachNewThreadSelector:@selector(dismiss) toTarget:[SVProgressHUD class] withObject:nil];
+                NSInteger index = indexPath.row;
+                if (!isReachable) {
+                    index = 4;
+                }
+                [self chooseViewControllerWithIndex:index];
+            }];
+        }else{
+            [self chooseViewControllerWithIndex:indexPath.row];
+        }
     }
     
 }
@@ -213,14 +227,13 @@
             newPage = [[AlreadyDownloadedViewController alloc]initWithNibName:@"AlreadyDownloadedViewController" bundle:nil];
         }
             break;
-            
         default:
             break;
     }
     
-    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:newPage
-                                                             withSlideOutAnimation:YES
-                                                                     andCompletion:nil];
+    [[SlideNavigationController sharedInstance] popAllAndSwitchToViewController:newPage
+                                                          withSlideOutAnimation:NO
+                                                                  andCompletion:nil];
 }
 
 
@@ -252,6 +265,7 @@
     if (iOSVersion7) {
 
     }
+    serverJSONRequest = [[ServerJSONRequest alloc] init];
     
     [lTableView setSeparatorColor:[UIColor colorWithRed:206/255.0f green:85/255.0f blue:52/255.0f alpha:0.75f]];
     items = [NSMutableArray array];

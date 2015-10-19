@@ -27,13 +27,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back.png"] target:self action:@selector(goBack)]];
+        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
     }
     return self;
 }
 
 - (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
+
     NSLog(@"Done");
 }
 
@@ -52,7 +52,10 @@
     
     
 }
-
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 #pragma mark View Life Cycle
 - (void)viewDidLoad
 {

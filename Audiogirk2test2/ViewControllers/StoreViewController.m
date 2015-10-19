@@ -18,7 +18,6 @@
 
 #import "StoreCollectionViewCell.h"
 
-#import "LeftViewCell.h"
 #import "MyBooksViewController.h"
 #import "InfoViewController.h"
 #import "Downloader.h"
@@ -26,6 +25,8 @@
 
 #import "BookItemsModel.h"
 #import "ServerJSONRequest.h"
+
+#import "SlideNavigationController.h"
 
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 #define offset (iOSVersion7)?20:0
@@ -131,6 +132,7 @@ BOOL isScrollPressed=NO;
 #pragma mark View LifeCycle
 
 -(void)viewWillAppear:(BOOL)animated{
+    
 }
 
 
@@ -148,7 +150,7 @@ BOOL isScrollPressed=NO;
     //        if ([itms count]==0) {
     //            return ;
     //        }
-    //        reserveStoreItems=[NSMutableArray array];
+            reserveStoreItems=[NSMutableArray array];
     //        [reserveStoreItems addObjectsFromArray:itms];
     //        if (requestDidNotFinished) {
     //            requestDidNotFinished=FALSE;
@@ -184,6 +186,7 @@ BOOL isScrollPressed=NO;
     
     [self uiConfiguration];
     //    [self waitingView];
+
     
     descrView = [[DecriptionViewController alloc]init];
     descrView.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -193,12 +196,17 @@ BOOL isScrollPressed=NO;
     infoViewController = [[InfoViewController alloc] initWithNibName:@"InfoViewController" bundle:[NSBundle mainBundle]];
     infoViewController.modalPresentationStyle = UIModalPresentationFormSheet;
     infoViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    myBookViewController = [[MyBooksViewController alloc]initWithNibName:@"MyBooksViewController" bundle:nil];
  
     serverJSONRequest = [[ServerJSONRequest alloc] init];
     [NSThread detachNewThreadSelector:@selector(showWithStatus:) toTarget:[SVProgressHUD class] withObject:@"Loading..."];
     [serverJSONRequest checkInternetConnection:^(BOOL isReachable){
         if (isReachable) {
             [self requestJson];
+        }else{
+            [NSThread detachNewThreadSelector:@selector(dismiss) toTarget:[SVProgressHUD class] withObject:nil];
+            [[SlideNavigationController sharedInstance] popAllAndSwitchToViewController:myBookViewController withSlideOutAnimation:NO andCompletion:nil];
         }
     }];
     
@@ -221,6 +229,11 @@ BOOL isScrollPressed=NO;
                                     ];
         //3
         [NSThread detachNewThreadSelector:@selector(dismiss) toTarget:[SVProgressHUD class] withObject:nil];
+        if (booksJsonData == nil || bannersJsonData == nil || categoryJsonData == nil) {
+            [self performSelectorOnMainThread:@selector(showMyBooksView) withObject:nil waitUntilDone:NO];
+            return;
+        }
+        
         NSArray* booksJson = [NSJSONSerialization
                               JSONObjectWithData:booksJsonData
                               options:NSJSONReadingMutableContainers
@@ -256,7 +269,11 @@ BOOL isScrollPressed=NO;
         
     });
 }
-
+- (void) showMyBooksView{
+    
+    [NSThread detachNewThreadSelector:@selector(showErrorWithStatus:) toTarget:[SVProgressHUD class] withObject:@"Error loading content..."];
+    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:myBookViewController withCompletion:nil];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -643,11 +660,9 @@ BOOL isScrollPressed=NO;
 }
 
 - (void)openBookPressed{
-    
-    myBookViewController = [[MyBooksViewController alloc]initWithNibName:@"MyBooksViewController" bundle:nil];
-    [self.navigationController popToRootViewControllerAnimated:NO];
+   
     UIViewController *viewToPush = [myBookViewController checkControllerForBookType:descrView.bookFormat];
-    [self.navigationController pushViewController:viewToPush animated:YES];
+    [[SlideNavigationController sharedInstance] popAllAndSwitchToViewController:viewToPush withSlideOutAnimation:NO andCompletion:nil];
     //    [myBookViewController showReader:descrView.bookDictionary];
 }
 

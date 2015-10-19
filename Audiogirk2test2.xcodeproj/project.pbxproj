@@ -12,8 +12,6 @@
 		5092BC011858B2E000948930 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5092BBFD1858B2E000948930 /* CFNetwork.framework */; };
 		5092BC021858B2E000948930 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5092BBFE1858B2E000948930 /* MobileCoreServices.framework */; };
 		5092BC031858B2E000948930 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5092BBFF1858B2E000948930 /* Security.framework */; };
-		5092BCBB186B2D2E00948930 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5092BCBA186B2D2E00948930 /* libxml2.dylib */; };
-		5092BCBD186B2E9000948930 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5092BCBC186B2E8F00948930 /* libxml2.2.dylib */; };
 		50A890BD180ADB2A00BFD32B /* buttonBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A890BB180ADB2A00BFD32B /* buttonBack.png */; };
 		50A890BE180ADB2A00BFD32B /* topBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A890BC180ADB2A00BFD32B /* topBar.png */; };
 		50A890C0180ADD8900BFD32B /* buttonBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50A890BF180ADD8900BFD32B /* buttonBack@2x.png */; };
@@ -68,13 +66,18 @@
 		803DD5751B5E7B7800E8E0CF /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DD5641B5E7B7800E8E0CF /* UIImageView+WebCache.m */; };
 		803DD5761B5E7B7800E8E0CF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 803DD5661B5E7B7800E8E0CF /* UIView+WebCacheOperation.m */; };
 		805CE1061BAEF2100054BAF4 /* playerBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 805CE1051BAEF2100054BAF4 /* playerBack.png */; };
-		8072DD9918B624B000599E6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8072DD9818B624B000599E6B /* libsqlite3.dylib */; };
+		80924A111BD5935000B8493D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A101BD5935000B8493D /* libsqlite3.0.tbd */; };
+		80924A161BD5936000B8493D /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A121BD5936000B8493D /* libz.1.1.3.tbd */; };
+		80924A171BD5936000B8493D /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A131BD5936000B8493D /* libz.1.2.5.tbd */; };
+		80924A181BD5936000B8493D /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A141BD5936000B8493D /* libz.1.tbd */; };
+		80924A191BD5936000B8493D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A151BD5936000B8493D /* libz.tbd */; };
+		80924A1C1BD5936D00B8493D /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A1A1BD5936D00B8493D /* libxml2.2.tbd */; };
+		80924A1D1BD5936D00B8493D /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 80924A1B1BD5936D00B8493D /* libxml2.tbd */; };
 		80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 80A7F9F1194A017E0045965E /* SVProgressHUD.bundle */; };
 		80A7F9F5194A017E0045965E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A7F9F3194A017E0045965E /* SVProgressHUD.m */; };
 		80A7F9F7194A05670045965E /* audioBooks1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 80A7F9F6194A05670045965E /* audioBooks1.sqlite */; };
 		80A8F42F1899192C002ADA00 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8F42D1899192C002ADA00 /* AVFoundation.framework */; };
 		80A8F4301899192C002ADA00 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8F42E1899192C002ADA00 /* MediaPlayer.framework */; };
-		80A8F457189FE3E1002ADA00 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A8F456189FE3E1002ADA00 /* libz.1.1.3.dylib */; };
 		80B99CCF1ACDFC2E00F9325B /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B99CCE1ACDFC2E00F9325B /* delete.png */; };
 		80E9A0661B2B873C0051AE79 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9A0651B2B873C0051AE79 /* StoreKit.framework */; };
 		80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 80E9A0711B2F34B40051AE79 /* placeholder.png */; };
@@ -189,16 +192,8 @@
 		80E9EE5F1B3D990900382135 /* SQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE5D1B3D990900382135 /* SQLiteManager.m */; };
 		80E9EE631B3D9ABB00382135 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE621B3D9ABB00382135 /* LoginViewController.m */; };
 		80E9EE661B3EDC2700382135 /* FBLoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE651B3EDC2700382135 /* FBLoginHelper.m */; };
-		80E9EE691B3F295500382135 /* GoogleLoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE681B3F295500382135 /* GoogleLoginHelper.m */; };
-		80E9EE6E1B3F323600382135 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE6C1B3F323600382135 /* GoogleSignIn.bundle */; };
-		80E9EE6F1B3F323600382135 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE6D1B3F323600382135 /* GoogleSignIn.framework */; };
 		80E9EE711B3F38DC00382135 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE701B3F38DC00382135 /* AddressBook.framework */; };
 		80E9EE731B3F3B0C00382135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */; };
-		80E9EE7A1B418CE000382135 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE761B418CE000382135 /* Fabric.framework */; };
-		80E9EE7B1B418CE000382135 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE771B418CE000382135 /* TwitterKit.framework */; };
-		80E9EE7C1B418CE000382135 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 80E9EE781B418CE000382135 /* TwitterKitResources.bundle */; };
-		80E9EE7D1B418CE000382135 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E9EE791B418CE000382135 /* TwitterCore.framework */; };
-		80E9EE801B418D6400382135 /* TwitterLoginHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EE7F1B418D6400382135 /* TwitterLoginHelper.m */; };
 		80E9EEBA1B42DC1600382135 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEA81B42DC1600382135 /* MZAppearance.m */; };
 		80E9EEBB1B42DC1600382135 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEAA1B42DC1600382135 /* NSInvocation+Copy.m */; };
 		80E9EEBC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E9EEAC1B42DC1600382135 /* MZFormSheetBackgroundWindow.m */; };
@@ -242,9 +237,6 @@
 		5092BBFD1858B2E000948930 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5092BBFE1858B2E000948930 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5092BBFF1858B2E000948930 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5092BCBA186B2D2E00948930 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		5092BCBC186B2E8F00948930 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		5092BCBE186B308800948930 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		50A890BB180ADB2A00BFD32B /* buttonBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBack.png; sourceTree = "<group>"; };
 		50A890BC180ADB2A00BFD32B /* topBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topBar.png; sourceTree = "<group>"; };
 		50A890BF180ADD8900BFD32B /* buttonBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBack@2x.png"; sourceTree = "<group>"; };
@@ -334,14 +326,19 @@
 		803DD5651B5E7B7800E8E0CF /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		803DD5661B5E7B7800E8E0CF /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		805CE1051BAEF2100054BAF4 /* playerBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerBack.png; sourceTree = "<group>"; };
-		8072DD9818B624B000599E6B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		80924A101BD5935000B8493D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		80924A121BD5936000B8493D /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		80924A131BD5936000B8493D /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		80924A141BD5936000B8493D /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		80924A151BD5936000B8493D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		80924A1A1BD5936D00B8493D /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		80924A1B1BD5936D00B8493D /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		80A7F9F1194A017E0045965E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		80A7F9F2194A017E0045965E /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		80A7F9F3194A017E0045965E /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		80A7F9F6194A05670045965E /* audioBooks1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = audioBooks1.sqlite; sourceTree = "<group>"; };
 		80A8F42D1899192C002ADA00 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		80A8F42E1899192C002ADA00 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		80A8F456189FE3E1002ADA00 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		80AFC3E51B01214400D73696 /* playerBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = playerBack.jpg; sourceTree = "<group>"; };
 		80B99CCE1ACDFC2E00F9325B /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		80E9A0651B2B873C0051AE79 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -539,18 +536,8 @@
 		80E9EE621B3D9ABB00382135 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		80E9EE641B3EDC2700382135 /* FBLoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginHelper.h; sourceTree = "<group>"; };
 		80E9EE651B3EDC2700382135 /* FBLoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginHelper.m; sourceTree = "<group>"; };
-		80E9EE671B3F295500382135 /* GoogleLoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleLoginHelper.h; sourceTree = "<group>"; };
-		80E9EE681B3F295500382135 /* GoogleLoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleLoginHelper.m; sourceTree = "<group>"; };
-		80E9EE6C1B3F323600382135 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
-		80E9EE6D1B3F323600382135 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		80E9EE701B3F38DC00382135 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		80E9EE761B418CE000382135 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		80E9EE771B418CE000382135 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
-		80E9EE781B418CE000382135 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		80E9EE791B418CE000382135 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
-		80E9EE7E1B418D6400382135 /* TwitterLoginHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterLoginHelper.h; sourceTree = "<group>"; };
-		80E9EE7F1B418D6400382135 /* TwitterLoginHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterLoginHelper.m; sourceTree = "<group>"; };
 		80E9EEA71B42DC1600382135 /* MZAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZAppearance.h; sourceTree = "<group>"; };
 		80E9EEA81B42DC1600382135 /* MZAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZAppearance.m; sourceTree = "<group>"; };
 		80E9EEA91B42DC1600382135 /* NSInvocation+Copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Copy.h"; sourceTree = "<group>"; };
@@ -608,23 +595,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80924A1C1BD5936D00B8493D /* libxml2.2.tbd in Frameworks */,
+				80924A1D1BD5936D00B8493D /* libxml2.tbd in Frameworks */,
+				80924A161BD5936000B8493D /* libz.1.1.3.tbd in Frameworks */,
+				80924A171BD5936000B8493D /* libz.1.2.5.tbd in Frameworks */,
+				80924A181BD5936000B8493D /* libz.1.tbd in Frameworks */,
+				80924A191BD5936000B8493D /* libz.tbd in Frameworks */,
+				80924A111BD5935000B8493D /* libsqlite3.0.tbd in Frameworks */,
 				80E9EE711B3F38DC00382135 /* AddressBook.framework in Frameworks */,
 				80E9A0661B2B873C0051AE79 /* StoreKit.framework in Frameworks */,
 				803A3B6119CB05E700BDCF24 /* SystemConfiguration.framework in Frameworks */,
 				80E9ED381B3D8C8600382135 /* FBSDKLoginKit.framework in Frameworks */,
-				8072DD9918B624B000599E6B /* libsqlite3.dylib in Frameworks */,
-				80A8F457189FE3E1002ADA00 /* libz.1.1.3.dylib in Frameworks */,
 				80A8F42F1899192C002ADA00 /* AVFoundation.framework in Frameworks */,
 				80A8F4301899192C002ADA00 /* MediaPlayer.framework in Frameworks */,
-				5092BCBD186B2E9000948930 /* libxml2.2.dylib in Frameworks */,
-				5092BCBB186B2D2E00948930 /* libxml2.dylib in Frameworks */,
 				80E9ED371B3D8C8600382135 /* FBSDKCoreKit.framework in Frameworks */,
-				80E9EE7A1B418CE000382135 /* Fabric.framework in Frameworks */,
 				5092BC011858B2E000948930 /* CFNetwork.framework in Frameworks */,
 				5092BC021858B2E000948930 /* MobileCoreServices.framework in Frameworks */,
 				5092BC031858B2E000948930 /* Security.framework in Frameworks */,
-				80E9EE6F1B3F323600382135 /* GoogleSignIn.framework in Frameworks */,
-				80E9EE7B1B418CE000382135 /* TwitterKit.framework in Frameworks */,
 				5017D37318009D4200056E8F /* QuartzCore.framework in Frameworks */,
 				50BBE4C517ECA74700BD039F /* CoreImage.framework in Frameworks */,
 				50BBE4C617ECA74700BD039F /* ImageIO.framework in Frameworks */,
@@ -632,7 +619,6 @@
 				50BBE45217EC76A400BD039F /* CoreGraphics.framework in Frameworks */,
 				50BBE45417EC76A400BD039F /* UIKit.framework in Frameworks */,
 				50BBE45017EC76A400BD039F /* Foundation.framework in Frameworks */,
-				80E9EE7D1B418CE000382135 /* TwitterCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,13 +653,14 @@
 		50BBE44E17EC76A400BD039F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				80E9EE761B418CE000382135 /* Fabric.framework */,
-				80E9EE771B418CE000382135 /* TwitterKit.framework */,
-				80E9EE781B418CE000382135 /* TwitterKitResources.bundle */,
-				80E9EE791B418CE000382135 /* TwitterCore.framework */,
+				80924A1A1BD5936D00B8493D /* libxml2.2.tbd */,
+				80924A1B1BD5936D00B8493D /* libxml2.tbd */,
+				80924A121BD5936000B8493D /* libz.1.1.3.tbd */,
+				80924A131BD5936000B8493D /* libz.1.2.5.tbd */,
+				80924A141BD5936000B8493D /* libz.1.tbd */,
+				80924A151BD5936000B8493D /* libz.tbd */,
+				80924A101BD5935000B8493D /* libsqlite3.0.tbd */,
 				80E9EE701B3F38DC00382135 /* AddressBook.framework */,
-				80E9EE6C1B3F323600382135 /* GoogleSignIn.bundle */,
-				80E9EE6D1B3F323600382135 /* GoogleSignIn.framework */,
 				80E9ED341B3D8C8600382135 /* FBSDKCoreKit.framework */,
 				80E9ED351B3D8C8600382135 /* FBSDKLoginKit.framework */,
 				80E9ED361B3D8C8600382135 /* FBSDKShareKit.framework */,
@@ -683,11 +670,6 @@
 				50BBE4C317ECA74700BD039F /* CoreImage.framework */,
 				50BBE44F17EC76A400BD039F /* Foundation.framework */,
 				50BBE4C417ECA74700BD039F /* ImageIO.framework */,
-				8072DD9818B624B000599E6B /* libsqlite3.dylib */,
-				5092BCBC186B2E8F00948930 /* libxml2.2.dylib */,
-				5092BCBA186B2D2E00948930 /* libxml2.dylib */,
-				80A8F456189FE3E1002ADA00 /* libz.1.1.3.dylib */,
-				5092BCBE186B308800948930 /* libz.1.2.5.dylib */,
 				80A8F42E1899192C002ADA00 /* MediaPlayer.framework */,
 				5092BBFE1858B2E000948930 /* MobileCoreServices.framework */,
 				5017D37218009D4200056E8F /* QuartzCore.framework */,
@@ -1220,11 +1202,7 @@
 				80E9EE621B3D9ABB00382135 /* LoginViewController.m */,
 				80E9EE641B3EDC2700382135 /* FBLoginHelper.h */,
 				80E9EE651B3EDC2700382135 /* FBLoginHelper.m */,
-				80E9EE671B3F295500382135 /* GoogleLoginHelper.h */,
-				80E9EE681B3F295500382135 /* GoogleLoginHelper.m */,
 				80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */,
-				80E9EE7E1B418D6400382135 /* TwitterLoginHelper.h */,
-				80E9EE7F1B418D6400382135 /* TwitterLoginHelper.m */,
 			);
 			path = "Social Logins";
 			sourceTree = "<group>";
@@ -1336,7 +1314,7 @@
 		50BBE44417EC76A400BD039F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Garnik Ghazaryan";
 				TargetAttributes = {
 					50BBE44B17EC76A400BD039F = {
@@ -1387,7 +1365,6 @@
 				80E9A0871B2F8EC90051AE79 /* storeIcon.png in Resources */,
 				50BBE49717EC781600BD039F /* done_btn@2x.png in Resources */,
 				80E9A0831B2F8EC90051AE79 /* mybooksIcon.png in Resources */,
-				80E9EE6E1B3F323600382135 /* GoogleSignIn.bundle in Resources */,
 				80E9A07F1B2F8EC90051AE79 /* categoriesIcon.png in Resources */,
 				80E9EF181B4A76D000382135 /* shareButton@2x.png in Resources */,
 				80E9EDF61B3D926C00382135 /* UIWebViewSearch.js in Resources */,
@@ -1402,7 +1379,6 @@
 				80A7F9F4194A017E0045965E /* SVProgressHUD.bundle in Resources */,
 				80E9EE4A1B3D977100382135 /* SettingsViewController.xib in Resources */,
 				80E9EE1B1B3D966100382135 /* AudioView.xib in Resources */,
-				80E9EE7C1B418CE000382135 /* TwitterKitResources.bundle in Resources */,
 				80E9EF151B4A76D000382135 /* icon@2x.png in Resources */,
 				80E9A0721B2F34B40051AE79 /* placeholder.png in Resources */,
 				80EE4EE01BAED00700C88F10 /* menu-button.png in Resources */,
@@ -1511,7 +1487,6 @@
 				80E9EEC21B42DC1600382135 /* UIViewController+TargetViewController.m in Sources */,
 				80E9EDD51B3D926C00382135 /* BookMarkViewController.m in Sources */,
 				80E9EE571B3D977100382135 /* StoreViewController.m in Sources */,
-				80E9EE801B418D6400382135 /* TwitterLoginHelper.m in Sources */,
 				80E9EE1A1B3D966100382135 /* AudioView.m in Sources */,
 				80E9EE4F1B3D977100382135 /* AlreadyDownloadedViewController.m in Sources */,
 				80E9EE051B3D933C00382135 /* IAPHelper.m in Sources */,
@@ -1553,7 +1528,6 @@
 				50BBE49917EC781600BD039F /* iCarousel.m in Sources */,
 				80E9EE071B3D933C00382135 /* RentIAPHelper.m in Sources */,
 				80E9EE661B3EDC2700382135 /* FBLoginHelper.m in Sources */,
-				80E9EE691B3F295500382135 /* GoogleLoginHelper.m in Sources */,
 				803DD5421B5E7AFB00E8E0CF /* AFURLRequestSerialization.m in Sources */,
 				50BBE45C17EC76A400BD039F /* main.m in Sources */,
 				803DD56A1B5E7B7800E8E0CF /* SDWebImageCompat.m in Sources */,
@@ -1645,6 +1619,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1721,6 +1696,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "Garnik-s.Audiogirk2test2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1750,6 +1726,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "Garnik-s.Audiogirk2test2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

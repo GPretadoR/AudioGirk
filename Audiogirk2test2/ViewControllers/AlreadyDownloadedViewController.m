@@ -7,6 +7,7 @@
 //
 
 #import "AlreadyDownloadedViewController.h"
+#import "AGBarButtonItem.h"
 
 @interface AlreadyDownloadedViewController ()
 
@@ -19,8 +20,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
     }
     return self;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
 }
 
 - (void)viewDidLoad

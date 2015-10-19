@@ -15,8 +15,8 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
-#import <Fabric/Fabric.h>
-#import <TwitterKit/TwitterKit.h>
+//#import <Fabric/Fabric.h>
+//#import <TwitterKit/TwitterKit.h>
 
 #import "LoginViewController.h"
 
@@ -188,9 +188,9 @@ BOOL isCreated=FALSE;
                                                         sourceApplication:sourceApplication
                                                                annotation:annotation];
     }else if ([url.scheme hasPrefix:@"com.google"]){
-        shouldOpen = [[GIDSignIn sharedInstance] handleURL:url
-                                         sourceApplication:sourceApplication
-                                                annotation:annotation];
+//        shouldOpen = [[GIDSignIn sharedInstance] handleURL:url
+//                                         sourceApplication:sourceApplication
+//                                                annotation:annotation];
     
     }
     

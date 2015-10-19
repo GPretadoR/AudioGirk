@@ -26,5 +26,6 @@
 
 - (void)addChildViewController:(UIViewController *)childController;
 -(void)showDescriptions:(id)object;
+- (void) requestJson;
 
 @end
