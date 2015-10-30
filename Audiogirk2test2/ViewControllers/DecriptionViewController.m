@@ -125,7 +125,7 @@
 #pragma mark Methods
 
 - (void) configureView{
-    
+    [Utils setViewToAddOn:self.view];
     if (bookItemObject != nil) {
         authorName.text = bookItemObject.b_author;
         bookName.text = bookItemObject.b_name;
@@ -174,8 +174,9 @@
         // depending on your implementation your view may not have it's bounds set here
         // in that case consider calling the following 4 msgs later
         [streamPlayer.view setFrame: CGRectMake(20, line.frame.origin.y + 22, line.frame.size.width, 39)];
-        streamPlayer.view.backgroundColor = [UIColor redColor];
+        streamPlayer.view.backgroundColor = [UIColor clearColor];
         
+        [Utils createImageViewWithRect:streamPlayer.view.frame image:[UIImage imageNamed:@"playerBack.png"]];
         
         streamPlayer.controlStyle = MPMovieControlStyleDefault;
         streamPlayer.movieSourceType = MPMovieSourceTypeStreaming;

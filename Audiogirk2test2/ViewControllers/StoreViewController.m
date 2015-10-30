@@ -501,7 +501,7 @@ BOOL isScrollPressed=NO;
     return 2.0;
 }
 
-// Layout: Set Edges
+// Layout: Set Edges	
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     // return UIEdgeInsetsMake(0,8,0,8);  // top, left, bottom, right
     return UIEdgeInsetsMake(0,5,0,0);  // top, left, bottom, right

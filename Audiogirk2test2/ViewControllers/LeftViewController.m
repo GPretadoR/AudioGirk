@@ -34,7 +34,9 @@
 #define iOSVersion7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)?TRUE:FALSE
 #define offset (iOSVersion7)?20:0
 
-@interface LeftViewController ()
+@interface LeftViewController () <UISearchResultsUpdating, UISearchBarDelegate>
+
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end
 
@@ -59,11 +61,83 @@
     return self;
 
 }
+
+#pragma mark View Life Cycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    if (iOSVersion7) {
+        
+    }
+    serverJSONRequest = [[ServerJSONRequest alloc] init];
+    
+    [lTableView setSeparatorColor:[UIColor colorWithRed:206/255.0f green:85/255.0f blue:52/255.0f alpha:0.75f]];
+    items = [NSMutableArray array];
+    arrayOfSections=[[NSMutableArray alloc]initWithObjects:@"Store",@"Categories",@"Wish List",@"Settings",@"My Books",@"Already Downloaded", nil];
+    iconsArray = @[@"storeIcon.png", @"categoriesIcon.png", @"wishLIstIcon.png", @"settingsIcon.png",  @"mybooksIcon.png",@"downloadedIcon.png"];
+    lTableView.backgroundColor = [UIColor clearColor];
+    [self searchBarConfig];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    CGRect tmpRect = lTableView.frame;
+    tmpRect = CGRectMake(tmpRect.origin.x, 19, 306, tmpRect.size.height);
+    lTableView.frame = tmpRect;
+    lTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    booksArray = [storeViewController.reserveStoreItems mutableCopy];
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (void) searchBarConfig{
+    
+    searchResult = [NSMutableArray array];
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    
+    self.searchController.searchResultsUpdater = self;
+    
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    
+    self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0);
+    
+    lTableView.tableHeaderView = self.searchController.searchBar;
+#if ENABLE_SCOPE_BUTTONS
+    
+    NSMutableArray *scopeButtonTitles = [[NSMutableArray alloc] init];
+    [scopeButtonTitles addObject:NSLocalizedString(@"All", @"Search display controller All button.")];
+    
+    for (NSString *deviceType in [Product deviceTypeNames])
+    {
+        NSString *displayName = [Product displayNameForType:deviceType];
+        [scopeButtonTitles addObject:displayName];
+    }
+    
+    self.searchController.searchBar.scopeButtonTitles = scopeButtonTitles;
+    self.searchController.searchBar.delegate = self;
+    
+#endif
+    
+    self.definesPresentationContext = YES;
+    
+    
+    
+    
+}
+
+
 #pragma mark Table View Config
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (self.searchController.active) {
         return [searchResult count];
         
     } else {
@@ -74,7 +148,6 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     //    NSString *sectionTitle=@"Main";
-    
     if (section==0) {
         //        return sectionTitle;
     }
@@ -92,7 +165,7 @@
                 leftViewcell = (LeftViewCell *)oneObject;
     }
     
-    if (tableView == self.searchDisplayController.searchResultsTableView){
+    if (self.searchController.active){
         bookObject = searchResult[indexPath.row];
         leftViewcell.imageView.image = [UIImage imageNamed:@"bookTypeIndicatorSmall.png"];
         leftViewcell.label.text = bookObject.b_name;
@@ -148,7 +221,7 @@
 {
     switch (section) {
         case 0:
-            return 0.0f;
+            return .0f;
         case 1:
         case 2:
         case 3:
@@ -164,7 +237,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (tableView == self.searchDisplayController.searchResultsTableView){
+    if (self.searchController.active){
         bookObject = searchResult[indexPath.row];
         [storeViewController showDescriptions:bookObject];
     }else {
@@ -236,56 +309,36 @@
                                                                   andCompletion:nil];
 }
 
+#pragma mark - UISearchResultsUpdating
 
-#pragma mark SearchDelegate
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[self.searchDisplayController.searchBar scopeButtonTitles][[self.searchDisplayController.searchBar
-                                                     selectedScopeButtonIndex]]];
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     
-    return YES;
+    NSString *searchString = [self.searchController.searchBar text];
+    
+    NSString *scope = nil;
+    
+    NSInteger selectedScopeButtonIndex = [self.searchController.searchBar selectedScopeButtonIndex];
+    if (selectedScopeButtonIndex > 0) {
+        scope = [booksArray objectAtIndex:(selectedScopeButtonIndex - 1)];
+    }
+    
+    [self filterContentForSearchText:searchString scope:scope];
+    
+    [lTableView reloadData];
 }
-- (void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView
-{
-    tableView.backgroundColor = rgba(243, 119, 75, 1);
+
+#pragma mark - UISearchBarDelegate
+
+// Workaround for bug: -updateSearchResultsForSearchController: is not called when scope buttons change
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    [self updateSearchResultsForSearchController:self.searchController];
 }
+
+
+#pragma mark - Content Filtering
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"b_name contains[c] %@ OR b_author contains[c] %@", searchText, searchText];
     searchResult = [booksArray filteredArrayUsingPredicate:resultPredicate];
 }
-#pragma mark View Life Cycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    if (iOSVersion7) {
-
-    }
-    serverJSONRequest = [[ServerJSONRequest alloc] init];
-    
-    [lTableView setSeparatorColor:[UIColor colorWithRed:206/255.0f green:85/255.0f blue:52/255.0f alpha:0.75f]];
-    items = [NSMutableArray array];
-    arrayOfSections=[[NSMutableArray alloc]initWithObjects:@"Store",@"Categories",@"Wish List",@"Settings",@"My Books",@"Already Downloaded", nil];
-    iconsArray = @[@"storeIcon.png", @"categoriesIcon.png", @"wishLIstIcon.png", @"settingsIcon.png",  @"mybooksIcon.png",@"downloadedIcon.png"];
-    lTableView.backgroundColor = [UIColor clearColor];
-}
--(void)viewWillAppear:(BOOL)animated{
-
-    CGRect tmpRect = lTableView.frame;
-    tmpRect = CGRectMake(tmpRect.origin.x, 19, 306, tmpRect.size.height);
-    lTableView.frame = tmpRect;
-    lTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
-    booksArray = [storeViewController.reserveStoreItems mutableCopy];
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
