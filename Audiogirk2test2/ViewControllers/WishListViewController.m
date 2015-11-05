@@ -28,6 +28,7 @@
     if (self) {
         // Custom initialization
         [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
+
     }
     return self;
 }

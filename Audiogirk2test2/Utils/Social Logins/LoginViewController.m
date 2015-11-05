@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = rgba(200, 200, 100, 1);
     
     [Utils setViewToAddOn:self.view];

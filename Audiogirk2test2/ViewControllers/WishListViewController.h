@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
-@interface WishListViewController : UIViewController {
+@interface WishListViewController : MainViewController {
 
 
 

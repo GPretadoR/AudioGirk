@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CategoriesViewController : UIViewController{
+#import "MainViewController.h"
+@interface CategoriesViewController : MainViewController{
     
     UITableView *categoriesTableView;
     NSMutableArray *categoriesItems;

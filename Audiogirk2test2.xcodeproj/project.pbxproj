@@ -32,6 +32,7 @@
 		50BBE49917EC781600BD039F /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBE49217EC781600BD039F /* iCarousel.m */; };
 		50BBE4C517ECA74700BD039F /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BBE4C317ECA74700BD039F /* CoreImage.framework */; };
 		50BBE4C617ECA74700BD039F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BBE4C417ECA74700BD039F /* ImageIO.framework */; };
+		8018A0C71BE3AFA70045F729 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8018A0C61BE3AFA70045F729 /* MainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		8024D2541A9B9FEA00B56763 /* bookTypeIndicatorSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8024D2531A9B9FEA00B56763 /* bookTypeIndicatorSmall.png */; };
 		8031EB3918B660A00076C655 /* audioBooks.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8031EB3818B660A00076C655 /* audioBooks.sqlite */; };
 		8031EB4918B74E0E0076C655 /* gmonsoro.png in Resources */ = {isa = PBXBuildFile; fileRef = 8031EB4418B74E0E0076C655 /* gmonsoro.png */; };
@@ -265,6 +266,8 @@
 		50BBE49217EC781600BD039F /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		50BBE4C317ECA74700BD039F /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		50BBE4C417ECA74700BD039F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		8018A0C51BE3AFA70045F729 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		8018A0C61BE3AFA70045F729 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		8024D2531A9B9FEA00B56763 /* bookTypeIndicatorSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookTypeIndicatorSmall.png; sourceTree = "<group>"; };
 		8031EB3818B660A00076C655 /* audioBooks.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = audioBooks.sqlite; sourceTree = "<group>"; };
 		8031EB4418B74E0E0076C655 /* gmonsoro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gmonsoro.png; sourceTree = "<group>"; };
@@ -685,7 +688,6 @@
 		50BBE45517EC76A400BD039F /* Audiogirk2test2 */ = {
 			isa = PBXGroup;
 			children = (
-				80E9EE811B42D55400382135 /* FormSheet */,
 				80E9EE111B3D966000382135 /* AudioPlayer */,
 				50BBE48D17EC781600BD039F /* Images */,
 				50BBE49017EC781600BD039F /* iCarousel */,
@@ -1180,6 +1182,8 @@
 				80E9EE3F1B3D977100382135 /* StoreViewController.m */,
 				80E9EE401B3D977100382135 /* WishListViewController.h */,
 				80E9EE411B3D977100382135 /* WishListViewController.m */,
+				8018A0C51BE3AFA70045F729 /* MainViewController.h */,
+				8018A0C61BE3AFA70045F729 /* MainViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1205,13 +1209,6 @@
 				80E9EE721B3F3B0C00382135 /* GoogleService-Info.plist */,
 			);
 			path = "Social Logins";
-			sourceTree = "<group>";
-		};
-		80E9EE811B42D55400382135 /* FormSheet */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FormSheet;
 			sourceTree = "<group>";
 		};
 		80E9EEA51B42DC1600382135 /* MZFormSheetController */ = {
@@ -1521,6 +1518,7 @@
 				80E9EDE71B3D926C00382135 /* ReaderViewController.m in Sources */,
 				80E9EDD91B3D926C00382135 /* Chapter.m in Sources */,
 				80EE4EDC1BAED00700C88F10 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
+				8018A0C71BE3AFA70045F729 /* MainViewController.m in Sources */,
 				80E9EE581B3D977100382135 /* WishListViewController.m in Sources */,
 				80E9EEC01B42DC1600382135 /* MZTransition.m in Sources */,
 				80E9ED771B3D918400382135 /* Base64.m in Sources */,

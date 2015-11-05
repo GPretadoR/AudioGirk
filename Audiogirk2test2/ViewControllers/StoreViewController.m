@@ -138,6 +138,7 @@ BOOL isScrollPressed=NO;
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     serverRequest = [[ServerRequest alloc] init];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -292,7 +293,7 @@ BOOL isScrollPressed=NO;
     }
     UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     bgImageView.image = [UIImage imageNamed:@"vv.png"]; //bkg-3.jpg bkg-7.jpg bkg-9.jpg Blur-1.png
-    [self.view addSubview:bgImageView];
+//    [self.view addSubview:bgImageView];
     
     appDelegate =(AppDelegate *)[[UIApplication sharedApplication] delegate];
 

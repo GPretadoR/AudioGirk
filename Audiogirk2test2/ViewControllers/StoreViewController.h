@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 #import "DecriptionViewController.h"
+#import "MainViewController.h"
 
-@interface StoreViewController : UIViewController <iCarouselDataSource,iCarouselDelegate,DescriptionViewControllerDelegate>{
+@interface StoreViewController : MainViewController <iCarouselDataSource,iCarouselDelegate,DescriptionViewControllerDelegate>{
     
     UIScrollView *mainScrollView;
 }

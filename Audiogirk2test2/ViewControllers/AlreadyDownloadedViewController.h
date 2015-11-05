@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface AlreadyDownloadedViewController : UIViewController
+#import "MainViewController.h"
+@interface AlreadyDownloadedViewController : MainViewController
 
 @end

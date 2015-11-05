@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
-@interface ItemsViewController : UIViewController {
+@interface ItemsViewController : MainViewController {
 
 
     NSMutableArray *itemItems;

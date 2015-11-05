@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : MainViewController
 
 @end

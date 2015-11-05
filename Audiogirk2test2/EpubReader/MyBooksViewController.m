@@ -97,6 +97,7 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"StoreCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"myCellIdentifier"];
     _collectionView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_collectionView];
+    [_collectionView performSelector:@selector(reloadData) withObject:nil afterDelay:.1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -151,11 +152,10 @@
     StoreCollectionViewCell *cell = (StoreCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"myCellIdentifier" forIndexPath:indexPath];
 
     bookObjectFromDB = [BookObjectFromDB getBookObjectForDictionary:myBooksItems[indexPath.row]];
-    
     [cell.stImageView setImageWithURL:[NSURL URLWithString:bookObjectFromDB.bookImageName]];
     cell.stAuthorName.text = bookObjectFromDB.bookAuthorName;
     cell.stBookName.text = bookObjectFromDB.bookName;
-    
+    [cell showIconWithFormat:bookObjectFromDB.format];
     if (isEditing) {
         UIImageView *deleteView = [[UIImageView alloc] initWithFrame:CGRectMake(4, 4, 32, 32)];
         deleteView.image = [UIImage imageNamed:@"delete.png"];
@@ -168,7 +168,7 @@
             }
         }
     }
-    
+
     return cell;
 }
 

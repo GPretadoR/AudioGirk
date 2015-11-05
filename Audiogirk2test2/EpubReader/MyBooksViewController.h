@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SQLiteManager.h"
-@interface MyBooksViewController : UIViewController {
+#import "MainViewController.h"
+@interface MyBooksViewController : MainViewController {
 
     NSMutableArray *myBooksItems;
     UIImageView *myBooksImage;

@@ -7,6 +7,7 @@
 //
 
 #import "AGBarButtonItem.h"
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 
 @implementation AGBarButtonItem
 
