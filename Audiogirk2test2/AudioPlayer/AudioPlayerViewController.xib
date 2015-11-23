@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioPlayerViewController">
+            <connections>
+                <outlet property="bookAuthorLabel" destination="mhl-Ye-kjz" id="B0E-h3-l0b"/>
+                <outlet property="bookGenreLabel" destination="ihL-eG-akz" id="jRM-Ea-P0v"/>
+                <outlet property="bookImageView" destination="WLC-3P-asf" id="kSp-wu-Zke"/>
+                <outlet property="bookNameLabel" destination="u9K-Qv-zjs" id="3LD-Ht-YT8"/>
+                <outlet property="view" destination="0So-1Y-yEj" id="UcT-TZ-JXW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0So-1Y-yEj">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HarryPotter.png" translatesAutoresizingMaskIntoConstraints="NO" id="WLC-3P-asf">
+                    <rect key="frame" x="26" y="100" width="180" height="270"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Harry Potter and the Goblet of Fire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-Qv-zjs">
+                    <rect key="frame" x="222" y="100" width="442" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpR-3l-aco">
+                    <rect key="frame" x="222" y="148" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Joanne Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhl-Ye-kjz">
+                    <rect key="frame" x="344" y="148" width="260" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojI-CM-hET">
+                    <rect key="frame" x="222" y="189" width="58" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fantasy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihL-eG-akz">
+                    <rect key="frame" x="344" y="189" width="115" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLX-xP-bb5">
+                    <rect key="frame" x="309" y="148" width="2" height="60"/>
+                    <color key="backgroundColor" red="0.33725490200000002" green="0.3294117647" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zd5-0n-h9t">
+                    <rect key="frame" x="0.0" y="624" width="768" height="55"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tf-S5-l6X">
+                            <rect key="frame" x="308" y="17" width="151" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.27450980390000002" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQI-oU-cTO">
+                    <rect key="frame" x="0.0" y="678" width="773" height="346"/>
+                    <color key="backgroundColor" red="0.68627450980392157" green="0.68235294117647061" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                    <mutableString key="text">Harry Potter and the Goblet of Fire has received mostly positive reviews. In The New York Times Book Review, author Stephen King stated the Goblet of Fire was "every bit as good as Potters 1 through 3" and praised the humour and subplots, although he commented that "there's also a moderately tiresome amount of adolescent squabbling...it's a teenage thing". Kirkus Reviews called it "another grand tale of magic and mystery...and clicking along so smoothly that it seems shorter than it is". However, they commented that it did tend to lag, especially at the end where two "bad guys" stopped the action to give extended explanations, and that the issues to be resolved in sequels would leave "many readers, particularly American ones, uncomfortable". For The Horn Book Magazine, Martha V. Parravano gave a mixed review, saying "some will find  wide-ranging, compellingly written, and absorbing; others, long, rambling, and tortuously fraught with adverbs". A Publishers Weekly review praised the book's "red herrings, the artful clues and tricky surprises that disarm the most attentive audience" and saying it "might be her most thrilling yet." Writing for The New Yorker, Joan Acocella noted that "where the prior volumes moved like lightning, here the pace is slower, the energy more dispersed. At the same time, the tone becomes more grim."
+Kristin Lemmerman of CNN said that it is not great literature: 'Her prose has more in common with your typical beach-blanket fare and the beginning contained too much recap to introduce characters to new readers, although Rowling quickly gets back on track, introducing readers to a host of well-drawn new characters.' Writing for Salon.com, Charles Taylor was generally positive about the change of mood and development of characters. Entertainment Weekly‍‍ '​‍s reviewer Kristen Baldwin gave Goblet of Fire the grade of A-, praising the development of the characters as well as the many themes presented. However, she did worry that a shocking climax may be a nightmare factory for young readers</mutableString>
+                    <color key="textColor" red="0.29411764705882354" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="0.33725490196078434" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+            <point key="canvasLocation" x="206" y="278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="HarryPotter.png" width="180" height="270"/>
+    </resources>
+</document>

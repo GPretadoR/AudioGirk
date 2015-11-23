@@ -41,7 +41,7 @@ BOOL isCreated=FALSE;
 //        //Added on 19th Sep 2013
 //        self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
 //    }
-    UIColor *topBarColor = [UIColor colorWithRed:235/255.0f green:200/255.0f blue:94/255.0f alpha:1.0f];
+    UIColor *topBarColor = [UIColor colorWithRed:78/255.0f green:76/255.0f blue:76/255.0f alpha:1.0f];
     if (iOSVersion7) {
         // Add a status bar background
         if ([[UIApplication sharedApplication] statusBarOrientation]==UIDeviceOrientationPortrait) {
@@ -50,7 +50,7 @@ BOOL isCreated=FALSE;
             self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0,self.window.bounds.size.height-20.0f , self.window.bounds.size.width, 20.0f)];
         }
         
-        self.statusBarBackground.backgroundColor = topBarColor;
+//        self.statusBarBackground.backgroundColor = topBarColor;
         self.statusBarBackground.alpha = 1.0;
         self.statusBarBackground.userInteractionEnabled = NO;
         self.statusBarBackground.layer.zPosition = 999; // Position its layer over all other views

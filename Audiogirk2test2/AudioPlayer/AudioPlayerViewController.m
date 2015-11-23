@@ -8,6 +8,7 @@
 
 #import "AudioPlayerViewController.h"
 #import "AudioView.h"
+#import "Utils.h"
 
 @interface AudioPlayerViewController ()
 
@@ -15,6 +16,10 @@
 
 @implementation AudioPlayerViewController {
     AudioView *audioPlayer;
+    IBOutlet UIImageView *bookImageView;
+    IBOutlet UILabel *bookNameLabel;
+    IBOutlet UILabel *bookAuthorLabel;
+    IBOutlet UILabel *bookGenreLabel;
 }
 
 @synthesize bookObjDB;
@@ -31,8 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [Utils setViewToAddOn:self.view];
+    [self.view setBackgroundColor:rgba(86, 84, 84, 1)];
 ////    audioPlayer = [[AudioView alloc] initWithFrame:CGRectMake(0, 100, 481, 115)];
 //    audioPlayer =  [[[NSBundle mainBundle] loadNibNamed:@"AudioView" owner:nil options:nil] objectAtIndex:0];
 //    audioPlayer.bookObjDB = bookObjDB;
@@ -41,7 +46,7 @@
 
     UIViewController *controller=[[UIViewController alloc] initWithNibName:@"AudioView" bundle:nil];
     audioPlayer = (AudioView*)controller.view;
-    audioPlayer.frame = CGRectMake(50, 100, audioPlayer.frame.size.width, audioPlayer.frame.size.height);
+    audioPlayer.frame = CGRectMake(bookImageView.frame.origin.x, bookImageView.frame.origin.y + bookImageView.frame.size.height, audioPlayer.frame.size.width, audioPlayer.frame.size.height);
     audioPlayer.bookObjDB = bookObjDB;
     [audioPlayer playerSetup];
     [audioPlayer prepareToPlay];
@@ -55,6 +60,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void) uiConfigurations{
+    
+//    UIImageView *bookImage = [Utils createImageViewWithRect:CGRectMake(20, 40, 180, 270) image:[UIImage imageNamed:@"HarryPotter.png"]];
+    
+    
+}
 /*
 #pragma mark - Navigation
 

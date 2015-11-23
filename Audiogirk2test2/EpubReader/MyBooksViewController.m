@@ -53,10 +53,10 @@
     if (self) {
         // Custom initialization
         if (!bookTableOfContent) {
-            bookTableOfContent=[[BookToCViewController alloc]initWithNibName:@"BookToCViewController" bundle:nil];
+            bookTableOfContent = [[BookToCViewController alloc]initWithNibName:@"BookToCViewController" bundle:nil];
         }
         if (!audioPlayerViewController) {
-            audioPlayerViewController = [[AudioPlayerViewController alloc] init];
+            audioPlayerViewController = [[AudioPlayerViewController alloc] initWithNibName:@"AudioPlayerViewController" bundle:[NSBundle mainBundle]];
         }
         [self.navigationItem setLeftBarButtonItem:[[AGBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ShowMenu.png"] target:self action:@selector(goBack)]];
         
@@ -81,7 +81,7 @@
     myBooksItems = [NSMutableArray  arrayWithArray:[dbManager getRowsForQuery:sqlStr]];
     
     bookObjectFromDB = [BookObjectFromDB sharedObjectFromArray:myBooksItems];
-    
+
     [self configureCollectionView];
 
     // Do any additional setup after loading the view from its nib.

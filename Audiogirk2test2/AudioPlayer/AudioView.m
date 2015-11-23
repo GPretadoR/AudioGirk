@@ -8,13 +8,14 @@
 
 #import "AudioView.h"
 #import "SQLiteManager.h"
+#import "PCSEQVisualizer.h"
 
 @interface AudioView ()
 
 @end
 
 @implementation AudioView {
-
+    PCSEQVisualizer* eq;
     
 }
 
@@ -30,7 +31,9 @@
 
 }
 - (void) playerSetup{
+    [self sliderViewConfigs];
     [self configurePlayerView];
+    [self visualizerSetup];
 }
 - (void) configurePlayerView{
     
@@ -53,7 +56,7 @@
     NSString *audioFilePath = [NSString stringWithFormat:@"%@_%@", bookObjDB.format,strFileName ];
     
     [self setupAudioPlayer:[NSString stringWithFormat:@"%@/%@",audioFilePath,strFileName]];
-    
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -68,9 +71,37 @@
     [self resignFirstResponder];
 }
 
+#pragma mark Visualizer setup
 
+- (void) visualizerSetup{
+    eq = [[PCSEQVisualizer alloc]initWithNumberOfBars:47];
+    
+    eq.barColor = [UIColor redColor];
+    //position eq in the middle of the view
+    CGRect frame = eq.frame;
+    frame.origin.x = self.currentTimeSlider.frame.origin.x;
+    frame.origin.y = self.currentTimeSlider.frame.origin.x - eq.frame.size.height - 20;
+    eq.frame = frame;
+    
+    [self addSubview:eq];
+
+}
 
 #pragma mark Audioplayer setup
+
+- (void) sliderViewConfigs{
+    
+    UIImage* sliderCenterImage = [UIImage imageNamed:@"sliderCenter.png"];
+    [self.currentTimeSlider setThumbImage:sliderCenterImage forState:UIControlStateNormal];
+    UIImage *leftStretch2 = [[UIImage imageNamed:@"minTrackImage.png"]
+                             stretchableImageWithLeftCapWidth:5.0 topCapHeight:0.0];
+    [self.currentTimeSlider setMinimumTrackImage:leftStretch2 forState:UIControlStateNormal];
+    UIImage *rightStretch = [[UIImage imageNamed:@"maxTrackImage.png"]
+                             stretchableImageWithLeftCapWidth:1.0 topCapHeight:0.0];
+    [self.currentTimeSlider setMaximumTrackImage:rightStretch forState:UIControlStateNormal];
+    
+}
+
 /*
  * Set nowplaying info for control center
  */
@@ -134,7 +165,7 @@
                                                     selector:@selector(updateTime:)
                                                     userInfo:nil
                                                      repeats:YES];
-        
+        [eq start];
         [self.audioPlayer playAudio];
         self.isPaused = TRUE;
         
@@ -142,7 +173,7 @@
         //player is paused and Button is pressed again
         [self.playButton setBackgroundImage:[UIImage imageNamed:@"audioplayer_play.png"]
                                    forState:UIControlStateNormal];
-        
+        [eq stop];
         [self.audioPlayer pauseAudio];
         self.isPaused = FALSE;
     }
